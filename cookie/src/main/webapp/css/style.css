@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* .btn-cookie {
+    background-color: #e4cbb3;
+}
+.btn-cookie:hover {
+    background-color: #f1d3b7;
+}
+.cookie-disabled {
+    background-color: #d8c0a988;
+} */
+.btn-cookie {
+    color: #fff;
+    background-color: #e4cbb3; /* 주조색 */
+    border-color: #e4cbb3; /* 테두리 색상 */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  .btn-cookie:hover {
+    background-color: #d1b098; /* hover 상태 색상 */
+    border-color: #d1b098;
+    color: #eee;
+  }
+  .btn-cookie:disabled {
+    color: #755c4b; /* 비활성화 상태 텍스트 색상 */
+    background-color: #fce6d8; /* 비활성화 상태 배경색 */
+    border-color: #fce6d8; /* 비활성화 상태 테두리 색상 */
+  }
+
+  .bg-cookie {
+    background-color: #e4cbb3 !important; /* 주조색 */
+    transition: background-color 0.3s ease;
+  }
+
+  .text-cookie {
+    color: #e4cbb3 !important; /* 주조색 */
+    transition: color 0.3s ease;
+  }
+
+  /* 추가적인 보조 색상 */
+  .btn-cookie-secondary {
+    color: #fff;
+    background-color: #a67c68; /* 어울리는 보조 색상 */
+    border-color: #a67c68;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  .btn-cookie-secondary:hover {
+    background-color: #8a6554; /* hover 상태 */
+    border-color: #8a6554;
+    color: #eee;
+  }
+  .btn-cookie-secondary:disabled {
+    color: #705b51; /* 비활성화 상태 텍스트 색상 */
+    background-color: #d6c4bd; /* 비활성화 상태 배경색 */
+    border-color: #d6c4bd; /* 비활성화 상태 테두리 색상 */
+  }
+
+  .bg-cookie-secondary {
+    background-color: #a67c68 !important; /* 보조 색상 */
+    transition: background-color 0.3s ease;
+  }
+
+  .text-cookie-secondary {
+    color: #a67c68 !important; /* 보조 색상 */
+    transition: color 0.3s ease;
+  }
