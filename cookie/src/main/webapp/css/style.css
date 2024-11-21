@@ -8,6 +8,7 @@
 .cookie-disabled {
     background-color: #d8c0a988;
 } */
+
 .btn-cookie {
     color: #fff;
     background-color: #e4cbb3; /* 주조색 */
@@ -42,9 +43,14 @@
     border-color: #a67c68;
     transition: background-color 0.3s ease, border-color 0.3s ease;
   }
-  .btn-cookie-secondary:hover {
+  .btn-cookie-secondary:hover, .btn.btn.btn-cookie.btn:active{
     background-color: #8a6554; /* hover 상태 */
     border-color: #8a6554;
+    color: #eee;
+  }
+  :not(.btn-secondary-cookie)+.btn:active{
+    background-color: #503a30; /* hover 상태 */
+    border-color: #503a30;
     color: #eee;
   }
   .btn-cookie-secondary:disabled {
