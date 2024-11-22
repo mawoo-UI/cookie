@@ -10,7 +10,7 @@
 		<div class="container">
 			<h2 class="text-center mt-4 fw-bold">원데이 클래스</h2>
 			<div class="clearfix">
-				<div class="input-group mt-2 p-3 w-25 float-start">
+				<div class="input-group ms-4 mt-2 p-3 w-25 float-start">
 					<input type="text" class="form-control" placeholder="클래스 검색" name="keyword" value="">
 					<button class="btn btn-cookie" type="submit"><i class="fa-solid fa-magnifying-glass" style="color: #a67c68;"></i></button>
 				</div>
@@ -27,53 +27,173 @@
 			</div>
 			<div class="d-flex justify-content-around mt-4">
 				<div class="p-0 float-start oneday-list-cookie">
-					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br>강아지 수제 간식 만들기 클래스</a>
+					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
+					<div class="stars clearfix d-block">
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+					</div>
+					<div class="p-0"><a href="#" class="text-decoration-none text-dark">강아지 수제 간식 만들기 클래스</a></div>
 				</div>
 				<div class="p-0 float-start oneday-list-cookie">
-					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br>강아지 수제 간식 만들기 클래스</a>
+					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
+					<div class="stars clearfix d-block">
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+					</div>
+					<div class="p-0"><a href="#" class="text-decoration-none text-dark">강아지 수제 간식 만들기 클래스</a></div>
 				</div>
 				<div class="p-0 float-start oneday-list-cookie">
-					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" ><br>강아지 수제 간식 만들기 클래스</a>
+					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
+					<div class="stars clearfix d-block">
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+					</div>
+					<div class="p-0"><a href="#" class="text-decoration-none text-dark">강아지 수제 간식 만들기 클래스</a></div>
 				</div>
 				<div class="p-0 float-start oneday-list-cookie">
-					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br>강아지 수제 간식 만들기 클래스</a>
+					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
+					<div class="stars clearfix d-block">
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+					</div>
+					<div class="p-0"><a href="#" class="text-decoration-none text-dark">강아지 수제 간식 만들기 클래스</a></div>
 				</div>
 				<div class="p-0 float-start oneday-list-cookie">
-					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br>강아지 수제 간식 만들기 클래스</a>
+					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
+					<div class="stars clearfix d-block">
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+					</div>
+					<div class="p-0"><a href="#" class="text-decoration-none text-dark">강아지 수제 간식 만들기 클래스</a></div>
 				</div>
 			</div>
 			<div class="d-flex justify-content-around mt-4">
 				<div class="p-0 float-start oneday-list-cookie">
-					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br>강아지 수제 간식 만들기 클래스</a>
+					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
+					<div class="stars clearfix d-block">
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+					</div>
+					<div class="p-0"><a href="#" class="text-decoration-none text-dark">강아지 수제 간식 만들기 클래스</a></div>
 				</div>
 				<div class="p-0 float-start oneday-list-cookie">
-					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br>강아지 수제 간식 만들기 클래스</a>
+					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
+					<div class="stars clearfix d-block">
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+					</div>
+					<div class="p-0"><a href="#" class="text-decoration-none text-dark">강아지 수제 간식 만들기 클래스</a></div>
 				</div>
 				<div class="p-0 float-start oneday-list-cookie">
-					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" ><br>강아지 수제 간식 만들기 클래스</a>
+					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
+					<div class="stars clearfix d-block">
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+					</div>
+					<div class="p-0"><a href="#" class="text-decoration-none text-dark">강아지 수제 간식 만들기 클래스</a></div>
 				</div>
 				<div class="p-0 float-start oneday-list-cookie">
-					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br>강아지 수제 간식 만들기 클래스</a>
+					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
+					<div class="stars clearfix d-block">
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+					</div>
+					<div class="p-0"><a href="#" class="text-decoration-none text-dark">강아지 수제 간식 만들기 클래스</a></div>
 				</div>
 				<div class="p-0 float-start oneday-list-cookie">
-					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br>강아지 수제 간식 만들기 클래스</a>
+					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
+					<div class="stars clearfix d-block">
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+					</div>
+					<div class="p-0"><a href="#" class="text-decoration-none text-dark">강아지 수제 간식 만들기 클래스</a></div>
 				</div>
 			</div>
 			<div class="d-flex justify-content-around mt-4">
 				<div class="p-0 float-start oneday-list-cookie">
-					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br>강아지 수제 간식 만들기 클래스</a>
+					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
+					<div class="stars clearfix d-block">
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+					</div>
+					<div class="p-0"><a href="#" class="text-decoration-none text-dark">강아지 수제 간식 만들기 클래스</a></div>
 				</div>
 				<div class="p-0 float-start oneday-list-cookie">
-					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br>강아지 수제 간식 만들기 클래스</a>
+					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
+					<div class="stars clearfix d-block">
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+					</div>
+					<div class="p-0"><a href="#" class="text-decoration-none text-dark">강아지 수제 간식 만들기 클래스</a></div>
 				</div>
 				<div class="p-0 float-start oneday-list-cookie">
-					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" ><br>강아지 수제 간식 만들기 클래스</a>
+					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
+					<div class="stars clearfix d-block">
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+					</div>
+					<div class="p-0"><a href="#" class="text-decoration-none text-dark">강아지 수제 간식 만들기 클래스</a></div>
 				</div>
 				<div class="p-0 float-start oneday-list-cookie">
-					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br>강아지 수제 간식 만들기 클래스</a>
+					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
+					<div class="stars clearfix d-block">
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+					</div>
+					<div class="p-0"><a href="#" class="text-decoration-none text-dark">강아지 수제 간식 만들기 클래스</a></div>
 				</div>
 				<div class="p-0 float-start oneday-list-cookie">
-					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br>강아지 수제 간식 만들기 클래스</a>
+					<a href="#" class="text-decoration-none text-dark"><img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
+					<div class="stars clearfix d-block">
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
+						<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+					</div>
+					<div class="p-0"><a href="#" class="text-decoration-none text-dark">강아지 수제 간식 만들기 클래스</a></div>
 				</div>
 			</div>
 			<p class="text-center mt-4"><a href="#" class="text-secondary">더보기</a></p>
