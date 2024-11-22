@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel='stylesheet'href='../css/style.css'>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body>
+    <header class="container-fluid mb-0">
+        <div class="container clearfix p-2 pb-0">
+            <div class="row my-2">
+                <a href="index.html" class="logo-cookie p-3"><img src="../imgs/logo.png" alt="로고" class="img-fluid" width="250"></a>
+                <div class="col-9">
+                    <div class="clearfix">
+                        <h1 class="fw-bold p-3 float-start">Cookie new cookie</h1>
+                        <div class="input-group mt-2 p-3 w-25 float-start">
+                            <input type="text" class="form-control" placeholder="검색어 입력" name="keyword" value="">
+                            <button class="btn btn-cookie" type="submit"><i class="fa-solid fa-magnifying-glass" style="color: #a67c68;"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <a class="btn btn-cookie-secondary my-4">회원가입</a>
+                    <a class="btn btn-cookie my-4">로그인</a>
+                </div>
+            </div>
+        </div>
+        <hr class="mb-0">
+    </header>
+    <div class="container">
+        <nav class="navbar navbar-expand-sm">
+            <ul class="navbar-nav container justify-content-center">
+                <li class="nav-item dropdown mx-5">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">원데이 클래스</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">클래스 개설 신청</a></li>
+                        <li><a class="dropdown-item" href="#">희망 클래스 신청</a></li>
+                        <li><a class="dropdown-item" href="#">리뷰 작성</a></li>
+                    </ul>
+                </li>
+                <li><a class="dropdown-item mx-5" href="#">취미 모임</a></li>
+                <li class="nav-item dropdown mx-5">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">커뮤니티</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">자유게시판</a></li>
+                        <li><a class="dropdown-item" href="#">지역게시판</a></li>
+                    </ul>
+                </li>
+                <li><a class="dropdown-item mx-5" href="#">공지사항</a></li>
+                <li><a class="dropdown-item mx-5" href="#">마이페이지</a></li>
+            </ul>
+        </nav>
+        <hr class="m-0 text-cookie-secondary">
+    </div>
+    <div class="container mt-3">
+        <div>
+            <h1 class="text-center ">게시글 상세보기</h1>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <input type="text" class="form-control my-5 text-bg-light" placeholder="7080 등산모임(남자 마감,여성 환영)" disabled>
+            </thead> 
+            
+            <!-- <ul class="dropdown-menu my-5">
+                <li><a class="dropdown-item" href="#">자유게시판</a></li>
+                <li><a class="dropdown-item" href="#">지역게시판</a></li>
+            </ul> -->
+            <thead>
+                <textarea class="form-control text-bg-light" rows="5" id="comment" name="text"  placeholder="등산 모임을 구합니다!!
+                현재 남자는 마감 되었고~~ 여자 회원들만 구합니다~^^!!" disabled></textarea>
+            </thead> 
+            <thead>
+                <input type="file" class="form-control" placeholder="첨부파일" i class="fa-solid fa-paperclip">
+                <!-- <i class="fa-solid fa-paperclip"></i> -->
+            </thead> 
+        </table>   
+        
+        <!-- <button type="button" class="btn btn-Light " data-bs-toggle="dropdown">
+            <i class="fa-solid fa-sort-down" style="color: #443722;"></i>
+            선택하기
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">최신 등록순</a></li>
+            <li><a class="dropdown-item" href="#">오래된순</a></li>
+            <li><a class="dropdown-item" href="#">인기순</a></li>
+        </ul> -->
+        
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                </tr>
+            </thead>
+        </table>
+        <div class="d-grid gap-2 d-md-block">
+            <button type="button" class="btn btn-danger btn-sm">신고</button>
+            <a href="#" class="btn btn-Light btn-sm mx-2 float-end" >좋아요</a>
+            <i class="fa-solid fa-heart float-end" style="color: #df0101;"></i>
+        </div>
+        <div>
+            <p class="text-center">댓글 작성하기</p>
+            <textarea class="form-control" id="comment" name="text" placeholder="댓글 쓰기"></textarea>
+            <!-- <textarea class="form-control text-bg-light" rows="5" id="comment" name="text"  placeholder="" disabled></textarea> -->
+            <div class="gradient-custom">
+                <div class="container my-5 py-5">
+                    <ul class="list-group mx-4">
+                        <li class="list-group-item list-group-item-action small">
+                            <p class="my-2"><strong>내가그린 기린그림</strong></p>
+                            <!-- border-bottom -->
+                            <p class="my-1">으.. 나가쇼 아재요</p>
+                            <p class="my-1">2024-11-18</p>
+                            <button type="button" class="btn btn-cookie-secondary btn-sm"> 댓글달기</button>
+                        </li>
+                        <li class="list-group-item list-group-item-action small">
+                            <p class="my-2"><strong>곽마원</strong></a>
+                                <p class="my-1">님 신고요 ㅇㅇ</p>
+                                <p class="my-1">2024-11-18</p>
+                                <button type="button" class="btn btn-cookie-secondary btn-sm">댓글달기</button>
+                            </li>
+                            <li class="list-group-item list-group-item-action">
+                                <p class="my-2"><strong>김덕선</strong></p>
+                                <p class="my-1">오메~ 총각들은 마감이라 아쉽고만…!!</p>
+                                <p class="my-1">2024-11-18</p>
+                                <button type="button" class="btn btn-cookie-secondary btn-sm">댓글달기</button>
+                            </li>
+                                <li class="list-group-item list-group-item-action small ps-5">
+                                    <p class="mx-4"><strong>임마누엘</strong></p>
+                                    <p class="mx-4">ㄴ@김덕선 이건 또 뭐지..</p>
+                                    <p class="mx-4">2024-11-18</p>
+                                </li>
+                                <li class="list-group-item list-group-item-action small ps-5">
+                                    <p class="mx-4"><strong>아빠안잔다</strong></p>
+                                    <p class="mx-4">ㄴ @김덕선 발닦고 주무십쇼</p>
+                                    <p class="mx-4">2024-11-18</p>
+                                </li>
+                            
+                            
+                    </ul>
+                    <div id="demo" class="collapse">
+                      </div>
+                    <!-- <script>
+                        $("#test").click(function(){
+                            $("#test2").removeClass("d-none");
+
+                            // $("#test2").addClass("d-none");
+                        })
+                    </script> -->
+                    <!-- <htd class="text-center">작성자</td>
+                    <td class="text-center">댓글내용</td>
+                    <td class="text-center">작성일</td>
+                    <td class="text-center">좋아요</td>
+                    <td class="text-center">신고여부</td> -->
+                    <!-- <div>
+                        <td class="text-center">내가그린 기린그림</td>
+                        <td class="text-center">으.. 나가쇼 아재요</td>
+                        <td class="text-center">2024-11-18</td>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                    </div>
+                    <div>
+                        <td class="text-center"><strong>곽마원</strong></td>
+                        <td class="text-center">님 신고요 ㅇㅇ</td>
+                        <td class="text-center">2024-11-18</td>
+                        <td class="text-center"><i class="fa-solid fa-heart" style="color: #df0101;"></i></td>
+                        <td class="text-center"></td>
+                    </div>
+                
+                    <tr>
+                        <td class="text-center">김덕선</td>
+                        <td class="text-center">오메~ 총각들은 마감이라 아쉽고만…!!</td>
+                        <td class="text-center">2024-11-18</td>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                    </tr> -->
+                </div>
+                
+                <!-- <div id="대댓글" class="collapse">
+                </div> -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
