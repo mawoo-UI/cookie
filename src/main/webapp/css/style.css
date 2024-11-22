@@ -29,6 +29,9 @@
 .border-cookie-right{
   border-right: 1px solid #e4cbb3;
 }
+.oneday-list-cookie {
+  width: 150px;
+}
 .btn-cookie {
     color: #fff;
     background-color: #e4cbb3; /* 주조색 */
