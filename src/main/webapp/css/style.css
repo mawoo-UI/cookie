@@ -8,7 +8,14 @@
 .cookie-disabled {
     background-color: #d8c0a988;
 } */
-
+.logo-cookie {
+  width: 85px;
+  height: 85px;
+}
+.signup-cookie {
+  width: 20px;
+  height: 20px;
+}
 .btn-cookie {
     color: #fff;
     background-color: #e4cbb3; /* 주조색 */
