@@ -8,6 +8,11 @@
 .cookie-disabled {
     background-color: #d8c0a988;
 } */
+ /* header {
+  position: fixed;
+  z-index: 99999;
+  background-color: #fff;
+ } */
 .logo-cookie {
   width: 85px;
   height: 85px;
@@ -15,6 +20,14 @@
 .signup-cookie {
   width: 20px;
   height: 20px;
+}
+.icon-cookie {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.border-cookie-right{
+  border-right: 1px solid #e4cbb3;
 }
 .btn-cookie {
     color: #fff;
