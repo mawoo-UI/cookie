@@ -3,10 +3,10 @@
 <header class="container-fluid mb-0">
     <div class="container clearfix p-2 pb-0">
         <div class="row my-2">
-            <a href="index.html" class="logo-cookie p-3"><img src="../../imgs/logo.png" alt="로고" class="img-fluid" width="250"></a>
+            <a href="index.html" class="logo-cookie p-3"><img src="imgs/logo.png" alt="로고" class="img-fluid" width="250"></a>
             <div class="col-9">
                 <div class="clearfix">
-                    <h1 class="fw-bold p-3 float-start">Cookie new cookie</h1>
+                    <h1 class="fw-bold p-3 float-start"><a href="#" class="text-dark text-decoration-none">Cookie new cookie</a></h1>
                     <div class="input-group mt-2 p-3 w-25 float-start">
                         <input type="text" class="form-control" placeholder="검색어 입력" name="keyword" value="">
                         <button class="btn btn-cookie" type="submit"><i class="fa-solid fa-magnifying-glass" style="color: #a67c68;"></i></button>
