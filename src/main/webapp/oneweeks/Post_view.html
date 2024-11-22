@@ -66,24 +66,16 @@
         <div>
             <h1 class="text-center ">게시글 상세보기</h1>
         </div>
-        <table class="table table-hover">
-            <thead>
-                <input type="text" class="form-control my-5 text-bg-light" placeholder="7080 등산모임(남자 마감,여성 환영)" disabled>
-            </thead> 
-            
-            <!-- <ul class="dropdown-menu my-5">
-                <li><a class="dropdown-item" href="#">자유게시판</a></li>
-                <li><a class="dropdown-item" href="#">지역게시판</a></li>
-            </ul> -->
-            <thead>
-                <textarea class="form-control text-bg-light" rows="5" id="comment" name="text"  placeholder="등산 모임을 구합니다!!
-                현재 남자는 마감 되었고~~ 여자 회원들만 구합니다~^^!!" disabled></textarea>
-            </thead> 
-            <thead>
-                <input type="file" class="form-control" placeholder="첨부파일" i class="fa-solid fa-paperclip">
-                <!-- <i class="fa-solid fa-paperclip"></i> -->
-            </thead> 
-        </table>   
+        <input type="text" class="form-control text-bg-light" placeholder="7080 등산모임(남자 마감,여성 환영)" disabled>
+    
+    <!-- <ul class="dropdown-menu my-5">
+        <li><a class="dropdown-item" href="#">자유게시판</a></li>
+        <li><a class="dropdown-item" href="#">지역게시판</a></li>
+    </ul> -->
+        <textarea class="form-control text-bg-light my-3 " rows="5" id="comment" name="text"  placeholder="등산 모임을 구합니다!! 
+현재 남자는 마감 되었고~~ 여자 회원들만 구합니다~^^!!" disabled></textarea>
+        <input type="file" class="form-control" placeholder="첨부파일" i class="fa-solid fa-paperclip">
+        <!-- <i class="fa-solid fa-paperclip"></i> -->
         
         <!-- <button type="button" class="btn btn-Light " data-bs-toggle="dropdown">
             <i class="fa-solid fa-sort-down" style="color: #443722;"></i>
@@ -108,12 +100,16 @@
         </table>
         <div class="d-grid gap-2 d-md-block">
             <button type="button" class="btn btn-danger btn-sm">신고</button>
-            <a href="#" class="btn btn-Light btn-sm mx-2 float-end" >좋아요</a>
-            <i class="fa-solid fa-heart float-end" style="color: #df0101;"></i>
+            <a href="#" class="btn btn-light btn-sm mx-2 float-end" >
+                <!-- <i class="fa-solid fa-heart text-danger " ></i>  -->
+                <i class="fa-regular fa-heart text-danger" ></i>
+                <span>좋아요</span>
+            </a>
+            
         </div>
         <div>
             <p class="text-center">댓글 작성하기</p>
-            <textarea class="form-control" id="comment" name="text" placeholder="댓글 쓰기"></textarea>
+            <textarea class="form-control" id="comment" name="text" placeholder="댓글 쓰기" style="resize: none;" rows="5"></textarea>
             <!-- <textarea class="form-control text-bg-light" rows="5" id="comment" name="text"  placeholder="" disabled></textarea> -->
             <div class="gradient-custom">
                 <div class="container my-5 py-5">
@@ -126,29 +122,31 @@
                             <button type="button" class="btn btn-cookie-secondary btn-sm"> 댓글달기</button>
                         </li>
                         <li class="list-group-item list-group-item-action small">
-                            <p class="my-2"><strong>곽마원</strong></a>
-                                <p class="my-1">님 신고요 ㅇㅇ</p>
-                                <p class="my-1">2024-11-18</p>
-                                <button type="button" class="btn btn-cookie-secondary btn-sm">댓글달기</button>
-                            </li>
-                            <li class="list-group-item list-group-item-action">
-                                <p class="my-2"><strong>김덕선</strong></p>
-                                <p class="my-1">오메~ 총각들은 마감이라 아쉽고만…!!</p>
-                                <p class="my-1">2024-11-18</p>
-                                <button type="button" class="btn btn-cookie-secondary btn-sm">댓글달기</button>
-                            </li>
-                                <li class="list-group-item list-group-item-action small ps-5">
+                            <p class="my-2"><strong>곽마원</strong></p>
+                            <p class="my-1">님 신고요 ㅇㅇ</p>
+                            <p class="my-1">2024-11-18</p>
+                            <button type="button" class="btn btn-cookie-secondary btn-sm">댓글달기</button>
+                        </li>
+                        <li class="list-group-item list-group-item-action">
+                            <p class="my-2"><strong>김덕선</strong></p>
+                            <p class="my-1">오메~ 총각들은 마감이라 아쉽고만…!!</p>
+                            <p class="my-1">2024-11-18</p>
+                            <button type="button" class="btn btn-cookie-secondary btn-sm" data-bs-toggle="collapse" data-bs-target=".target">댓글달기</button>
+                        </li>
+                        <li class="list-group-item list-group-item-action small p-0 target collapse">
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-action small ps-5 border border-0 border-bottom">
                                     <p class="mx-4"><strong>임마누엘</strong></p>
                                     <p class="mx-4">ㄴ@김덕선 이건 또 뭐지..</p>
                                     <p class="mx-4">2024-11-18</p>
                                 </li>
-                                <li class="list-group-item list-group-item-action small ps-5">
+                                <li class="list-group-item list-group-item-action small ps-5 border border-0">
                                     <p class="mx-4"><strong>아빠안잔다</strong></p>
                                     <p class="mx-4">ㄴ @김덕선 발닦고 주무십쇼</p>
                                     <p class="mx-4">2024-11-18</p>
                                 </li>
-                            
-                            
+                            </ul>
+                        </li>
                     </ul>
                     <div id="demo" class="collapse">
                       </div>
