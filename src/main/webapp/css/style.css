@@ -1,18 +1,4 @@
 @charset "utf-8";
-/* .btn-cookie {
-    background-color: #e4cbb3;
-}
-.btn-cookie:hover {
-    background-color: #f1d3b7;
-}
-.cookie-disabled {
-    background-color: #d8c0a988;
-} */
- /* header {
-  position: fixed;
-  z-index: 99999;
-  background-color: #fff;
- } */
 .logo-cookie {
   width: 85px;
   height: 85px;
@@ -31,6 +17,16 @@
 }
 .oneday-list-cookie {
   width: 150px;
+}
+.oneday-view-cookie {
+	width: 600px;
+	height: 450px;
+}
+.dropdown-cookie {
+  border-color: #d1b098;
+}
+.font-icon-cookie {
+  color:#a67c68;
 }
 .btn-cookie {
     color: #fff;
