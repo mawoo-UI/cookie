@@ -15,6 +15,9 @@
 .border-cookie-right{
   border-right: 1px solid #e4cbb3;
 }
+.border-cookie-bottom {
+  border-bottom: 1px solid #e4cbb3;
+}
 .oneday-list-cookie {
   width: 150px;
 }
@@ -27,6 +30,9 @@
 }
 .font-icon-cookie {
   color:#a67c68;
+}
+.border-cookie-detail {
+  border-radius: 15px;
 }
 .btn-cookie {
     color: #fff;
