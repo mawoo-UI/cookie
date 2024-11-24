@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>마이페이지2</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
+    <style>
+        @import url('style.css');
+
+    </style>
+</head>    
+<body>
+    <div class="wrap">
+        <main class="container">
+            <div class="row col-md-12 m-2">
+                <div class="container clearfix p-2 text-center">
+                    <a href="index.html" class="float-center"><img src="img/free-icon-cookie-2682369.png" class="img-fluid" alt="로고" width="50px"></a>
+                    <span class="text-center fw-bold p-3" style="font-size: 32px;">Cookie new Cookie</span>
+                </div>
+
+                <form name="frm"class="mx-auto col-md-6 card p-4 mt-5">
+                    <ul class="">
+                        <label for="title" class="form-label mt-4">전화번호</label>
+                        <input type="text" class="form-control" id="tel" placeholder="010-1234-5678" name="tel" style="width: 50%;" disabled>
+                    </ul>
+                    <ul class="">
+                        <label for="title" class="form-label">이메일</label>
+                        <input type="text" class="form-control" id="email" placeholder="cookie@gmail.com" name="email" style="width: 50%;" disabled>
+                    </ul>
+                    <ul class="">
+                        <label for="title" class="form-label">아이디</label>
+                        <input type="text" class="form-control" id="id" placeholder="cookie" name="id" style="width: 50%;" disabled>
+                    </ul>
+                    <ul class="">
+                        <label for="title" class="form-label">가입일자</label>
+                        <input type="text" class="form-control" id="date" placeholder="2024-11-11" name="date" style="width: 50%;" disabled>
+                    </ul>
+                    <ul class="">
+                        <label for="title" class="form-label">지역</label>
+                        <input type="text" class="form-control" id="area" placeholder="구로구" name="area" style="width: 50%;">
+                    </ul>
+                    <ul class="">
+                        <label for="title" class="form-label">취미</label>
+                        <input type="text" class="form-control" id="hobby" placeholder="배드민턴" name="hobby" style="width: 50%;">
+                    </ul>
+
+                    <nav class="navbar navbar-expand-sm">
+                        <ul class="navbar-nav container justify-content-around">
+                            <li class="btn btn-light" ><a href="#" style="text-decoration: none; color: black;">정보수정</a></li>
+                            <li class="btn btn-light"><a href="#" style="text-decoration: none; color: black;">활동관리</a></li>
+                            <li class="btn btn-light"><a href="#" style="text-decoration: none; color: black;">친구관리</a></li>
+                        </ul>
+                    </nav>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script>
+        $(".btn-cookie").css({color:'black'})
+    </script>
+</body>
+</html>
