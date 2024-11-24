@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>회원가입</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
+    <style>
+        @import url('style.css');
+    </style>
+</head>    
+<body>
+    <div class="wrap">
+        <main class="container">
+            <div class="row col-md-12 m-2">
+            <div class="container clearfix p-2 text-center">
+                <a href="index.html" class="float-center"><img src="img/free-icon-cookie-2682369.png" class="img-fluid" alt="로고" width="50px"></a>
+                <span class="text-center fw-bold p-3" style="font-size: 32px;">Cookie new Cookie</span>
+            </div>
+            <form name="frm"class="mx-auto col-lg-5 card p-4 mt-5">
+                <input type="text" class="form-control mt-3" id="id" placeholder="아이디" name="id">
+                <input type="password" class="form-control mt-3" id="pwd" placeholder="비밀번호" name="pwd">
+                <input type="email" class="form-control mt-3" id="email" placeholder="이메일 주소" name="email">
+                <input type="text" class="form-control mt-3" id="name" placeholder="이름" name="name">
+                <input type="text" class="form-control mt-3" id="birth" placeholder="생년월일" name="birth">
+                <div class="input-group my-3">
+                    <input type="text" class="form-control" placeholder="주소">
+                    <button class="btn-cookie btn btn-primary" id="search" type="button">주소 검색</button>
+                </div>
+                <input type="text" class="form-control mt-3" id="detail_addr" placeholder="상세주소" name="detail_addr">
+                <input type="text" class="form-control my-3" id="tel" placeholder="휴대전화번호" name="tel">
+                <button class="btn-cookie btn btn-primary" id="check" type="button">휴대폰 본인확인</button>
+                <input type="text" class="form-control mt-3" id="tel" placeholder="가입경로" name="tel">
+                <select class="form-select my-3">
+                    <option>취미선택(최대 3개 선택 가능)</option>
+                    <option>배드민턴</option>
+                    <option>주식</option>
+                    <option>게임</option>
+                    <option>독서</option>
+                    <option>수영</option>
+                    <option>축구</option>
+                    <option>헬스</option>
+                    <option>여행</option>
+                    <option>등산</option>
+                    <option>요리</option>
+                    <option>음악감상</option>
+                </select>
+                <div>
+                    <button class="btn-cookie btn float-start" style="width: 49%;">취소</button>
+                    <button class="btn-cookie btn float-end" style="width: 49%;">가입완료</button>
+                </div>
+            </form>
+        </main>
+    </div>
+    </div>
+    <script>
+        $(".btn-cookie").css({color:'black'})
+    </script>
+</body>
+</html>
