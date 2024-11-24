@@ -33,8 +33,8 @@
 					</div>
 				</div>
 				<div class="row mt-5">
-					<div class="col-6 p-0 text-center fw-bold border-cookie-right border-cookie-bottom"><p>상세 설명<p></div>
-					<div class="col-6 p-0 text-center border-cookie-bottom"><p>리뷰(15)</p></div>
+					<div class="cookie-menu-detail col-6 p-0 text-center fw-bold border-cookie-right border-cookie-bottom"><p>상세 설명<p></div>
+					<div class="cookie-menu-review col-6 p-0 text-center border-cookie-bottom"><p>리뷰(15)</p></div>
 				</div>
 				<div class="cookie-detail my-5 px-5 d-block">
 					<hr class="text-cookie-secondary my-3">
@@ -59,11 +59,212 @@
 					
 					</pre>
 				</div>
-				<div class="cookie-review">
-					
+				<div class="cookie-review mx-3 mt-3 d-none">
+					<div class="review-content d-flex justify-content-around">
+						<div class="mx-3 mt-5 p-3 col-2 card dropdown-cookie">
+							<img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" onerror="this.src='https://placehold.co/140x174?text=No+Image'">
+							<div class="stars clearfix d-block my-2">
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+							</div>
+							<p class="text-truncate mb-1 small">정말 재미있고 사장님이 친절하게 알려주셨어요</p>
+							<p class="text-end text-secondary small mb-1">이틀 전 | 허정윤</p>
+						</div>
+						<div class="mx-3 mt-5 p-3 col-2 card dropdown-cookie">
+							<img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" onerror="this.src='https://placehold.co/140x174?text=No+Image'">
+							<div class="stars clearfix d-block my-2">
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+							</div>
+							<p class="text-truncate mb-1 small">정말 재미있고 사장님이 친절하게 알려주셨어요</p>
+							<p class="text-end text-secondary small mb-1">이틀 전 | 허정윤</p>
+						</div>
+						<div class="mx-3 mt-5 p-3 col-2 card dropdown-cookie">
+							<img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" onerror="this.src='https://placehold.co/140x174?text=No+Image'">
+							<div class="stars clearfix d-block my-2">
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+							</div>
+							<p class="text-truncate mb-1 small">정말 재미있고 사장님이 친절하게 알려주셨어요</p>
+							<p class="text-end text-secondary small mb-1">이틀 전 | 허정윤</p>
+						</div>
+						<div class="mx-3 mt-5 p-3 col-2 card dropdown-cookie">
+							<img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" onerror="this.src='https://placehold.co/140x174?text=No+Image'">
+							<div class="stars clearfix d-block my-2">
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+							</div>
+							<p class="text-truncate mb-1 small">정말 재미있고 사장님이 친절하게 알려주셨어요</p>
+							<p class="text-end text-secondary small mb-1">이틀 전 | 허정윤</p>
+						</div>
+						<div class="mx-3 mt-5 p-3 col-2 card dropdown-cookie">
+							<img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" onerror="this.src='https://placehold.co/140x174?text=No+Image'">
+							<div class="stars clearfix d-block my-2">
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+							</div>
+							<p class="text-truncate mb-1 small">정말 재미있고 사장님이 친절하게 알려주셨어요</p>
+							<p class="text-end text-secondary small mb-1">이틀 전 | 허정윤</p>
+						</div>
+					</div>
+					<div class="review-content d-flex justify-content-around">
+						<div class="mx-3 mt-5 p-3 col-2 card dropdown-cookie">
+							<img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" onerror="this.src='https://placehold.co/140x174?text=No+Image'">
+							<div class="stars clearfix d-block my-2">
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+							</div>
+							<p class="text-truncate mb-1 small">정말 재미있고 사장님이 친절하게 알려주셨어요</p>
+							<p class="text-end text-secondary small mb-1">이틀 전 | 허정윤</p>
+						</div>
+						<div class="mx-3 mt-5 p-3 col-2 card dropdown-cookie">
+							<img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" onerror="this.src='https://placehold.co/140x174?text=No+Image'">
+							<div class="stars clearfix d-block my-2">
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+							</div>
+							<p class="text-truncate mb-1 small">정말 재미있고 사장님이 친절하게 알려주셨어요</p>
+							<p class="text-end text-secondary small mb-1">이틀 전 | 허정윤</p>
+						</div>
+						<div class="mx-3 mt-5 p-3 col-2 card dropdown-cookie">
+							<img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" onerror="this.src='https://placehold.co/140x174?text=No+Image'">
+							<div class="stars clearfix d-block my-2">
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+							</div>
+							<p class="text-truncate mb-1 small">정말 재미있고 사장님이 친절하게 알려주셨어요</p>
+							<p class="text-end text-secondary small mb-1">이틀 전 | 허정윤</p>
+						</div>
+						<div class="mx-3 mt-5 p-3 col-2 card dropdown-cookie">
+							<img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" onerror="this.src='https://placehold.co/140x174?text=No+Image'">
+							<div class="stars clearfix d-block my-2">
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+							</div>
+							<p class="text-truncate mb-1 small">정말 재미있고 사장님이 친절하게 알려주셨어요</p>
+							<p class="text-end text-secondary small mb-1">이틀 전 | 허정윤</p>
+						</div>
+						<div class="mx-3 mt-5 p-3 col-2 card dropdown-cookie">
+							<img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" onerror="this.src='https://placehold.co/140x174?text=No+Image'">
+							<div class="stars clearfix d-block my-2">
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+							</div>
+							<p class="text-truncate mb-1 small">정말 재미있고 사장님이 친절하게 알려주셨어요</p>
+							<p class="text-end text-secondary small mb-1">이틀 전 | 허정윤</p>
+						</div>
+					</div>
+					<div class="review-content d-flex justify-content-around">
+						<div class="mx-3 mt-5 p-3 col-2 card dropdown-cookie">
+							<img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" onerror="this.src='https://placehold.co/140x174?text=No+Image'">
+							<div class="stars clearfix d-block my-2">
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+							</div>
+							<p class="text-truncate mb-1 small">정말 재미있고 사장님이 친절하게 알려주셨어요</p>
+							<p class="text-end text-secondary small mb-1">이틀 전 | 허정윤</p>
+						</div>
+						<div class="mx-3 mt-5 p-3 col-2 card dropdown-cookie">
+							<img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" onerror="this.src='https://placehold.co/140x174?text=No+Image'">
+							<div class="stars clearfix d-block my-2">
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+							</div>
+							<p class="text-truncate mb-1 small">정말 재미있고 사장님이 친절하게 알려주셨어요</p>
+							<p class="text-end text-secondary small mb-1">이틀 전 | 허정윤</p>
+						</div>
+						<div class="mx-3 mt-5 p-3 col-2 card dropdown-cookie">
+							<img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" onerror="this.src='https://placehold.co/140x174?text=No+Image'">
+							<div class="stars clearfix d-block my-2">
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+							</div>
+							<p class="text-truncate mb-1 small">정말 재미있고 사장님이 친절하게 알려주셨어요</p>
+							<p class="text-end text-secondary small mb-1">이틀 전 | 허정윤</p>
+						</div>
+						<div class="mx-3 mt-5 p-3 col-2 card dropdown-cookie">
+							<img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" onerror="this.src='https://placehold.co/140x174?text=No+Image'">
+							<div class="stars clearfix d-block my-2">
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+							</div>
+							<p class="text-truncate mb-1 small">정말 재미있고 사장님이 친절하게 알려주셨어요</p>
+							<p class="text-end text-secondary small mb-1">이틀 전 | 허정윤</p>
+						</div>
+						<div class="mx-3 mt-5 p-3 col-2 card dropdown-cookie">
+							<img src="imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" onerror="this.src='https://placehold.co/140x174?text=No+Image'">
+							<div class="stars clearfix d-block my-2">
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star small"></i></h6>
+								<h6 class="float-start text-warning p-1 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+							</div>
+							<p class="text-truncate mb-1 small">정말 재미있고 사장님이 친절하게 알려주셨어요</p>
+							<p class="text-end text-secondary small mb-1">이틀 전 | 허정윤</p>
+						</div>
+					</div>
+					<p class="text-center mt-4"><a href="#" class="text-secondary">더보기</a></p>
 				</div>
 			</main>
 			<jsp:include page="../../common/footer.jsp" />
 		</div>
+		<script>
+			$(".cookie-menu-detail").click(function() {
+				$(this).hasClass('fw-bold') ? '' : $(this).addClass('fw-bold');
+				$('.cookie-menu-review').hasClass('fw-bold') ? $('.cookie-menu-review').removeClass('fw-bold') : '';
+				$('.cookie-detail').hasClass('d-none') ? $('.cookie-detail').removeClass('d-none') : '';
+				$('.cookie-review').hasClass('d-none') ? '' : $('.cookie-review').addClass('d-none');
+			});
+
+			$(".cookie-menu-review").click(function() {
+				$(this).hasClass('fw-bold') ? '' : $(this).addClass('fw-bold');
+				$('.cookie-menu-detail').hasClass('fw-bold') ? $('.cookie-menu-detail').removeClass('fw-bold') : '';
+				$('.cookie-review').hasClass('d-none') ? $('.cookie-review').removeClass('d-none') : '';
+				$('.cookie-detail').hasClass('d-none') ? '' : $('.cookie-detail').addClass('d-none');
+			});
+		</script>
 	</body>
 </html>
