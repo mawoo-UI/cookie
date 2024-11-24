@@ -13,6 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 <body>
     <header class="container-fluid mb-0">
@@ -61,10 +62,11 @@
         </nav>
         <hr class="m-0 text-cookie-secondary">
     </div>
+
     <div class="container mt-3">
         <h2 class="text-center ">자유게시판</h2>
         <div class="dropdown">
-            <button type="button" class="btn btn-Light " data-bs-toggle="dropdown">
+            <!-- <button type="button" class="btn btn-Light " data-bs-toggle="dropdown">
                 <i class="fa-solid fa-sort-down" style="color: #443722;"></i>
                 선택하기
             </button>
@@ -72,89 +74,87 @@
                 <li><a class="dropdown-item" href="#">최신 등록순</a></li>
                 <li><a class="dropdown-item" href="#">오래된순</a></li>
                 <li><a class="dropdown-item" href="#">인기순</a></li>
-            </ul>
+            </ul> -->
             <a href="Postpage.html" class="btn btn-cookie btn-sm float-end" >글 작성하기</a>
         </div>
         
         <table class="table table-hover">
             <thead>
-                 <tr>
-                    <th class="text-center"><input type= "checkbox"></th>
+                <tr>
                     <th class="text-center">글 번호</th>
                     <th class="text-center">제목</th>
                     <th class="text-center">작성자</th>
                     <th class="text-center">작성일</th>
-                    <th class="text-center">좋아요</th>
+                    <th class="text-center">조회수</th>
                 </tr>
-                <tbody>
-                    <tr>
-                        <td class="text-center"><input type= "checkbox"></td>
-                        <td class="text-center">1</td>
-                        <td >골프 동호회</td>
-                        <td >임마누엘</td>
-                        <td >2024-11-18</td>
-                        <td >ㅇㅇ</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><input type= "checkbox"></td>
-                        <td class="text-center">2</td>
-                        <td>7080 등산모임(남자 마감,여성 환영)</td>
-                        <td>곽두팔</td>
-                        <td>2024-11-18</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><input type= "checkbox"></td>
-                        <td class="text-center">3</td>
-                        <td>식물 키우는분들 모집합니다.</td>
-                        <td>박두창</td>
-                        <td>2024-11-18</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><input type= "checkbox"></td>
-                        <td class="text-center">4</td>
-                        <td>바이크 동호회 모집합니다.</td>
-                        <td>마풍강</td>
-                        <td>2024-11-18</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><input type= "checkbox"></td>
-                        <td class="text-center">5</td>
-                        <td>독서 모임(주 1회 참가 가능하신분만)</td>
-                        <td>제갈제니</td>
-                        <td>2024-11-18</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><input type= "checkbox"></td>
-                        <td class="text-center">6</td>
-                        <td>카페투어 모임 구합니다.</td>
-                        <td>곽한구</td>
-                        <td>2024-11-18</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><input type= "checkbox"></td>
-                        <td class="text-center">7</td>
-                        <td>맛집 투어 모임 구합니다.</td>
-                        <td>임꺽정</td>
-                        <td>2024-11-18</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><input type= "checkbox"></td>
-                        <td class="text-center">8</td>
-                        <td>게임모임 구합니다.</td>
-                        <td>김풍</td>
-                        <td>2024-11-18</td>
-                        <td></td>
-                    </tr>
-                </tbody>
             </thead>
+            <tbody>
+                <tr class="">
+                    <td class="text-center bg-cookie"><i class="fa-solid fa-fire text-danger"></i> </td>
+                    <td class="text-left bg-cookie"><span class="badge bg-secondary">인기</span> <a href="Post_view.html">골프 동호회</a></td>
+                    <td class="text-center bg-cookie">임마누엘</td>
+                    <td class="text-center bg-cookie">2024-11-18</td>
+                    <td class="text-center bg-cookie">1</td>
+                </tr>
+                <tr>
+                    <td class="text-center">1</td>
+                    <td class="text-left"><a href="Post_view.html">골프 동호회</a></td>
+                    <td class="text-center">임마누엘</td>
+                    <td class="text-center">2024-11-18</td>
+                    <td class="text-center">1</td>
+                </tr>
+                <tr>
+                    <td class="text-center">2</td>
+                    <td class="text-left">7080 등산모임(남자 마감,여성 환영)</td>
+                    <td class="text-center">곽두팔</td>
+                    <td class="text-center">2024-11-18</td>
+                    <td class="text-center">0</td>
+                </tr>
+                <tr>
+                    <td class="text-center">3</td>
+                    <td class="text-left">식물 키우는분들 모집합니다.</td>
+                    <td class="text-center">박두창</td>
+                    <td class="text-center">2024-11-18</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-center">4</td>
+                    <td class="text-left">바이크 동호회 모집합니다.</td>
+                    <td class="text-center">마풍강</td>
+                    <td class="text-center">2024-11-18</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-center">5</td>
+                    <td class="text-left">독서 모임(주 1회 참가 가능하신분만)</td>
+                    <td class="text-center">제갈제니</td>
+                    <td class="text-center">2024-11-18</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-center">6</td>
+                    <td class="text-left">카페투어 모임 구합니다.</td>
+                    <td class="text-center">곽한구</td>
+                    <td class="text-center">2024-11-18</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-center">7</td>
+                    <td class="text-left">맛집 투어 모임 구합니다.</td>
+                    <td class="text-center">임꺽정</td>
+                    <td class="text-center">2024-11-18</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-center">8</td>
+                    <td class="text-left">게임모임 구합니다.</td>
+                    <td class="text-center">김풍</td>
+                    <td class="text-center">2024-11-18</td>
+                    <td class="text-center"></td>
+                </tr>
+            </tbody>
         </table>
-        <button type="button" class="btn btn-cookie-secondary btn-sm">삭제하기</button>
+        <!-- <button type="button" class="btn btn-cookie-secondary btn-sm">삭제하기</button> -->
         <ul class="pagination justify-content-center">
             <li class="page-item"><a class="page-link border-0" href="#"><i class="fa-solid fa-angle-left" style="color: #493208;"></i></a></li>
             <li class="page-item"><a class="page-link border-0 text-dark" href="#">1</a></li>
