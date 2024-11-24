@@ -16,7 +16,7 @@
 					</div>
 					<div class="py-1 mx-4 float-start">
 						<form class="mx-4">
-							<textarea rows="6" cols="65" class="form-control mt-2 border-0" readonly>
+							<textarea rows="6" cols="65" id="content" name="content" class="form-control mt-2 border-0" readonly>
 정말 재미있어요 호호~ 시간 가는 줄 모르고 만들었답니다 선생님이 설명을 너무너무 잘하셔서 쉽게 만들 수 있었고 아주 유익한 시간이었어요 다음에 기회가 된다면 다른 것도 만들어 보고 싶네용
 							</textarea>
 							<br>
