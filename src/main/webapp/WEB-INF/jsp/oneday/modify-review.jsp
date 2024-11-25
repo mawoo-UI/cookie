@@ -30,7 +30,7 @@
 					<input type="text" class="form-control dropdown-cookie" id="writer" name="writer" value="허정윤" readonly>
 					
 					<div class="text-center mt-3">
-						<a class="btn btn-cookie-secondary mx-1 mt-3 px-4">수정</a>
+						<button class="btn btn-cookie-secondary mx-1 mt-3 px-4">수정</button>
               			<a class="btn btn-cookie mx-1 mt-3 px-4">삭제</a>
               			<a class="btn btn-cookie bg-white dropdown-cookie text-cookie-secondary mx-1 mt-3 px-4">취소</a>
            			</div>

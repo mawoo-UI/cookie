@@ -35,7 +35,7 @@
 					
 					<div class="text-center mt-3">
 						<button type="submit" class="btn btn-cookie-secondary mx2 mt-3 px-4">신청</button>
-           				<a class="btn btn-cookie mx-2 mt-3 px-4">취소</a>
+           				<a href="${cp}oneday/list" class="btn btn-cookie mx-2 mt-3 px-4">취소</a>
            			</div>
 				</form>			
 			</main>
