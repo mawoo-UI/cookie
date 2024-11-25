@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="mapper.ClassSubjectMapper">
+  	<select id="selectOne" resultType="vo.ClassSubject">
+  		select * from tbl_class_subject where sno = #{sno}
+  	</select>
+  	<select id="selectList" resultType="vo.ClassSubject">
+  		select * from tbl_class_subject
+  	</select>
+  	<insert id="insert">
+  		insert into tbl_class_subject(sname, max_entry, price, location, starter)
+  		values (#{sname}, #{maxEntry}, #{price}, #{location}, #{starter})
+  	</insert>
+  	<delete id="delete">
+  		delete from tbl_class_subject where sno = #{sno}
+  	</delete>
+  </mapper>
