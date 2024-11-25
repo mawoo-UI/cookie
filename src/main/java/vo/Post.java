@@ -14,7 +14,7 @@ import lombok.Data;
 public class Post {
 
 	private Long pno; 
-	private	String title;
+	private String title;
 	private String content;
 	private String writer;
 	private Long likes;

@@ -30,3 +30,4 @@ local.properties
 /src/main/resources/rebel.xml
 
 Servers/
+db.properties
