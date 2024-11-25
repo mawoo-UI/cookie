@@ -12,7 +12,7 @@
 				<hr class="text-cookie-secondary my-5">
 				<div class="clearfix">
 					<div class="float-start border-cookie-right mx-5 px-4">
-						<img src="imgs/class-thumbnail.jpg" alt="썸네일" class="img-fluid review-cookie mx-5">
+						<img src="${cp}imgs/class-thumbnail.jpg" alt="썸네일" class="img-fluid review-cookie mx-5">
 					</div>
 					<div class="py-1 mx-4 float-start">
 						<form class="mx-4">
