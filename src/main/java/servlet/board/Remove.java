@@ -21,14 +21,14 @@ public class Remove extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String pnoStr = req.getParameter("pno");
-		Object memberObject = req.getSession().getAttribute("member");
+//		Object memberObject = req.getSession().getAttribute("member");
 		Criteria cri = new Criteria(req);
 		String redirectUrl = "list?" + cri.getQs2();
 		
-		if(pnoStr == null || memberObject == null) {
-			Commons.printMsg("비정상적인 접근입니다",redirectUrl, resp);
-			return;
-		}
+//		if(pnoStr == null || memberObject == null) {
+//			Commons.printMsg("비정상적인 접근입니다",redirectUrl, resp);
+//			return;
+//		}
 		Long pno = Long.valueOf(pnoStr);
 //		Member m = (Member) memberObject;
 //		if(!m.getId().equals(service.findBy(pno).getWriter())) {

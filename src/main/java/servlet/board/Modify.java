@@ -38,7 +38,7 @@ public class Modify extends HttpServlet {
 //		
 //		}
 		req.setAttribute("cri", cri);
-		req.setAttribute("post", service.findBy(pno));
+		req.setAttribute("board", service.findBy(pno));
 		req.getRequestDispatcher("/WEB-INF/jsp/board/modify.jsp").forward(req, resp);
 		
 	}
