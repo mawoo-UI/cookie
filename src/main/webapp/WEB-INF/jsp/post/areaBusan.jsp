@@ -1,70 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel='stylesheet'href='../css/style.css'>
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+	<jsp:include page="../../common/head.jsp" />
 </head>
 <body>
-    <header class="container-fluid mb-0">
-        <div class="container clearfix p-2 pb-0">
-            <div class="row my-2">
-                <a href="index.html" class="logo-cookie p-3"><img src="../imgs/logo.png" alt="로고" class="img-fluid" width="250"></a>
-                <div class="col-9">
-                    <div class="clearfix">
-                        <h1 class="fw-bold p-3 float-start">Cookie new cookie</h1>
-                        <div class="input-group mt-2 p-3 w-25 float-start">
-                            <input type="text" class="form-control" placeholder="검색어 입력" name="keyword" value="">
-                            <button class="btn btn-cookie" type="submit"><i class="fa-solid fa-magnifying-glass" style="color: #a67c68;"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <a class="btn btn-cookie-secondary my-4">회원가입</a>
-                    <a class="btn btn-cookie my-4">로그인</a>
-                </div>
-            </div>
-        </div>
-        <hr class="mb-0">
-    </header>
-    <div class="container">
-        <nav class="navbar navbar-expand-sm">
-            <ul class="navbar-nav container justify-content-center">
-                <li class="nav-item dropdown mx-5">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">원데이 클래스</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">클래스 개설 신청</a></li>
-                        <li><a class="dropdown-item" href="#">희망 클래스 신청</a></li>
-                        <li><a class="dropdown-item" href="#">리뷰 작성</a></li>
-                    </ul>
-                </li>
-                <li><a class="dropdown-item mx-5" href="Post_Hobby_Group.html">취미 모임</a></li>
-                <li class="nav-item dropdown mx-5">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">커뮤니티</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="Post_Free_bulletin_board.html">자유게시판</a></li>
-                        <li><a class="dropdown-item" href="Postboard_Area .html">지역게시판</a></li>
-                    </ul>
-                </li>
-                <li><a class="dropdown-item mx-5" href="#">공지사항</a></li>
-                <li><a class="dropdown-item mx-5" href="#">마이페이지</a></li>
-            </ul>
-        </nav>
-        <hr class="m-0 text-cookie-secondary">
-    </div>
-    
-    <div class="container mt-3">
-        <h2 class="text-center ">대구</h2>
+	<div class="wrap">
+		<jsp:include page="../../common/header.jsp" />
+		<main class="container">
+		<div class="container mt-3">
+        <h2 class="text-center ">부산</h2>
             <div>
                 <div class="container">
                     <nav class="navbar navbar-expand-sm">
@@ -111,55 +57,55 @@
                         <td class="text-center">20</td>
                         <img>
                         <td class="text-left">내년엔 얼마나 더 더울까</td>
-                        <td class="text-center">김태양</td>
+                        <td class="text-center">김화성</td>
                         <td class="text-center">2024-11-18</td>
-                        <td class="text-center">0</td>
+                        <td class="text-center">1</td>
                     </tr>
                     <tr>
                         <td class="text-center">19</td>
-                        <td class="text-left">뭉티기 맛집알려줘</td>
-                        <td class="text-center">마강함</td>
+                        <td class="text-left">해운대 쪽 집들 왜이렇게 비싸냐;</td>
+                        <td class="text-center">김풍</td>
                         <td class="text-center">2024-11-18</td>
                         <td class="text-center">0</td>
                     </tr>
                     <tr>
                         <td class="text-center">18</td>
-                        <td class="text-left">할게 없다</td>
-                        <td class="text-center">김진희</td>
+                        <td class="text-left">담주에 부산가는데 할거추천좀</td>
+                        <td class="text-center">강아지</td>
                         <td class="text-center">2024-11-18</td>
                         <td class="text-center">0</td>
                     </tr>
                     <tr>
                         <td class="text-center">17</td>
-                        <td class="text-left">영화관 음향 오지는데 없냐?</td>
-                        <td class="text-center">김강원</td>
+                        <td class="text-left">맛집 추천 받음(경남)</td>
+                        <td class="text-center">마풍강</td>
                         <td class="text-center">2024-11-18</td>
                         <td class="text-center">0</td>
                     </tr>
                     <tr>
                         <td class="text-center">16</td>
-                        <td class="text-left">대구대굴ㄹㄹ</td>
-                        <td class="text-center">엄준식</td>
+                        <td class="text-left">할거 추천해줘</td>
+                        <td class="text-center">이정희</td>
                         <td class="text-center">2024-11-18</td>
                         <td class="text-center">0</td>
                     </tr>
                     <tr>
                         <td class="text-center">15</td>
-                        <td class="text-left">카페 추천해줘()</td>
+                        <td class="text-left">카페 추천해줘(경남)</td>
                         <td class="text-center">곽마원</td>
                         <td class="text-center">2024-11-18</td>
                         <td class="text-center">0</td>
                     </tr>
                     <tr>
                         <td class="text-center">14</td>
-                        <td class="text-left">여기 근처 치킨집이</td>
+                        <td class="text-left">여기 근처에 재즈바 있음?</td>
                         <td class="text-center">임꺽정</td>
                         <td class="text-center">2024-11-18</td>
                         <td class="text-center">0</td>
                     </tr>
                     <tr>
                         <td class="text-center">13</td>
-                        <td class="text-left">아빠 안잔다</td>
+                        <td class="text-left">원데이 클래스 재밌었던데 있었어?</td>
                         <td class="text-center">김풍</td>
                         <td class="text-center">2024-11-18</td>
                         <td class="text-center">0</td>
@@ -176,6 +122,11 @@
             <li class="page-item"><a class="page-link border-0 text-dark" href="#"><i class="fa-solid fa-angle-right" style="color: #493208;"></i></a></li>
         </ul>
     </div>
-    </div>
+   </div>
+		</main>
+		<!-- 풋터 -->
+		<jsp:include page="../../common/footer.jsp" />
+	</div>
+
 </body>
 </html>
