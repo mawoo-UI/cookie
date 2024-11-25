@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="mapper.ClassCurriculumMapper">
+  	<select id="selectOne" resultType="vo.ClassCurriculum">
+  		select * from tbl_class_curriculum where ccno = #{ccno}
+  	</select>
+  	<select id="selectList" resultType="vo.ClassCurriculum">
+  		select * from tbl_class_curriculum
+  	</select>
+  	<insert id="insert">
+  		insert into tbl_class_curriculum (lname, host, startdate, max_entry, price, location)
+  		values(#{lname}, #{host}, #{startdate}, #{maxEntry}, #{price}, #{location})
+  	</insert>
+  	<delete id="delete">
+  		delete from tbl_class_curriculum where ccno = #{ccno}
+  	</delete>
+  </mapper>
