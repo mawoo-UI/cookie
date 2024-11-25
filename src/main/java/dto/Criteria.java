@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class Criteria {
 	private int page = 1; //처음 보여주는 페이지
 	private int amount = 10; //게시물 갯수
-	private int category = 2; //게시물 조회(페이지 관여)
+	private int category = 1; //게시물 조회(페이지 관여)
 	private String type;
 	private String keyword;
 	

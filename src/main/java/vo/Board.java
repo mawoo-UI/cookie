@@ -18,7 +18,7 @@ public class Board {
 	private String content;
 	private String writer;
 	private Long likes;
-	private Long view_count;
+	private Long viewCount;
 	private Date regdate;
 	private Date updatedate;
 	private int cno;
@@ -32,7 +32,7 @@ public class Board {
 		this.content = content;
 		this.writer = writer;
 		this.likes = likes;
-		this.view_count = view_count;
+		this.viewCount = view_count;
 		this.regdate = regdate;
 		this.cno = cno;
 		
