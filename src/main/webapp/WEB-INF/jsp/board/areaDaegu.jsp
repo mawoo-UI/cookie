@@ -10,7 +10,7 @@
 		<jsp:include page="../../common/header.jsp" />
 		<main class="container">
 		<div class="dropdown">
-            <a href="Postpage.html" class="btn btn-cookie btn-sm float-end" >글 작성하기</a>
+            <a href="Boardpage.html" class="btn btn-cookie btn-sm float-end" >글 작성하기</a>
         </div>
         
         <table class="table table-hover">

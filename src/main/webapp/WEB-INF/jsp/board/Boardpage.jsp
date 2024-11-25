@@ -22,8 +22,8 @@
                 카테고리
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="Post_Free_bulletin_board.html">자유게시판</a></li>
-                <li><a class="dropdown-item" href="Postboard_Area .html">지역게시판</a></li>
+                <li><a class="dropdown-item" href="BoardFree_bulletin_board.html">자유게시판</a></li>
+                <li><a class="dropdown-item" href="BoardArea .html">지역게시판</a></li>
             </ul>
             <thead>
                 <textarea class="form-control" rows="5" id="comment" name="text" placeholder="내용입력"></textarea>

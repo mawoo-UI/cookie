@@ -40,7 +40,7 @@
                 <li><a class="dropdown-item" href="#">오래된순</a></li>
                 <li><a class="dropdown-item" href="#">인기순</a></li>
             </ul> -->
-            <a href="Postpage.html" class="btn btn-cookie btn-sm float-end" >글 작성하기</a>
+            <a href="Boardpage.html" class="btn btn-cookie btn-sm float-end" >글 작성하기</a>
         </div>
         
         <table class="table table-hover">
