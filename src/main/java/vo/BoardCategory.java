@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 @Builder
 @AllArgsConstructor
-public class Post_category {
+public class BoardCategory {
 
 //	private Long pno;
 //	private String title;

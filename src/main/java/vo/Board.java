@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 @Builder
 @AllArgsConstructor
-public class Post {
+public class Board {
 
 	private Long pno; 
 	private String title;
@@ -25,7 +25,7 @@ public class Post {
 	
 //	@Builder.Default
 //	private List<Attach>
-	public Post(Long pno, String title, String content, String writer, Long likes, Long view_count, Date regdate,
+	public Board(Long pno, String title, String content, String writer, Long likes, Long view_count, Date regdate,
 			int cno) {
 		this.pno = pno;
 		this.title = title;

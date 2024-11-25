@@ -11,7 +11,7 @@ public class MybatisInit {
 		return init;
 	}
 	
-	public SqlSessionFactory sqSessionFactory() {
+	public SqlSessionFactory sqlSessionFactory() {
 		String resource = "mybatis-config.xml";
 		InputStream inputStream = getClass().getClassLoader().getResourceAsStream(resource);
 		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
