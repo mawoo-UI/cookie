@@ -1,4 +1,4 @@
-package servlet.post;
+package servlet.board;
 
 import java.io.IOException;
 import java.net.URL;

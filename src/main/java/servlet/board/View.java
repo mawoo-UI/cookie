@@ -1,4 +1,4 @@
-package servlet.post;
+package servlet.board;
 
 import java.io.IOException;
 import java.security.Provider.Service;
@@ -10,21 +10,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dto.Criteria;
-import dto.PageDto;
 import service.BoardService;
 import service.BoardServiceImpl;
+import utils.Commons;
 
 
-@WebServlet("/board/list")
-public class BoardList extends HttpServlet{
+@WebServlet("/board/view")
+public class View extends HttpServlet{
 	private BoardService service = new BoardServiceImpl();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//파라미터 수집
 		Criteria cri = new Criteria(req);
-		System.out.println(cri);
-		req.setAttribute("boards", service.list(cri));
-		req.setAttribute("pageDto", new PageDto(cri, service.count(cri)));
-		req.getRequestDispatcher("/WEB-INF/jsp/board/list.jsp").forward(req, resp);
+		
+		String pnoString = req.getParameter("pno");
+		if(pnoString == null) {
+			Commons.printMsg("비정상적인 접근입니다.", "list", resp);
+			return;
+		}
+		Long pno = Long.valueOf(pnoString);
+		
+		req.setAttribute("board", service.view(pno));
+		req.setAttribute("cri", cri);
+		req.getRequestDispatcher("/WEB-INF/jsp/board/view.jsp").forward(req, resp);
+	
 	}
 }
