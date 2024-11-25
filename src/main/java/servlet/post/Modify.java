@@ -44,7 +44,7 @@ public class Modify extends HttpServlet {
 	}
 
 	@Override
-	protected void doBoard(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //		Object membObject = req.getSession().getAttribute("member");
 		Criteria cri = new Criteria(req);
 		

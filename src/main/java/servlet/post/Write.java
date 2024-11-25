@@ -40,7 +40,7 @@ public class Write extends HttpServlet{
 		String content = req.getParameter("content");
 		String writer = req.getParameter("writer");
 		
-		BoardService.write(Board.builder().title(title).content(content).writer(writer).cno(cri.getCategory()).build());
+		boardService.write(Board.builder().title(title).content(content).writer(writer).cno(cri.getCategory()).build());
 		
 		resp.sendRedirect("list?" +cri.getQs2());
 	}
