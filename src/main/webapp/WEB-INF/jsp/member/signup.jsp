@@ -38,8 +38,8 @@
                         <input type="text" class="form-control" id="id" placeholder name="id">
                         <label for="id">아이디</label>
                     </div>
-                    <button class="btn btn-cookie mt-3 btn-block" type="button"><span class="spinner-border spinner-border-sm"></span> 아이디 중복 확인</button>
-                    <p class="text-danger small mb-0">이미 사용중인 아이디 입니다.</p>
+                    <button class="btn btn-cookie mt-3 btn-block" type="button"><span class="spinner-border spinner-border-sm invisible"></span> 아이디 중복 확인</button>
+                    <p class="text-danger small mb-0 hide">이미 사용중인 아이디 입니다.</p>
                 </div>
 
                 <!-- 비밀번호 -->
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <button class="btn btn-cookie mt-3 btn-block" type="button">입력</button>
-                    <p class="text-danger small mb-0">비밀번호 규칙에 일치하지 않습니다.</p>
+                    <p class="text-danger small mb-0 hide">비밀번호 규칙에 일치하지 않습니다.</p>
                 </div>
 
                 <!-- 이름 -->
@@ -72,10 +72,13 @@
                         <input type="text" class="form-control" id="nick" placeholder name="nick">
                         <label for="nick">닉네임</label>
                     </div>
-                    <button class="btn btn-cookie mt-3 btn-block" type="button">닉네임 중복 체크</button>
+                    <button class="btn btn-cookie mt-3 btn-block" type="button"><span class="spinner-border spinner-border-sm invisible"></span>닉네임 중복 체크</button>
                     <p class="text-danger small mb-0">중복된 닉네임이 존재합니다.</p>
                 </div>
-                <!-- <button class="btn-test" type="button">테스트 버튼</button> -->
+                
+                <div class="area-signup-form area-submit"> 
+                	<button class="btn btn-cookie mt-3 btn-block" >회원 가입</button>
+                </div>
             </form>
         </main>
     </div>
@@ -98,7 +101,9 @@
     <script>
         // 초기 설정
         $(".area-signup-form").hide();
-
+        const duplicatePropsURL = '${cp}member/validaty';
+        const sendEmailAndSessionCheckURL = '${cp}member/sendMail';
+        
         // 비밀번호 가시성 토글
         $(".area-pw a").click(function() {
             event.preventDefault();
@@ -108,8 +113,6 @@
 
         // 인증 이메일 발송
         $("#btnEmailVerify").click(function() {
-            const duplicatePropsURL = '${cp}member/validaty';
-            const sendEmailAndSessionCheckURL = '${cp}member/sendMail';
             // 1. 이메일 중복 여부 확인
             let sendData = {email : $("#email").val()}
             sendData = JSON.stringify(sendData); 	
@@ -120,7 +123,7 @@
             }).done(function(data) {
                 if(!data.result) {
                     console.log('불가능')
-                    $("##btnEmailVerify").parent().find("p").show();
+                    $("#btnEmailVerify").parent().find("p").show();
                     return;
                 }
 	            // 2. 이메일 발송 후 secret값 세션에 지정(제한 시간 5분)
@@ -143,7 +146,75 @@
         // 3. 유효한 secret값 일치 여부 확인
         $(".area-auth-num button").click(function() {
         	console.log("clicked");
+        	$.getJSON(sendEmailAndSessionCheckURL + "/" + $("#authNum").val())
+        	.done(function(data) {
+        		if(!data.result) {
+        			$(".area-auth-num p").show();			
+        			console.log("인증 불일치");
+        			return;
+        		}
+        		console.log("인증일치");
+        		$(".area-auth-num p").hide();
+        		$(".area-auth-num").hide();
+        		$(".area-id").addClass("d-grid").show();
+        	})
+        	.fail(function(xhr) {
+        		console.log(xhr);
+        	});
+        });
+        
+        $(".area-id button").click(function() {
+        	let sendData = {id : $("#id").val()}
+            sendData = JSON.stringify(sendData); 	
+            console.log(sendData)
+            $.ajax(duplicatePropsURL, {
+            	data:sendData,
+                method:"post",
+            	beforeSend : function() {
+            		$(".area-id button").prop("disabled", true).find("span").removeClass("invisible")
+            	}
+            }).done(function(data) {
+                if(!data.result) {
+                    console.log('불가능')
+                    $(".area-id").parent().find("p").show();
+                    return;
+                }
+                $(".area-id button").prop("disabled", false).find("span").addClass("visible")
+                $(".area-id").hide();
+                $(".area-pw").addClass("d-grid").show();
+            });
+        });
+        
+        // 비밀번호 확인 버튼 이벤트
+        $(".area-pw button").click(function() {
+        	$(".area-pw").hide();
+        	$(".area-nick").addClass("d-grid").show();
         })
+        
+        // 닉네임 중복 확인 버튼 이벤트
+        $(".area-nick button").click(function() {
+        	let sendData = {id : $("#id").val()}
+            sendData = JSON.stringify(sendData); 	
+            console.log(sendData)
+            $.ajax(duplicatePropsURL, {
+            	data:sendData,
+                method:"post",
+            	beforeSend : function() {
+            		$(".area-nick button").prop("disabled", true).find("span").removeClass("invisible")
+            	}
+            }).done(function(data) {
+                if(!data.result) {
+                    console.log('불가능')
+                    $(".area-nick").find("p").show();
+                    return;
+                }
+                $(".area-nick button").prop("disabled", false).find("span").addClass("visible")
+                $(".area-nick").hide();
+                
+                // submit 버튼 활성화
+                $(".area-submit").addClass("d-grid").show();
+            });
+        });
         
 
         // $(".btn-test").click(function() {
