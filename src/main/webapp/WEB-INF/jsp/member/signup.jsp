@@ -9,46 +9,74 @@
     <div class="wrap">
         <main class="container">
             <div class="row col-md-12 m-2">
-	            <div class="container d-flex p-2 text-center justify-content-center">
-	            	<div class="text-center d-flex m-3" >
-		                <a href="index.html"><img src="${cp}/imgs/free-icon-cookie-2682369.png" class="img-fluid" alt="로고" width="50px"></a>
-		                <h1 class="fw-bold ms-2">Cookie new Cookie</h1>
-	                </div>
-	            </div>
-	            <form name="frm"class="mx-auto col-lg-5 card p-4 mt-2">
-	                <input type="text" class="form-control mt-3" id="id" placeholder="아이디" name="id">
-	                <input type="password" class="form-control mt-3" id="pwd" placeholder="비밀번호" name="pwd">
-	                <input type="email" class="form-control mt-3" id="email" placeholder="이메일 주소" name="email">
-	                <input type="text" class="form-control mt-3" id="name" placeholder="이름" name="name">
-	                <input type="text" class="form-control mt-3" id="birth" placeholder="생년월일" name="birth">
-	                <div class="input-group my-3">
-	                    <input type="text" class="form-control" placeholder="주소" readonly id="roadAddr">
-	                    <button class="btn-cookie btn btn-primary" id="search" type="button" onclick="goPopup()">주소 검색</button>
-	                </div>
-	                <input type="text" class="form-control mt-3" id="detailAddr" placeholder="상세주소" name="detail_addr" readonly>
-	                <input type="text" class="form-control my-3" id="tel" placeholder="휴대전화번호" name="tel">
-	                <button class="btn-cookie btn btn-primary" id="check" type="button">휴대폰 본인확인</button>
-	                <input type="text" class="form-control mt-3" id="" placeholder="가입경로" name="">
-	                <select class="form-select my-3">
-	                    <option>취미선택(최대 3개 선택 가능)</option>
-	                    <option>배드민턴</option>
-	                    <option>주식</option>
-	                    <option>게임</option>
-	                    <option>독서</option>
-	                    <option>수영</option>
-	                    <option>축구</option>
-	                    <option>헬스</option>
-	                    <option>여행</option>
-	                    <option>등산</option>
-	                    <option>요리</option>
-	                    <option>음악감상</option>
-	                </select>
-	                <div>
-	                    <button class="btn-cookie btn float-start" style="width: 49%;">취소</button>
-	                    <button class="btn-cookie btn float-end" style="width: 49%;">가입완료</button>
-	                </div>
-	            </form>
-    		</div>
+            <div class="container clearfix p-2 text-center">
+                <a href="index.html" class="float-center"><img src="${cp}imgs/free-icon-cookie-2682369.png" class="img-fluid" alt="로고" width="50px"></a>
+                <span class="text-center fw-bold p-3" style="font-size: 32px;">Cookie new Cookie</span>
+            </div>
+            <form name="frm"class="mx-auto col-lg-5 card p-4 mt-5">
+                <!-- 이메일 -->
+                <div class="area-signup-form area-email d-grid">
+                    <div class="form-floating mt-3">
+                        <input type="text" class="form-control" id="email" placeholder name="email">
+                        <label for="email">Email을 입력하세요.</label>
+                    </div>
+                    <button class="btn btn-cookie mt-3 btn-block" type="button" id="btnEmailVerify"><span class="spinner-border spinner-border-sm invisible"></span> 이메일 인증</button>
+                    <p class="text-danger small mb-0 hide">이미 사용중인 이메일 입니다.</p>
+                </div>
+                <div class="area-signup-form area-auth-num hide">                    
+                    <div class="form-floating mt-3">
+                        <input type="text" class="form-control" id="authNum" placeholder name="authNum">
+                        <label for="authNum">인증번호</label>
+                    </div>
+                    <button class="btn btn-cookie mt-3 btn-block" type="button">인증번호 확인</button>
+                    <p class="text-danger small mb-0 hide">인증번호가 일치하지 않습니다.</p>
+                </div>
+
+                <!-- 아이디 -->
+                <div class="area-signup-form area-id">
+                    <div class="form-floating mt-3">
+                        <input type="text" class="form-control" id="id" placeholder name="id">
+                        <label for="id">아이디</label>
+                    </div>
+                    <button class="btn btn-cookie mt-3 btn-block" type="button"><span class="spinner-border spinner-border-sm"></span> 아이디 중복 확인</button>
+                    <p class="text-danger small mb-0">이미 사용중인 아이디 입니다.</p>
+                </div>
+
+                <!-- 비밀번호 -->
+                <div class="area-signup-form area-pw">
+                    <div class="form-floating mt-3 position-relative">
+                        <input type="password" class="form-control" id="password" placeholder name="password">
+                        <label for="password">비밀번호</label>
+                        <div class="position-absolute" style="top:18px; right:18px">
+                            <a href="#" class="text-cookie-secondary"><i class="fa-regular fa-eye" title="비밀번호 보기"></i></a>
+                            <a href="#" class="text-cookie-secondary  d-none"><i class="fa-regular fa-eye-slash" title="비밀번호 숨기기"></i></a>
+                        </div>
+                    </div>
+                    <button class="btn btn-cookie mt-3 btn-block" type="button">입력</button>
+                    <p class="text-danger small mb-0">비밀번호 규칙에 일치하지 않습니다.</p>
+                </div>
+
+                <!-- 이름 -->
+                <div class="area-signup-form area-name">
+                    <div class="form-floating mt-3">
+                        <input type="text" class="form-control" id="name" placeholder name="name">
+                        <label for="name">이름</label>
+                    </div>
+                    <button class="btn btn-cookie mt-3 btn-block" type="button">입력</button>
+                    <p class="text-danger small mb-0">이름 규칙에 일치하지 않습니다.</p>
+                </div>
+
+                <!-- 닉네임 -->
+                <div class="area-signup-form area-nick">
+                    <div class="form-floating mt-3">
+                        <input type="text" class="form-control" id="nick" placeholder name="nick">
+                        <label for="nick">닉네임</label>
+                    </div>
+                    <button class="btn btn-cookie mt-3 btn-block" type="button">닉네임 중복 체크</button>
+                    <p class="text-danger small mb-0">중복된 닉네임이 존재합니다.</p>
+                </div>
+                <!-- <button class="btn-test" type="button">테스트 버튼</button> -->
+            </form>
         </main>
     </div>
     <script>
@@ -67,5 +95,60 @@
 		$("#detailAddr").val(detailAddr);
     }
     </script>
+    <script>
+        // 초기 설정
+        $(".area-signup-form").hide();
+
+        // 비밀번호 가시성 토글
+        $(".area-pw a").click(function() {
+            event.preventDefault();
+            const $pw = $(this).parent().find("a").toggleClass("d-none").closest(".area-pw").find("input");
+            $pw.attr("type") == "password" ? $pw.attr("type", "text") : $pw.attr("type", "password") 
+        })
+
+        // 인증 이메일 발송
+        $("#btnEmailVerify").click(function() {
+            const duplicatePropsURL = '${cp}member/validaty';
+            const sendEmailAndSessionCheckURL = '${cp}member/sendMail';
+            // 1. 이메일 중복 여부 확인
+            let sendData = {email : $("#email").val()}
+            sendData = JSON.stringify(sendData); 	
+            console.log(sendData)
+            $.ajax(duplicatePropsURL, {
+            	data:sendData,
+                method:"post"
+            }).done(function(data) {
+                if(!data.result) {
+                    console.log('불가능')
+                    $("##btnEmailVerify").parent().find("p").show();
+                    return;
+                }
+	            // 2. 이메일 발송 후 secret값 세션에 지정(제한 시간 5분)
+	            $.ajax({
+	            	method:"post",
+	            	data : sendData,
+	            	url : sendEmailAndSessionCheckURL,
+	            	beforeSend : function() {
+	            		$("#btnEmailVerify").prop("disabled", true).find("span").removeClass("invisible")
+	            	}
+	            })
+	            .done(function(data) {
+	            	$("#btnEmailVerify").prop("disabled", false).hide().find("span").addClass("invisible");
+	            	console.log('메일 발송 완료');
+	            	$(".area-auth-num").addClass("d-grid").show();
+	            });
+                
+            })
+        })
+        // 3. 유효한 secret값 일치 여부 확인
+        $(".area-auth-num button").click(function() {
+        	console.log("clicked");
+        })
+        
+
+        // $(".btn-test").click(function() {
+        //     $(".area-id").slideToggle(200).toggleClass("d-grid")
+        // })
+    </script>  
 </body>
 </html>

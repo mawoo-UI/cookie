@@ -55,5 +55,21 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public boolean validateMember(Member member) {
+		// TODO Auto-generated method stub
+		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession()) {
+			MemberMapper mapper = session.getMapper(MemberMapper.class);
+			return mapper.selectValid(member) == null;
+		}
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(MemberServiceImpl.getInstance()
+				.validateMember(Member.builder().nick("왕").build()));
+	}
+	
+	
 	
 }

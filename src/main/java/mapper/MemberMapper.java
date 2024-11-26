@@ -5,4 +5,5 @@ import vo.Member;
 public interface MemberMapper {
 	int insert(Member member);
 	Member selectOne(String id);
+	Member selectValid(Member member);
 }

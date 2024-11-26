@@ -22,4 +22,5 @@ public class Member {
 	private boolean admin;
 	private boolean email_check;
 	private boolean marketing_agree;
+	private String nick;
 }

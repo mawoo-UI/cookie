@@ -10,4 +10,18 @@
   insert into tbl_member (id, pw, name, email, road_addr, detail_addr)
 	values(#{id},#{pw}, #{name},#{email},#{roadAddr},#{detailAddr})
   </insert>
+  
+  <select id="selectValid" resultType="vo.Member">
+  select * from tbl_member where 
+  <if test="id != null">
+  id = #{id}
+  </if>
+  <if test="email != null">
+  email = #{email}
+  </if>
+  <if test="nick != null">
+  nick = #{nick}
+  </if>
+  </select>
+ 
 </mapper>

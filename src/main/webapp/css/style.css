@@ -102,3 +102,5 @@
     color: #a67c68 !important; /* 보조 색상 */
     transition: color 0.3s ease;
   }
+
+  .hide {display:none}

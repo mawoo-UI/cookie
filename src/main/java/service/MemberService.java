@@ -22,4 +22,7 @@ public interface MemberService {
 	
 	// 회원 정보 수정
 	boolean modify(Member member);
+
+	// 회원 가입시 유효값 여부 확인
+	boolean validateMember(Member member);
 }
