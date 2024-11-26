@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -19,14 +20,13 @@
 						<div class="clearfix">
 							<h3 class="fw-bold mb-4">${classItem.title}</h3>
 							<h4 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star"></i></h4>
-							<p><a href="${cp}oneday/regclass?cbno=${cbno}" class="btn btn-cookie float-end">신청하기</a></p>
+							<p><a href="${cp}oneday/regclass?cbno=${param.cbno}" class="btn btn-cookie float-end">신청하기</a></p>
 						</div>
 						<hr class="text-cookie-secondary">
 						<div class="my-2">
-							<p><i class="fa-solid fa-location-dot fa-lg font-icon-cookie px-2"></i>공방 위치: ${location}</p>
+							<p><i class="fa-solid fa-location-dot fa-lg font-icon-cookie px-2"></i>공방 위치: ${classOne.location}</p>
 							<p><i class="fa-regular fa-calendar-check fa-lg font-icon-cookie px-2"></i>
-								진행 날짜: 
-								<c:forEach items="${classes}" var="c" varStatus="status">
+								<c:forEach items="${classList}" var="c" varStatus="status">
 									<c:if test="${not status.last}">
 										<fmt:formatDate value="${c.startdate}" pattern="yyyy/MM/dd" />,								
 									</c:if>
@@ -35,9 +35,9 @@
 									</c:if>
 								</c:forEach>
 							</p>
-							<p><i class="fa-solid fa-sack-dollar fa-lg font-icon-cookie px-2"></i>수강 비용: ${price}원</p>
-							<p><i class="fa-solid fa-user-group fa-lg font-icon-cookie px-2"></i>수강 정원: ${max}명</p>
-							<p><i class="fa-regular fa-clock fa-lg font-icon-cookie px-2"></i>소요 시간: ${dutime} (상황에 따라 달라질 수 있습니다.)</p>
+							<p><i class="fa-solid fa-sack-dollar fa-lg font-icon-cookie px-2"></i>수강 비용: <fmt:formatNumber value="${classOne.price}" type="number" maxFractionDigits="3" ></fmt:formatNumber>원</p>
+							<p><i class="fa-solid fa-user-group fa-lg font-icon-cookie px-2"></i>수강 정원: ${classOne.max}명</p>
+							<p><i class="fa-regular fa-clock fa-lg font-icon-cookie px-2"></i>소요 시간: ${classOne.dutime} (상황에 따라 달라질 수 있습니다.)</p>
 						</div>
 						<div class="text-center mt-5">
 							<a href="${cp}oneday/list" class="btn btn-cookie-secondary px-5">목록</a>

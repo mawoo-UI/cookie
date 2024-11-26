@@ -29,19 +29,9 @@ public class View extends HttpServlet{
 		
 		Long cbno = Long.valueOf(req.getParameter("cbno"));
 		
-		req.setAttribute("classItem", boardClassService.findBy(cbno));
-		req.setAttribute("classes", classCurriculumService.boardList(cbno));
-		
-		int price = classCurriculumService.boardList(cbno).getFirst().getPrice();
-		int maxEntry = classCurriculumService.boardList(cbno).getFirst().getMax();
-		String dutime = classCurriculumService.boardList(cbno).getFirst().getDutime();
-		String location = classCurriculumService.boardList(cbno).getFirst().getLocation();
-		System.out.println(classCurriculumService.boardList(cbno).getFirst());
-		
-		req.setAttribute("price", NumberFormat.getInstance().format(price));
-		req.setAttribute("max", maxEntry);
-		req.setAttribute("dutime", dutime);
-		req.setAttribute("location", location);
+		req.setAttribute("classItem", boardClassService.view(cbno));
+		req.setAttribute("classList", classCurriculumService.boardList(cbno));
+		req.setAttribute("classOne", classCurriculumService.boardOne(cbno));
 		
 		req.getRequestDispatcher("/WEB-INF/jsp/oneday/view.jsp").forward(req, resp);
 	}
