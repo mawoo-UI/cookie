@@ -10,7 +10,15 @@
   		select * from tbl_board_class
   	</select>
   	<select id="showList" resultType="vo.BoardClass">
-  		select * from tbl_board_class where accept = 1
+  		select cbno,
+title,
+content,
+host,
+view_count viewCount,
+regdate,
+updatedate,
+end,
+accept from tbl_board_class where accept = 1
   	</select>
   	<insert id="insert">
   		insert into tbl_board_class(title, content, host)
