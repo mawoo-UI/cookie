@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<jsp:include page="../../common/head.jsp" />
 	</head>
-	<body>
+	<body class="gowun-dodum-regular">
 		<div class="wrap">
 			<jsp:include page="../../common/header.jsp" />
 			<main class="container">
@@ -15,17 +17,27 @@
 					</div>
 					<div class="mt-4">
 						<div class="clearfix">
-							<h3 class="fw-bold mb-4">강아지 수제 간식 만들기 클래스</h3>
+							<h3 class="fw-bold mb-4">${classItem.title}</h3>
 							<h4 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star"></i></h4>
-							<p><a href="${cp}oneday/regclass" class="btn btn-cookie float-end">신청하기</a></p>
+							<p><a href="${cp}oneday/regclass?cbno=${cbno}" class="btn btn-cookie float-end">신청하기</a></p>
 						</div>
 						<hr class="text-cookie-secondary">
 						<div class="my-2">
-							<p><i class="fa-solid fa-location-dot fa-lg font-icon-cookie px-2"></i>공방 위치: 서울특별시 구로구 123-45 ㅇㅇ건물</p>
-							<p><i class="fa-regular fa-calendar-check fa-lg font-icon-cookie px-2"></i>진행 날짜: 2024/11/28, 2024/11/29</p>
-							<p><i class="fa-solid fa-sack-dollar fa-lg font-icon-cookie px-2"></i>수강 비용: 40,000원</p>
-							<p><i class="fa-solid fa-user-group fa-lg font-icon-cookie px-2"></i>수강 정원: 12명</p>
-							<p><i class="fa-regular fa-clock fa-lg font-icon-cookie px-2"></i>소요 시간: 3시간 (상황에 따라 달라질 수 있습니다.)</p>
+							<p><i class="fa-solid fa-location-dot fa-lg font-icon-cookie px-2"></i>공방 위치: ${location}</p>
+							<p><i class="fa-regular fa-calendar-check fa-lg font-icon-cookie px-2"></i>
+								진행 날짜: 
+								<c:forEach items="${classes}" var="c" varStatus="status">
+									<c:if test="${not status.last}">
+										<fmt:formatDate value="${c.startdate}" pattern="yyyy/MM/dd" />,								
+									</c:if>
+									<c:if test="${status.last}">
+										<fmt:formatDate value="${c.startdate}" pattern="yyyy/MM/dd" />
+									</c:if>
+								</c:forEach>
+							</p>
+							<p><i class="fa-solid fa-sack-dollar fa-lg font-icon-cookie px-2"></i>수강 비용: ${price}원</p>
+							<p><i class="fa-solid fa-user-group fa-lg font-icon-cookie px-2"></i>수강 정원: ${max}명</p>
+							<p><i class="fa-regular fa-clock fa-lg font-icon-cookie px-2"></i>소요 시간: ${dutime} (상황에 따라 달라질 수 있습니다.)</p>
 						</div>
 						<div class="text-center mt-5">
 							<a href="${cp}oneday/list" class="btn btn-cookie-secondary px-5">목록</a>
@@ -37,7 +49,8 @@
 					<div class="cookie-menu-review col-6 p-0 text-center border-cookie-bottom"><p>리뷰(15)</p></div>
 				</div>
 				<div class="cookie-detail my-5 px-5 d-block">
-					<hr class="text-cookie-secondary my-3">
+					${classItem.content}
+					<%-- 
 					<pre>
 					
 <i class="fa-solid fa-magnifying-glass fa-lg text-dark px-2"></i>커리큘럼 소개
@@ -57,7 +70,7 @@
 	
 	! 재료 추가 시 별도로 비용이 청구될 수 있어요 :)
 					
-					</pre>
+					</pre> --%>
 				</div>
 				<div class="cookie-review mx-3 mt-3 d-none">
 					<div class="review-content d-flex justify-content-around">
