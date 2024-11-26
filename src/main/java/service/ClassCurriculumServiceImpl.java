@@ -50,4 +50,12 @@ public class ClassCurriculumServiceImpl implements ClassCurriculumService{
 		}
 	}
 
+	@Override
+	public ClassCurriculum boardOne(Long cbno) {
+		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
+			ClassCurriculumMapper mapper = session.getMapper(ClassCurriculumMapper.class);
+			return mapper.selectBoardOne(cbno);
+		}
+	}
+
 }

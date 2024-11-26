@@ -9,6 +9,8 @@ public interface ClassCurriculumService {
 	
 	List<ClassCurriculum> boardList(Long cbno);
 	
+	ClassCurriculum boardOne(Long cbno);
+	
 	ClassCurriculum findBy(Long ccno);
 	
 	int write(ClassCurriculum classCurriculum);

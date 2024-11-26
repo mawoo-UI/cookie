@@ -12,6 +12,9 @@
   	<select id="selectBoardList" resultType="vo.ClassCurriculum">
   		select * from tbl_class_curriculum where cbno = #{cbno}
   	</select>
+  	<select id="selectBoardOne" resultType="vo.ClassCurriculum">
+  		select * from tbl_class_curriculum where cbno = #{cbno} limit 1
+  	</select>
   	<insert id="insert">
   		insert into tbl_class_curriculum (lname, host, startdate, max, price, location)
   		values(#{lname}, #{host}, #{startdate}, #{max}, #{price}, #{location})
