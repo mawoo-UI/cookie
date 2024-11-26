@@ -10,11 +10,11 @@
 	<div class="wrap">
 		<jsp:include page="../../common/header.jsp" />
 		<main class="container">
-    <div class="container mt-3">
-        <h2 class="text-center ">자유게시판</h2>
-        <div class="dropdown">
-            <a href="write?${boardDto.cri.qs2}" class="btn btn-cookie btn-sm float-end" >글 작성하기</a>
-        </div>
+		    <div class="container mt-3">
+		        <h2 class="text-center ">자유게시판</h2>
+		        <div class="dropdown">
+		            <a href="write?${pageDto.cri.qs2}" class="btn btn-cookie btn-sm float-end" >글 작성하기</a>
+		        </div>
         
         <table class="table table-hover ">
             <thead>

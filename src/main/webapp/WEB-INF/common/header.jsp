@@ -35,16 +35,16 @@
                     <li><a class="dropdown-item" href="${cp}oneday/writereview">리뷰 작성</a></li>
                 </ul>
             </li>
-            <li><a class="dropdown-item mx-5" href="${cp}board/hobbygroup">취미 모임</a></li>
+            <li><a class="dropdown-item mx-5" href="${cp}/board/list?category=1">취미 모임</a></li>
             <li class="nav-item dropdown mx-5">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">커뮤니티</a>
                 <ul class="dropdown-menu dropdown-cookie">
-                    <li><a class="dropdown-item" href="${cp}board/list">자유게시판</a></li>
-                   	<li><a class="dropdown-item" href="${cp}board/areapage">지역게시판</a></li>
+                    <li><a class="dropdown-item" href="${cp}/board/list?category=2">자유게시판</a></li>
+                   	<li><a class="dropdown-item" href="${cp}/board/list?category=3">지역게시판</a></li>
                 </ul>
             </li>
-            <li><a class="dropdown-item mx-5" href="#">공지사항</a></li>
-            <li><a class="dropdown-item mx-5" href="#">마이페이지</a></li>
+            <li><a class="dropdown-item mx-5" href="${cp}/board/list?category=4">공지사항</a></li>
+            <li><a class="dropdown-item mx-5" href="${cp}/member/mypage">마이페이지</a></li>
         </ul>
     </nav>
     <hr class="m-0 text-cookie-secondary">
