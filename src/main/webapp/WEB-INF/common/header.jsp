@@ -13,9 +13,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-2">
-                <a href="signup" class="btn btn-cookie-secondary my-4">회원가입</a>
-                <a href="signin" class="btn btn-cookie my-4">로그인</a>
+            <div class="col-1 p-0 text-end">
+                <a href="${cp}member/signup" class="btn btn-cookie-secondary my-4 px-2">회원가입</a>
+            </div>
+            <div class="col-1 p-0 text-center">
+                <a href="${cp}member/signin" class="btn btn-cookie my-4">로그인</a>
             </div>
         </div>
     </div>
