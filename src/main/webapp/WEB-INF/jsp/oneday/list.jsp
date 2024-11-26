@@ -27,36 +27,22 @@
 						<hr class="m-0 text-cookie-secondary">
 					</div>
 				</div>
-				<%-- <div class="mt-4 class-lists row ">
-				<c:forEach items="${classes}" var="s" varStatus="status">
-					<div class="p-0 text-center oneday-list-cookie col-2 ${status.last ? 'me-auto' : ''} m-2">
-						<a href="${cp}oneday/view?cbno=${s.cbno}" class="text-decoration-none text-dark"><img src="${cp}imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
-						<div class="stars clearfix d-block">
-							<c:forEach begin="1" end="5">
-							<i class="float-start text-warning  fa-solid fa-star small"></i>
-							</c:forEach>
-						</div>
-						<div class="p-0 text-start text-truncate"><a href="${cp}oneday/view?cbno=${s.cbno}" class="text-decoration-none text-dark">${s.title}</a></div>
-					</div>
-				</c:forEach>
-				</div> --%>
-				<div class="text-center">
-					<div class="mt-4 class-lists clearfix d-table">
+				<div class="row mt-2">
 					<c:forEach items="${classes}" var="s" varStatus="status">
-						<div class="p-0 text-center oneday-list-cookie col-2 m-2 float-start">
-							<a href="${cp}oneday/view?cbno=${s.cbno}" class="text-decoration-none text-dark"><img src="${cp}imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
-							<div class="stars clearfix d-block">
-								<c:forEach begin="1" end="5">
-								<i class="float-start text-warning  fa-solid fa-star small"></i>
-								</c:forEach>
-							</div>
-							<div class="p-0 text-start text-truncate"><a href="${cp}oneday/view?cbno=${s.cbno}" class="text-decoration-none text-dark">${s.title}</a></div>
-						</div>
+						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2 ">
+			                <div>
+			                	<a href="${cp}oneday/view?cbno=${s.cbno}"><img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid"></a>
+			                	<div class="stars clearfix d-block mt-2">
+									<c:forEach begin="1" end="5">
+										<i class="float-start text-warning fa-solid fa-star small"></i>
+									</c:forEach>
+									<p class="text-secondary small m-0 p-0 text-end">조회수: ${s.viewCount}</p>
+								</div>
+								<a href="${cp}oneday/view?cbno=${s.cbno}" class="text-decoration-none text-dark">${s.title}</a>
+			                </div>
+			            </div>
 					</c:forEach>
-					</div>
 				</div>
-				
-				
 				<p class="text-center mt-4"><a href="#" class="text-secondary">더보기</a></p>
 			</main>
 			<jsp:include page="../../common/footer.jsp" />
