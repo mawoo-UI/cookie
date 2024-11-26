@@ -13,6 +13,7 @@
 		<result column="view_count" property="viewCount" />
 		<result column="cno" property="cno" />
 		<result column="attach_flag" property="attachFlag" />
+		<result column="likes" property="likes" />
 	</resultMap>
   	<insert id="insert">
    	 insert into tbl_board (title, writer, content, cno) values(#{title},#{writer},#{content},#{cno})
@@ -38,11 +39,12 @@
     	update tbl_board set view_count = view_count +1 where pno = #{pno}
 	 </update>
 	 <delete id="delete" >
-    	delete from tbl_board where pno = #{pno}
+    	delete from tbl_board where pno = #{pno} 
 	 </delete>
-  <insert id="write">
-  insert into tbl_board (title, content, writer) values (#{title}, #{content}, #{writer})
-  </insert>
+	  <insert id="write">
+	  insert into tbl_board (title, content, writer) values (#{title}, #{content}, #{writer})
+	  </insert>
+
 </mapper>
 
 

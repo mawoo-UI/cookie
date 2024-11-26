@@ -1,6 +1,8 @@
+<%@page import="vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,12 +21,21 @@
         <input type="file" class="form-control" placeholder="첨부파일" i class="fa-solid fa-paperclip">
         
 		<hr>
-		
+		<%
+			Member member = Member.builder().id("purplecookie").build();
+			request.setAttribute("member", member);
+		%>
         <div class="d-grid gap-2 d-md-block">
             <button type="button" class="btn btn-danger btn-sm">신고</button>
             <a href="#" class="btn btn-light btn-sm mx-2 float-end" >
-                <!-- <i class="fa-solid fa-heart text-danger " ></i>  -->
-                <i class="fa-regular fa-heart text-danger" ></i>
+            	<c:if test="${fn:contains(likes, member.id)}">
+            	<i class="fa-solid fa-heart text-danger " ></i> 
+            	</c:if>
+            	<c:if test="${not fn:contains(likes, member.id)}">
+            	<i class="fa-regular fa-heart text-danger" ></i>
+            	</c:if>
+                 
+                
                 <span>좋아요</span>
             </a>
                 <!--  <button type="button" class="btn btn-cookie-secondary btn-sm">삭제하기</button>
@@ -32,10 +43,10 @@
             
         </div>
         <div class="text-center my-5">
-                    <a href="modify?pno=${board.pno}&${cri.qs2}" class="btn btn-cookie btn-sm ">수정</a>
-                    <a href="remove?pno=${board.pno}&${cri.qs2}" class="btn btn-cookie-secondary btn-sm" onclick="return confirm('삭제하시겠습니까?')">삭제</a>
-                    <a href="list?${cri.qs2}" class="btn btn-cookie btn-sm ">목록</a>
-                </div>
+            <a href="modify?pno=${board.pno}&${cri.qs2}" class="btn btn-cookie btn-sm ">수정</a>
+            <a href="remove?pno=${board.pno}&${cri.qs2}" class="btn btn-cookie-secondary btn-sm" onclick="return confirm('삭제하시겠습니까?')">삭제</a>
+            <a href="list?${cri.qs2}" class="btn btn-cookie btn-sm ">목록</a>
+        </div>
         <div>
             <p class="text-center">댓글 작성하기</p>
             <textarea class="form-control" name="text" placeholder="댓글 쓰기" style="resize: none;" rows="5"></textarea>
