@@ -27,29 +27,36 @@
 						<hr class="m-0 text-cookie-secondary">
 					</div>
 				</div>
+				<%-- <div class="mt-4 class-lists row ">
 				<c:forEach items="${classes}" var="s" varStatus="status">
-					<c:if test="${status.first}">
-						<div class="row mx-3 mt-4 text-center class-lists">
-					</c:if>
-					<div class="p-0 float-start text-center oneday-list-cookie col-2 mx-5">
+					<div class="p-0 text-center oneday-list-cookie col-2 ${status.last ? 'me-auto' : ''} m-2">
 						<a href="${cp}oneday/view?cbno=${s.cbno}" class="text-decoration-none text-dark"><img src="${cp}imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
 						<div class="stars clearfix d-block">
-							<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
-							<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
-							<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
-							<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star small"></i></h6>
-							<h6 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star-half-stroke small"></i></h6>
+							<c:forEach begin="1" end="5">
+							<i class="float-start text-warning  fa-solid fa-star small"></i>
+							</c:forEach>
 						</div>
 						<div class="p-0 text-start text-truncate"><a href="${cp}oneday/view?cbno=${s.cbno}" class="text-decoration-none text-dark">${s.title}</a></div>
 					</div>
-					<c:if test="${status.count % 5 == 0}">
-						</div>
-						<div class="row mx-3 mt-4 text-center class-lists">
-					</c:if>
-					<c:if test="${status.last}">
-						</div>
-					</c:if>
 				</c:forEach>
+				</div> --%>
+				<div class="text-center">
+					<div class="mt-4 class-lists clearfix d-table">
+					<c:forEach items="${classes}" var="s" varStatus="status">
+						<div class="p-0 text-center oneday-list-cookie col-2 m-2 float-start">
+							<a href="${cp}oneday/view?cbno=${s.cbno}" class="text-decoration-none text-dark"><img src="${cp}imgs/class-thumbnail.jpg" alt="로고" class="img-fluid"><br></a>
+							<div class="stars clearfix d-block">
+								<c:forEach begin="1" end="5">
+								<i class="float-start text-warning  fa-solid fa-star small"></i>
+								</c:forEach>
+							</div>
+							<div class="p-0 text-start text-truncate"><a href="${cp}oneday/view?cbno=${s.cbno}" class="text-decoration-none text-dark">${s.title}</a></div>
+						</div>
+					</c:forEach>
+					</div>
+				</div>
+				
+				
 				<p class="text-center mt-4"><a href="#" class="text-secondary">더보기</a></p>
 			</main>
 			<jsp:include page="../../common/footer.jsp" />
