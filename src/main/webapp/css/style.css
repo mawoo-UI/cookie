@@ -1,4 +1,9 @@
 @charset "utf-8";
+.gowun-dodum-regular {
+  font-family: "Gowun Dodum", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 .logo-cookie {
   width: 85px;
   height: 85px;

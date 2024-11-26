@@ -5,7 +5,7 @@
 	<head>
 		<jsp:include page="head.jsp" />
 	</head>
-	<body>
+	<body class="gowun-dodum-regular">
 		<div class="wrap">
 			<header class="container-fluid mb-0">
 			    <div class="container clearfix p-2 pb-0">
