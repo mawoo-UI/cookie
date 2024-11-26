@@ -9,6 +9,8 @@ public interface ClassCurriculumMapper {
 	
 	ClassCurriculum selectOne(Long ccno);
 	
+	List<ClassCurriculum> selectBoardList(Long cbno);
+	
 	int insert(ClassCurriculum classCurriculum);
 	
 	int delete(Long ccno);

@@ -42,4 +42,12 @@ public class ClassCurriculumServiceImpl implements ClassCurriculumService{
 		}
 	}
 
+	@Override
+	public List<ClassCurriculum> boardList(Long cbno) {
+		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
+			ClassCurriculumMapper mapper = session.getMapper(ClassCurriculumMapper.class);
+			return mapper.selectBoardList(cbno);
+		}
+	}
+
 }

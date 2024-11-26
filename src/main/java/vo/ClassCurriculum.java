@@ -13,7 +13,9 @@ public class ClassCurriculum {
 	private String host;
 	private Date startdate;
 	private Date regdate;
-	private int maxEntry;
+	private int max;
 	private int price;
 	private String location;
+	private Long cbno;
+	private String dutime;
 }

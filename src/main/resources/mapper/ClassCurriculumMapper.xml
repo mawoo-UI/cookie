@@ -9,9 +9,12 @@
   	<select id="selectList" resultType="vo.ClassCurriculum">
   		select * from tbl_class_curriculum
   	</select>
+  	<select id="selectBoardList" resultType="vo.ClassCurriculum">
+  		select * from tbl_class_curriculum where cbno = #{cbno}
+  	</select>
   	<insert id="insert">
-  		insert into tbl_class_curriculum (lname, host, startdate, max_entry, price, location)
-  		values(#{lname}, #{host}, #{startdate}, #{maxEntry}, #{price}, #{location})
+  		insert into tbl_class_curriculum (lname, host, startdate, max, price, location)
+  		values(#{lname}, #{host}, #{startdate}, #{max}, #{price}, #{location})
   	</insert>
   	<delete id="delete">
   		delete from tbl_class_curriculum where ccno = #{ccno}

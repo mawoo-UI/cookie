@@ -16,4 +16,5 @@ public class ClassSubject {
 	private Date regdate;
 	private Date updatedate;
 	private String starter;
+	private String dutime;
 }

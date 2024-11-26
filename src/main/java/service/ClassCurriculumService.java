@@ -7,6 +7,8 @@ import vo.ClassCurriculum;
 public interface ClassCurriculumService {
 	List<ClassCurriculum> list();
 	
+	List<ClassCurriculum> boardList(Long cbno);
+	
 	ClassCurriculum findBy(Long ccno);
 	
 	int write(ClassCurriculum classCurriculum);
