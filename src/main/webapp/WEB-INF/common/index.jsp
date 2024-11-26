@@ -21,8 +21,8 @@
 			                </div>
 			            </div>
 			            <div class="col-2">
-			                <a href="signup" class="btn btn-cookie-secondary my-4">회원가입</a>
-			                <a href="signin" class="btn btn-cookie my-4">로그인</a>
+			                <a href="${cp}member/signup" class="btn btn-cookie-secondary my-4">회원가입</a>
+			                <a href="${cp}member/signin" class="btn btn-cookie my-4">로그인</a>
 			            </div>
 			        </div>
 			    </div>
@@ -30,11 +30,11 @@
 			</header>
 			<main class="container">
 				<div class="bxslider pb-0">
-					<div><img src="imgs/slider-1.jpg" /></div>
-					<div><img src="imgs/slider-2.jpg" /></div>
-					<div><img src="imgs/slider-3.jpg" /></div>
-					<div><img src="imgs/slider-1.jpg" /></div>
-					<div><img src="imgs/slider-2.jpg" /></div>
+					<div><img src="${cp}imgs/slider-1.jpg" /></div>
+					<div><img src="${cp}imgs/slider-2.jpg" /></div>
+					<div><img src="${cp}imgs/slider-3.jpg" /></div>
+					<div><img src="${cp}imgs/slider-1.jpg" /></div>
+					<div><img src="${cp}imgs/slider-2.jpg" /></div>
 				</div>
 				<nav class="navbar navbar-expand-sm">
 					<ul class="navbar-nav container justify-content-center">
@@ -47,16 +47,16 @@
 								<li><a class="dropdown-item" href="${cp}oneday/writereview">리뷰 작성</a></li>
 							</ul>
 						</li>
-						<li><a class="dropdown-item mx-5" href="#">취미 모임</a></li>
+						<li><a class="dropdown-item mx-5" href="${cp}/board/list?category=1">취미 모임</a></li>
 						<li class="nav-item dropdown mx-5">
 							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">커뮤니티</a>
 							<ul class="dropdown-menu dropdown-cookie">
-								<li><a class="dropdown-item" href="#">자유게시판</a></li>
-								<li><a class="dropdown-item" href="#">지역게시판</a></li>
+								<li><a class="dropdown-item" href="${cp}/board/list?category=2">자유게시판</a></li>
+								<li><a class="dropdown-item" href="${cp}/board/list?category=3">지역게시판</a></li>
 							</ul>
 						</li>
-						<li><a class="dropdown-item mx-5" href="#">공지사항</a></li>
-						<li><a class="dropdown-item mx-5" href="#">마이페이지</a></li>
+						<li><a class="dropdown-item mx-5" href="${cp}/board/list?category=4">공지사항</a></li>
+						<li><a class="dropdown-item mx-5" href="${cp}/member/mypage">마이페이지</a></li>
 					</ul>
 				</nav>
 				<hr class="m-0 text-cookie-secondary">
