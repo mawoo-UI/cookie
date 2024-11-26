@@ -39,7 +39,7 @@
                 
                 <tr>
                     <td class="text-center">${b.pno}</td>
-                    <td class="text-left"><a href="view?pno=${b.pno}" class="text-cookie-secondary text-decoration-none">${b.title}</a></td>
+                    <td class="text-left"><a href="view?pno=${b.pno}&${pageDto.cri.qs2}" class="text-cookie-secondary text-decoration-none ">${b.title}</a></td>
                     <td class="text-center">${b.writer}</td>
                     <td class="text-center">${b.regdate}</td>
                     <td class="text-center">${b.viewCount}</td>
@@ -69,30 +69,7 @@
 	        </c:if> 
         </ul>
     </div>
-    
-		<%-- ${pageDto}
-        <ul class="pagination justify-content-center my-5">
-        		<c:if test="${pageDto.doublePrev}">
-         	<li class="page-item"><a class="page-link" href="list?page=${pageDto.startPage- 1}&${pageDto.cri.qs}&"><i class="fa-solid fa-angles-left"></i></a></li>
-        		</c:if>
-        		<c:if test="${pageDto.prev}">
-         	<li class="page-item"><a class="page-link" href="list?page=${pageDto.cri.page-1}&${pageDto.cri.qs}"><i class="fa-solid fa-angle-left"></i></a></li>
-         	</c:if>
-         	<c:forEach begin ="${pageDto.startPage}" end="${pageDto.endPage}" var ="page">
-         	<li class="page-item ${page == pageDto.cri.page ? 'active' : ''}"><a class="page-link" href="list?page=${page}&${pageDto.cri.qs}">${page}</a></li>
-         
-         </c:forEach> --%>
-
-         <!-- <li class="page-item active"><a class="page-link" href="#">2</a></li> -->
-         
-         <%-- <c:if test="${pageDto.next}">
-         <li class="page-item"><a class="page-link" href="list?page=${pageDto.cri.page+1}&${pageDto.cri.qs}"><i class="fa-solid fa-angle-right"></i></a></li>
-         </c:if>
-         <c:if test="${pageDto.doubleNext}">
-         <li class="page-item"><a class="page-link" href="list?page=${pageDto.endPage+1}&${pageDto.cri.qs}"><i class="fa-solid fa-angles-right"></i></a></li>
-         </c:if> --%>
 	          <c:forEach items="${posts}" var="post" varStatus="stat" begin="3" end="10" step="2">
-				<%-- <h3>${post.getPno()}</h3> --%>	 
 				<h3>${stat.index} // ${stat.count} // ${post.title}</h3>	
 				<p> ${boards[stat.index] == board} </p>
 			 </c:forEach>

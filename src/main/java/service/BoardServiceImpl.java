@@ -65,6 +65,7 @@ public class BoardServiceImpl implements BoardService {
 	public Board view(Long pno) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			mapper.increaseViewCount(pno);
 			return mapper.selectOne(pno);
 		}
 	}
