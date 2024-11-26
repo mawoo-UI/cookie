@@ -18,5 +18,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 		<mapper resource="mapper/BoardMapper.xml"/>
 		<mapper resource="mapper/MemberMapper.xml"/>
+		<mapper resource="mapper/BoardClassMapper.xml"/>
+		<mapper resource="mapper/ClassCurriculumMapper.xml"/>
+		<mapper resource="mapper/ClassRegMapper.xml"/>
+		<mapper resource="mapper/ClassSubjectMapper.xml"/>
+		<mapper resource="mapper/MyClassMapper.xml"/>
+		<mapper resource="mapper/ReviewMapper.xml"/>
 	</mappers>
 </configuration>
