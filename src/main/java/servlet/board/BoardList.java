@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import dto.Criteria;
 import dto.PageDto;
+import service.BoardCategoryService;
+import service.BoardCategoryServiceImpl;
 import service.BoardService;
 import service.BoardServiceImpl;
 
@@ -18,6 +20,7 @@ import service.BoardServiceImpl;
 @WebServlet("/board/list")
 public class BoardList extends HttpServlet{
 	private BoardService service = new BoardServiceImpl();
+	private BoardCategoryService categoryService = new BoardCategoryServiceImpl(); 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//파라미터 수집
@@ -25,6 +28,7 @@ public class BoardList extends HttpServlet{
 		System.out.println(cri);
 		req.setAttribute("boards", service.list(cri));
 		req.setAttribute("pageDto", new PageDto(cri, service.count(cri)));
+		req.setAttribute("cname", categoryService.findBy(cri.getCategory()).getCname());
 		req.getRequestDispatcher("/WEB-INF/jsp/board/list.jsp").forward(req, resp);
 	}
 }
