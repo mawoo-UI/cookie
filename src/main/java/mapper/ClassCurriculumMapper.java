@@ -1,14 +1,15 @@
 package mapper;
 
-import java.util.Date;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 
 import vo.ClassCurriculum;
 
 public interface ClassCurriculumMapper {
 	List<ClassCurriculum> selectList();
 	
-	ClassCurriculum selectOneByStartdate(Date startdate, String lname);
+	ClassCurriculum selectOneByStartdate(@Param("startdate")String startdate, @Param("cbno")Long cbno);
 	
 	ClassCurriculum selectOne(Long ccno);
 	

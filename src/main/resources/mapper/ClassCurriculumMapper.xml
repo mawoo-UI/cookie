@@ -7,7 +7,7 @@
   		select * from tbl_class_curriculum where ccno = #{ccno}
   	</select>
   	<select id="selectOneByStartdate" resultType="vo.ClassCurriculum">
-  		select * from tbl_class_curriculum where startdate = #{startdate} and lname = #{lname}
+  		select * from tbl_class_curriculum where startdate = #{startdate} and cbno = #{cbno}
   	</select>
   	<select id="selectList" resultType="vo.ClassCurriculum">
   		select * from tbl_class_curriculum

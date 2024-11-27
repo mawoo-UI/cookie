@@ -1,6 +1,5 @@
 package service;
 
-import java.util.Date;
 import java.util.List;
 
 import vo.ClassCurriculum;
@@ -12,7 +11,7 @@ public interface ClassCurriculumService {
 	
 	ClassCurriculum boardOne(Long cbno);
 	
-	ClassCurriculum findByStartdateAndLname(Date startdate, String lname);
+	ClassCurriculum findByStartdateAndCbno(String startdate, Long cbno);
 	
 	ClassCurriculum findBy(Long ccno);
 	

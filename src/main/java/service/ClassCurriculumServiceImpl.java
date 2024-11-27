@@ -60,11 +60,12 @@ public class ClassCurriculumServiceImpl implements ClassCurriculumService{
 	}
 
 	@Override
-	public ClassCurriculum findByStartdateAndLname(Date startdate, String lname) {
+	public ClassCurriculum findByStartdateAndCbno(String startdate, Long cbno) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			ClassCurriculumMapper mapper = session.getMapper(ClassCurriculumMapper.class);
-			return mapper.selectOneByStartdate(startdate, lname);
+			return mapper.selectOneByStartdate(startdate, cbno);
 		}
 	}
+
 
 }
