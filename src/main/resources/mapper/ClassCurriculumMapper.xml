@@ -6,6 +6,9 @@
   	<select id="selectOne" resultType="vo.ClassCurriculum">
   		select * from tbl_class_curriculum where ccno = #{ccno}
   	</select>
+  	<select id="selectOneByStartdate" resultType="vo.ClassCurriculum">
+  		select * from tbl_class_curriculum where startdate = #{startdate} and lname = #{lname}
+  	</select>
   	<select id="selectList" resultType="vo.ClassCurriculum">
   		select * from tbl_class_curriculum
   	</select>
