@@ -9,6 +9,19 @@
 	<select id="selectList" resultType="vo.Review">
 		select * from tbl_review
 	</select>
+	<select id="calcScore" resultType="Double">
+		select round(SUM(tr.score)/count(cbno), 1)
+		from tbl_class_curriculum tcc, tbl_review tr 
+		where tcc.ccno = tr.ccno 
+		and cbno = #{cbno}
+	</select>
+	<select id="getReviews" resultType="vo.Review">
+		select reno, content, (select nick from tbl_member tm where tm.id = tr.writer) writer, score, tr.regdate, updatedate, ccno 
+		from tbl_class_curriculum 
+		join tbl_review tr using(ccno)
+		where cbno = #{cbno.cbno}
+		order by reno
+  	</select>
 	<insert id="insert">
 		insert into tbl_review(content, writer, score, ccno)
 		values (#{content}, #{writer}, #{score}, #{ccno})

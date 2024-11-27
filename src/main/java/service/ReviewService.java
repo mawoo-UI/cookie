@@ -9,6 +9,10 @@ public interface ReviewService {
 	
 	Review findBy(Long regno);
 	
+	Double score(Long cbno);
+	
+	List<Review> findReviews(Long cbno);
+	
 	int write(Review review);
 	
 	int modify(Review review);
