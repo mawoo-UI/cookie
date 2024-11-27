@@ -41,42 +41,20 @@ public class RegisterClass extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String lname = req.getParameter("title"); // ccno 찾기
-		System.out.println("lname ::: " +lname);
+		Long cbno = Long.valueOf(req.getParameter("cbno"));
 		String content = req.getParameter("content");
-		System.out.println("content ::: " +content);
 		String nickname = req.getParameter("nickname");
-		System.out.println("nickname ::: " +nickname);
 		String tel = req.getParameter("tel");
-		System.out.println("tel ::: " +tel);
 		String startdate = req.getParameter("startdate"); // ccno 찾기
-		System.out.println("startdate ::: " +startdate);
 		
-		
-		//startdate = startdate.replace('/', '-');
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-		Date date = new Date();
-		try {
-			date = formatter.parse(startdate);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		//Date start = new Date(startdate);
-		//System.out.println("start ::: " + start);
-		
-		System.out.println(date);
-		
-		ClassCurriculum curriculum = curriculumService.findByStartdateAndLname(date, lname);
+		ClassCurriculum curriculum = curriculumService.findByStartdateAndCbno(startdate, cbno);
 		Long ccno = curriculum.getCcno();
 		String host = curriculum.getHost();
-		
-		System.out.println("curri ::: "+ curriculum);
-		
-		Member member = (Member) req.getSession().getAttribute("member");
-		String writer = member.getId();
+		String writer = req.getParameter("writer");
 		
 		if(host.equals(writer)) {
 			Commons.printMsg("자신의 강좌를 수강 신청 할 수 없습니다.", "view?cbno=" + req.getParameter("cbno"), resp);
+			return;
 		}
 		
 		ClassReg classReg = ClassReg.builder()
@@ -88,6 +66,7 @@ public class RegisterClass extends HttpServlet {
 						.build();
 		System.out.println(classReg);
 		regService.write(classReg);
+		
 		resp.sendRedirect("view?cbno=" + req.getParameter("cbno"));
 	}
 }

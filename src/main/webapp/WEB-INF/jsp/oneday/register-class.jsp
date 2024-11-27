@@ -31,7 +31,9 @@
 					<input type="text" class="form-control dropdown-cookie" id="startdate" name="startdate" value="2024/11/28" readonly>
 	
 					<label for="writer" class="form-label mt-4 text-cookie-secondary"><i class="fa-solid fa-user-pen"></i> <b>작성자</b></label>
-					<input type="text" class="form-control dropdown-cookie" id="writer" name="writer" value="${member.nick}" readonly>
+					<input type="text" class="form-control dropdown-cookie" id="nick" name="nick" value="${member.nick}" readonly>
+					
+					<input type="hidden" id="writer" name="writer" value="${member.id}">
 					
 					<div class="text-center mt-3">
 						<button type="submit" class="btn btn-cookie-secondary mx2 mt-3 px-4">신청</button>
