@@ -33,9 +33,9 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public boolean login(String id, String pw) {
-		Member m = findBy(id);
-		return m != null && m.getPw().equals(pw);
+	public boolean login(Member member) {
+		Member m = findBy(member.getId());
+		return m != null && m.getPw().equals(member.getPw());
 	}
 
 	@Override

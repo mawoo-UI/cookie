@@ -12,7 +12,7 @@ public interface MemberService {
 	Member findBy(String id);
 	
 	// 로그인
-	boolean login(String id, String pw);
+	boolean login(Member member);
 	
 	// 회원 목록
 	List<Member> list();
@@ -25,4 +25,5 @@ public interface MemberService {
 
 	// 회원 가입시 유효값 여부 확인
 	boolean validateMember(Member member);
+
 }

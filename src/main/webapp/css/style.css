@@ -104,3 +104,7 @@
   }
 
   .hide {display:none}
+  
+  .active>.page-link, .page-link.active {
+  	background-color:#e4cbb3;
+  } 

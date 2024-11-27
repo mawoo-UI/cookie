@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.MemberService;
+import service.MemberServiceImpl;
+import utils.Commons;
+import vo.Member;
+
 @SuppressWarnings("serial")
 @WebServlet("/member/signup")
 /**
@@ -18,6 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  * 회원 주소 검색은 juso.go.kr의 팝업API를 사용한다.
  */
 public class Signup extends HttpServlet{
+	private MemberService service = MemberServiceImpl.getInstance();
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getRequestDispatcher("/WEB-INF/jsp/member/signup.jsp").forward(req, resp);
@@ -25,6 +32,9 @@ public class Signup extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Member member = Commons.param(req, Member.class);
+		service.register(member);
+		Commons.printMsg("회원 가입이 완료되었습니다", "signin", resp);
 	}
 	
 }

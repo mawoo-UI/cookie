@@ -7,8 +7,8 @@
     select * from tbl_member where id = #{id}
   </select>
   <insert id="insert">
-  insert into tbl_member (id, pw, name, email, road_addr, detail_addr)
-	values(#{id},#{pw}, #{name},#{email},#{roadAddr},#{detailAddr})
+  insert into tbl_member (id, pw, email, nick)
+	values(#{id},#{pw},#{email},#{nick})
   </insert>
   
   <select id="selectValid" resultType="vo.Member">

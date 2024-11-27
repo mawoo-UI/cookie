@@ -13,7 +13,7 @@
                 <a href="index.html" class="float-center"><img src="${cp}imgs/free-icon-cookie-2682369.png" class="img-fluid" alt="로고" width="50px"></a>
                 <span class="text-center fw-bold p-3" style="font-size: 32px;">Cookie new Cookie</span>
             </div>
-            <form name="frm"class="mx-auto col-lg-5 card p-4 mt-5">
+            <form name="frm"class="mx-auto col-lg-5 card p-4 mt-5" method="post">
                 <!-- 이메일 -->
                 <div class="area-signup-form area-email d-grid">
                     <div class="form-floating mt-3">
@@ -26,7 +26,7 @@
                 <div class="area-signup-form area-auth-num hide">                    
                     <div class="form-floating mt-3">
                         <input type="text" class="form-control" id="authNum" placeholder name="authNum">
-                        <label for="authNum">인증번호</label>
+                        <label for="authNum">메일로 발송된 인증번호를 입력하세요</label>
                     </div>
                     <button class="btn btn-cookie mt-3 btn-block" type="button">인증번호 확인</button>
                     <p class="text-danger small mb-0 hide">인증번호가 일치하지 않습니다.</p>
@@ -36,7 +36,7 @@
                 <div class="area-signup-form area-id">
                     <div class="form-floating mt-3">
                         <input type="text" class="form-control" id="id" placeholder name="id">
-                        <label for="id">아이디</label>
+                        <label for="id">사용하실 아이디를 입력하세요</label>
                     </div>
                     <button class="btn btn-cookie mt-3 btn-block" type="button"><span class="spinner-border spinner-border-sm invisible"></span> 아이디 중복 확인</button>
                     <p class="text-danger small mb-0 hide">이미 사용중인 아이디 입니다.</p>
@@ -45,7 +45,7 @@
                 <!-- 비밀번호 -->
                 <div class="area-signup-form area-pw">
                     <div class="form-floating mt-3 position-relative">
-                        <input type="password" class="form-control" id="password" placeholder name="password">
+                        <input type="password" class="form-control" id="pw" placeholder name="pw">
                         <label for="password">비밀번호</label>
                         <div class="position-absolute" style="top:18px; right:18px">
                             <a href="#" class="text-cookie-secondary"><i class="fa-regular fa-eye" title="비밀번호 보기"></i></a>
@@ -73,7 +73,7 @@
                         <label for="nick">닉네임</label>
                     </div>
                     <button class="btn btn-cookie mt-3 btn-block" type="button"><span class="spinner-border spinner-border-sm invisible"></span>닉네임 중복 체크</button>
-                    <p class="text-danger small mb-0">중복된 닉네임이 존재합니다.</p>
+                    <p class="text-danger small mb-0 hide">중복된 닉네임이 존재합니다.</p>
                 </div>
                 
                 <div class="area-signup-form area-submit"> 
@@ -138,6 +138,7 @@
 	            .done(function(data) {
 	            	$("#btnEmailVerify").prop("disabled", false).hide().find("span").addClass("invisible");
 	            	console.log('메일 발송 완료');
+	            	$("#email").prop("readonly", true).addClass("bg-cookie p-2").next().remove();
 	            	$(".area-auth-num").addClass("d-grid").show();
 	            });
                 
@@ -155,7 +156,7 @@
         		}
         		console.log("인증일치");
         		$(".area-auth-num p").hide();
-        		$(".area-auth-num").hide();
+        		$(".area-auth-num").slideUp(200, function() {$(this).removeClass("d-grid")});
         		$(".area-id").addClass("d-grid").show();
         	})
         	.fail(function(xhr) {
@@ -179,15 +180,17 @@
                     $(".area-id").parent().find("p").show();
                     return;
                 }
-                $(".area-id button").prop("disabled", false).find("span").addClass("visible")
-                $(".area-id").hide();
+                $(".area-id").find("p").hide();
+                $("#id").prop("readonly", true).addClass("bg-cookie p-2").next().remove();
+                $(".area-id button").slideUp(200).prop("disabled", false).find("span").addClass("invisible")
                 $(".area-pw").addClass("d-grid").show();
             });
         });
         
         // 비밀번호 확인 버튼 이벤트
         $(".area-pw button").click(function() {
-        	$(".area-pw").hide();
+        	$(".area-pw button").slideUp(200, function() {$(this).removeClass("d-grid")});
+            $("#pw").prop("readonly", true).addClass("bg-cookie p-2").next().remove();
         	$(".area-nick").addClass("d-grid").show();
         })
         
@@ -208,8 +211,9 @@
                     $(".area-nick").find("p").show();
                     return;
                 }
-                $(".area-nick button").prop("disabled", false).find("span").addClass("visible")
-                $(".area-nick").hide();
+                $(".area-nick").find("p").hide();
+                $("#nick").prop("readonly", true).addClass("bg-cookie p-2").next().remove();
+                $(".area-nick button").slideUp(200).prop("disabled", false).find("span").addClass("invisible")
                 
                 // submit 버튼 활성화
                 $(".area-submit").addClass("d-grid").show();
