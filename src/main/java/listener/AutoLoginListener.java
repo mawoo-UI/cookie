@@ -15,5 +15,7 @@ public class AutoLoginListener implements HttpSessionListener{
 	public void sessionCreated(HttpSessionEvent se) {
 		se.getSession().setAttribute("member", service.findBy("purplecookie"));
 	}
+
+	
 	
 }
