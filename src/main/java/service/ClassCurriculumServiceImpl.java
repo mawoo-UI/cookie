@@ -1,5 +1,6 @@
 package service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -55,6 +56,14 @@ public class ClassCurriculumServiceImpl implements ClassCurriculumService{
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			ClassCurriculumMapper mapper = session.getMapper(ClassCurriculumMapper.class);
 			return mapper.selectBoardOne(cbno);
+		}
+	}
+
+	@Override
+	public ClassCurriculum findByStartdateAndLname(Date startdate, String lname) {
+		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
+			ClassCurriculumMapper mapper = session.getMapper(ClassCurriculumMapper.class);
+			return mapper.selectOneByStartdate(startdate, lname);
 		}
 	}
 
