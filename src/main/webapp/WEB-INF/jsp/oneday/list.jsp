@@ -33,8 +33,18 @@
 			                <div>
 			                	<a href="${cp}oneday/view?cbno=${s.cbno}"><img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid"></a>
 			                	<div class="stars clearfix d-block mt-2">
-									<c:forEach begin="1" end="5">
-										<i class="float-start text-warning fa-solid fa-star small"></i>
+									<c:forEach begin="1" end="5" varStatus="tus">
+										<c:choose>
+											<c:when test="${scores[status.index] ge tus.count}">
+												<i class="float-start text-warning fa-solid fa-star small"></i>
+											</c:when>
+											<c:when test="${scores[status.index] ge tus.count - 0.5 and scores[status.index] lt tus.count}">
+												<i class="float-start text-warning fa-solid fa-star-half-stroke small"></i>
+											</c:when>
+											<c:otherwise>
+												<i class="float-start text-warning fa-regular fa-star small"></i>
+											</c:otherwise>
+										</c:choose>
 									</c:forEach>
 									<p class="text-secondary small m-0 p-0 text-end">조회수: ${s.viewCount}</p>
 								</div>
