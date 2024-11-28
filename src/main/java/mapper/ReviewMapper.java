@@ -13,6 +13,8 @@ public interface ReviewMapper {
 	
 	List<Review> getReviews(Long cbno);
 	
+	int getCount(Long cbno);
+	
 	int insert(Review review);
 	
 	int update(Review review);

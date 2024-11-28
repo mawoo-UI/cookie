@@ -22,6 +22,12 @@
 		where cbno = #{cbno.cbno}
 		order by reno
   	</select>
+  	<select id="getCount" resultType="int">
+  		select count(*)
+		from tbl_review
+		join tbl_class_curriculum tcc using(ccno)
+		where cbno = #{cbno}
+  	</select>
 	<insert id="insert">
 		insert into tbl_review(content, writer, score, ccno)
 		values (#{content}, #{writer}, #{score}, #{ccno})

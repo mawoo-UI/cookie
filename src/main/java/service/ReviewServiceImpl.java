@@ -65,4 +65,12 @@ public class ReviewServiceImpl implements ReviewService {
 			return mapper.getReviews(cbno);
 		}
 	}
+
+	@Override
+	public int count(Long cbno) {
+		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
+			ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+			return mapper.getCount(cbno);
+		}
+	}
 }

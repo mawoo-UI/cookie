@@ -13,6 +13,8 @@ public interface ReviewService {
 	
 	List<Review> findReviews(Long cbno);
 	
+	int count(Long cbno);
+	
 	int write(Review review);
 	
 	int modify(Review review);
