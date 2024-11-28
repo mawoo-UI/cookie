@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mapper/BoardLikesMapper.xml"/>
 		<mapper resource="mapper/BoardCategoryMapper.xml"/>
 		<mapper resource="mapper/AttachMapper.xml"/>
-		
+		<mapper resource="mapper/FavoriteMapper.xml"/>		
 		
 	</mappers>
 </configuration>
