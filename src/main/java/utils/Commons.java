@@ -41,9 +41,11 @@ public class Commons {
 			for (Field field : fields) {
 				String name = field.getName();
 				String value = req.getParameter(field.getName());
-				System.out.println(field.getName() + " :: " + value);
-				if(value != null && !value.equals("")) {
-					findBy(methods, name).invoke(builder, value);
+				if(value != null && !value.isEmpty()) {
+					Object convertedValue = convertToType(value, field.getType());
+					if(convertedValue != null) {
+						findBy(methods, name).invoke(builder, convertedValue);
+					}
 				}
 			}	
 			t = (T) builder.getClass().getMethod("build").invoke(builder);
@@ -61,5 +63,31 @@ public class Commons {
 			}
 		}
 		return null;
+	}
+	private static Object convertToType(String value, Class<?> type) {
+	    try {
+	        if (type == String.class) {
+	            return value;
+	        } else if (type == Integer.class || type == int.class) {
+	            return Integer.parseInt(value);
+	        } else if (type == Long.class || type == long.class) {
+	            return Long.parseLong(value);
+	        } else if (type == Boolean.class || type == boolean.class) {
+	            return Boolean.parseBoolean(value);
+	        } else if (type == java.util.Date.class) {
+	            // 예: SimpleDateFormat을 사용하여 날짜 변환
+	            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+	            return sdf.parse(value);
+	        } else if (type == Double.class || type == double.class) {
+	            return Double.parseDouble(value);
+	        } else if (type == Float.class || type == float.class) {
+	            return Float.parseFloat(value);
+	        } else {
+	            return null; // 변환 불가능한 타입은 무시
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return null;
+	    }
 	}
 }

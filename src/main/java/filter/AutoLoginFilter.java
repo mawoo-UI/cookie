@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import service.MemberServiceImpl;
 
-@WebFilter("/*")
+//@WebFilter("/*")
 public class AutoLoginFilter implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
