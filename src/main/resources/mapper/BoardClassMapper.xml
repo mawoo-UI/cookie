@@ -3,22 +3,43 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="mapper.BoardClassMapper">
-  	<select id="selectOne" resultType="vo.BoardClass">
+  	<resultMap type="vo.BoardClass" id="boardClass">
+  		<id column="cbno" property="cbno"/>
+  		<result column="title" property="title"/>
+  		<result column="content" property="content"/>
+  		<result column="host" property="host"/>
+  		<result column="view_count" property="viewCount"/>
+  		<result column="regdate" property="regdate"/>
+  		<result column="updatedate" property="updatedate"/>
+  		<result column="end" property="end"/>
+  		<result column="accept" property="accept"/>
+  	</resultMap>
+  	<select id="selectOne" resultMap="boardClass">
   		select * from tbl_board_class where cbno = #{cbno}
   	</select>
-  	<select id="selectList" resultType="vo.BoardClass">
+  	<select id="selectList" resultMap="boardClass">
   		select * from tbl_board_class
   	</select>
-  	<select id="showList" resultType="vo.BoardClass">
-  		select cbno,
-title,
-content,
-host,
-view_count viewCount,
-regdate,
-updatedate,
-end,
-accept from tbl_board_class where accept = 1
+  	<select id="showList" resultMap="boardClass">
+  		select tbc.* 
+  		from tbl_board_class tbc
+  		where accept = 1 
+  		<if test="type != null">
+	    	<trim prefix="and (" suffix=")" prefixOverrides="or">
+				<foreach collection="typeArr" item="t">
+					<if test='t == "T"'>
+						or title like concat('%', #{keyword}, '%')
+					</if>
+					<if test='t == "C"'>
+						or content like concat('%', #{keyword}, '%')
+					</if>
+					<if test='t == "W"'>
+						or host like concat('%', #{keyword}, '%')
+					</if>
+				</foreach>    	
+	    	</trim>
+	    </if>
+  		order by 1 desc
   	</select>
   	<insert id="insert">
   		insert into tbl_board_class(title, content, host)
