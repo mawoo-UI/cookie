@@ -15,6 +15,7 @@ public interface BoardMapper {
 	int getCount(Criteria cri);
 	
 	List<Board> selectList(Criteria cri);
+	List<Board> selectList2();
 	
 	int update(Board post);
 	int increaseViewCount (Long pno);
@@ -24,4 +25,6 @@ public interface BoardMapper {
 	String now();
 	
 	int write(Board post);
+	
+	
 }

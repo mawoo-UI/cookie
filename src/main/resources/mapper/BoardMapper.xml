@@ -33,6 +33,10 @@
    	<select id="selectList" resultType="vo.Board">
 		select * from tbl_board where cno = #{category} order by 1 desc limit #{amount} offset #{offset} 
    	</select>
+   	
+   	<select id="selectList2" resultType="vo.Board">
+		select * from tbl_board 
+   	</select>
    
 	<update id="update">
 		update tbl_board set title = #{title}, content = #{content}, updatedate = now() where pno = #{pno}

@@ -16,9 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Criteria {
-	@Builder.Default
 	private int page = 1; //처음 보여주는 페이지
-	@Builder.Default
 	private int amount = 10; //게시물 갯수
 	private int category = 1; //게시물 조회(페이지 관여)
 	private String type;
