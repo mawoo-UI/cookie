@@ -4,11 +4,17 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import mapper.ClassRegMapper;
 import utils.MybatisInit;
 import vo.ClassReg;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ClassRegServiceImpl implements ClassRegService {
+	@Getter
+	private static ClassRegService instance = new ClassRegServiceImpl();
 
 	@Override
 	public List<ClassReg> list() {

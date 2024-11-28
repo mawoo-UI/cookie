@@ -5,12 +5,18 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import dto.Criteria;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import mapper.BoardClassMapper;
 import utils.MybatisInit;
 import vo.BoardClass;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class BoardClassServiceImpl implements BoardClassService {
-
+	@Getter
+	private static BoardClassService instance = new BoardClassServiceImpl();
+	
 	@Override
 	public List<BoardClass> listAll() {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {

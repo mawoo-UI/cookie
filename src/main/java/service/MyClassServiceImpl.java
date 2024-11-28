@@ -4,12 +4,18 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import mapper.MyClassMapper;
 import utils.MybatisInit;
 import vo.MyClass;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MyClassServiceImpl implements MyClassService {
-
+	@Getter
+	private static MyClassService instance = new MyClassServiceImpl();
+	
 	@Override
 	public List<MyClass> list(String id) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {

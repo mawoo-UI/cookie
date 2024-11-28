@@ -1,16 +1,21 @@
 package service;
 
-import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import mapper.ClassCurriculumMapper;
 import utils.MybatisInit;
 import vo.ClassCurriculum;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ClassCurriculumServiceImpl implements ClassCurriculumService{
-
+	@Getter
+	private static ClassCurriculumService instance = new ClassCurriculumServiceImpl();
+	
 	@Override
 	public List<ClassCurriculum> list() {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
