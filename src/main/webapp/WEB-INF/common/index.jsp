@@ -82,15 +82,17 @@
 					<div class="col-6 border-cookie-right">
 						<h6 class="fw-bold text-center"><img src="imgs/icon.png" alt="로고" class="img-fluid icon-cookie">인기 클래스</h6>
 						<div class="d-flex justify-content-around">
-							<div class="mt-2 p-0 float-start w-25">
+							<c:forEach items="${trendList}" var="trend">
+								<div class="mt-2 p-0 float-start w-25">
+									<a href="${cp}oneday/view?cbno=${trend.cbno}" class="text-decoration-none text-dark"><img src="${cp}imgs/class-thumbnail.jpg" alt="클래스썸네일" class="img-fluid" width="150"><br>${trend.title}</a>
+								</div>
+							</c:forEach>
+							<%-- <div class="mt-2 p-0 float-start w-25">
 								<a href="${cp}oneday/view" class="text-decoration-none text-dark"><img src="${cp}imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" width="150"><br>강아지 수제 간식 만들기 클래스</a>
 							</div>
 							<div class="mt-2 p-0 float-start w-25">
 								<a href="${cp}oneday/view" class="text-decoration-none text-dark"><img src="${cp}imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" width="150"><br>강아지 수제 간식 만들기 클래스</a>
-							</div>
-							<div class="mt-2 p-0 float-start w-25">
-								<a href="${cp}oneday/view" class="text-decoration-none text-dark"><img src="${cp}imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" width="150"><br>강아지 수제 간식 만들기 클래스</a>
-							</div>
+							</div> --%>
 						</div>
 					</div>
 					<div class="col-6">
