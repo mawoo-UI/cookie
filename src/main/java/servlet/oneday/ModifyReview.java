@@ -20,8 +20,8 @@ import vo.Member;
 
 @WebServlet("/oneday/modify")
 public class ModifyReview extends HttpServlet{
-	private ReviewService reviewService = new ReviewServiceImpl();
-	private BoardClassService boardClassService = new BoardClassServiceImpl();
+	private ReviewService reviewService = ReviewServiceImpl.getInstance();
+	private BoardClassService boardClassService = BoardClassServiceImpl.getInstance();
 	private MemberService memberService = MemberServiceImpl.getInstance();
 	
 	@Override

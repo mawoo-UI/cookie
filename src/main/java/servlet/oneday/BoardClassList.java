@@ -18,8 +18,8 @@ import vo.BoardClass;
 
 @WebServlet("/oneday/list")
 public class BoardClassList extends HttpServlet{
-	private BoardClassService boardClassService = new BoardClassServiceImpl();
-	private ReviewService reviewService = new ReviewServiceImpl();
+	private BoardClassService boardClassService = BoardClassServiceImpl.getInstance();
+	private ReviewService reviewService = ReviewServiceImpl.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

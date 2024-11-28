@@ -1,10 +1,6 @@
 package servlet.oneday;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,15 +19,14 @@ import service.MyClassServiceImpl;
 import utils.Commons;
 import vo.ClassCurriculum;
 import vo.ClassReg;
-import vo.Member;
 import vo.MyClass;
 
 @WebServlet("/oneday/regclass")
 public class RegisterClass extends HttpServlet {
-	private BoardClassService boardClassService = new BoardClassServiceImpl();
-	private ClassCurriculumService curriculumService = new ClassCurriculumServiceImpl();
-	private ClassRegService regService = new ClassRegServiceImpl();
-	private MyClassService myClassService = new MyClassServiceImpl();
+	private BoardClassService boardClassService = BoardClassServiceImpl.getInstance();
+	private ClassCurriculumService curriculumService = ClassCurriculumServiceImpl.getInstance();
+	private ClassRegService regService = ClassRegServiceImpl.getInstance();
+	private MyClassService myClassService = MyClassServiceImpl.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -1,8 +1,6 @@
 package servlet.oneday;
 
 import java.io.IOException;
-import java.text.NumberFormat;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,18 +11,15 @@ import service.BoardClassService;
 import service.BoardClassServiceImpl;
 import service.ClassCurriculumService;
 import service.ClassCurriculumServiceImpl;
-import service.MemberService;
-import service.MemberServiceImpl;
 import service.ReviewService;
 import service.ReviewServiceImpl;
 import utils.Commons;
 
 @WebServlet("/oneday/view")
 public class View extends HttpServlet{
-	private BoardClassService boardClassService = new BoardClassServiceImpl();
-	private ClassCurriculumService classCurriculumService = new ClassCurriculumServiceImpl();
-	private ReviewService reviewService = new ReviewServiceImpl();
-	private MemberService memberService = MemberServiceImpl.getInstance();
+	private BoardClassService boardClassService = BoardClassServiceImpl.getInstance();
+	private ClassCurriculumService classCurriculumService = ClassCurriculumServiceImpl.getInstance();
+	private ReviewService reviewService = ReviewServiceImpl.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

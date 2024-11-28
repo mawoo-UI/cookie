@@ -16,7 +16,7 @@ import utils.Commons;
 
 @WebServlet("/oneday/review")
 public class Review extends HttpServlet{
-	private ReviewService reviewService = new ReviewServiceImpl();
+	private ReviewService reviewService = ReviewServiceImpl.getInstance();
 	private MemberService memberService = MemberServiceImpl.getInstance();
 	
 	@Override

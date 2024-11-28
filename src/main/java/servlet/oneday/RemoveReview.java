@@ -15,7 +15,7 @@ import vo.Member;
 
 @WebServlet("/oneday/remove")
 public class RemoveReview extends HttpServlet {
-	private ReviewService reviewService = new ReviewServiceImpl();
+	private ReviewService reviewService = ReviewServiceImpl.getInstance();
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

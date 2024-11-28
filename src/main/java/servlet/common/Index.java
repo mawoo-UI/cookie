@@ -13,7 +13,7 @@ import service.BoardClassServiceImpl;
 
 @WebServlet("/index")
 public class Index extends HttpServlet{
-	private BoardClassService boardClassService = new BoardClassServiceImpl();
+	private BoardClassService boardClassService = BoardClassServiceImpl.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
