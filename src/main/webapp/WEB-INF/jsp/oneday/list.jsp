@@ -48,9 +48,9 @@
 				</div>
 				<div class="row mt-2">
 					<c:if test="${empty classes}">
-						<hr class="m-0 mt-3 text-cookie-secondary ">
+						<hr class="m-0 mt-5 text-cookie-secondary ">
 						<h3 class="text-center my-4"><i class="fa-solid fa-triangle-exclamation text-warning"></i> 검색 결과가 없습니다.</h3>
-						<hr class="m-0 text-cookie-secondary ">
+						<hr class="m-0 text-cookie-secondary mb-5">
 					</c:if>
 					<c:forEach items="${classes}" var="s" varStatus="status">
 						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2 ">
@@ -77,7 +77,9 @@
 			            </div>
 					</c:forEach>
 				</div>
-				<p class="text-center mt-4"><a href="#" class="text-secondary">더보기</a></p>
+				<c:if test="${not empty classes}">
+					<p class="text-center mt-4"><a href="#" class="text-secondary">더보기</a></p>
+				</c:if>
 			</main>
 			<jsp:include page="../../common/footer.jsp" />
 		</div>
