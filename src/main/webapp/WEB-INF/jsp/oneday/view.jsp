@@ -77,7 +77,7 @@
 					<c:forEach items="${reviews}" var="re">
 						<div class="my-2 p-2 col-6 col-sm-4 col-lg-3 col-xl-2">
 							<div class="p-3 card dropdown-cookie">
-								<img src="${cp}imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" >
+								<a href="${cp}oneday/review?cbno=${param.cbno}&reno=${re.reno}"><img src="${cp}imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" ></a>
 								<div class="stars clearfix d-block mt-2 mb-1">
 									<c:forEach begin="1" end="5" varStatus="status">
 										<c:if test="${re.score ge status.count}">
@@ -88,7 +88,7 @@
 										</c:if>
 									</c:forEach>
 								</div>
-								<p class="text-truncate mb-1 small">${re.content}</p>
+								<a href="${cp}oneday/review?cbno=${param.cbno}&reno=${re.reno}" class="text-decoration-none text-dark text-truncate"><span class="mb-1 small">${re.content}</span></a>
 								<p class="text-end text-secondary small mb-1"><span class="review-regdate"><fmt:formatDate value="${re.regdate}" pattern="yyyy/MM/dd HH:mm:ss"/></span> | ${re.writer}</p>
 							</div>
 						</div>
