@@ -47,7 +47,7 @@
 				</div>
 				<div class="row mt-5">
 					<div class="cookie-menu-detail col-6 p-0 text-center fw-bold border-cookie-right border-cookie-bottom"><p>상세 설명<p></div>
-					<div class="cookie-menu-review col-6 p-0 text-center border-cookie-bottom"><p>리뷰(15)</p></div>
+					<div class="cookie-menu-review col-6 p-0 text-center border-cookie-bottom"><p>리뷰(${count})</p></div>
 				</div>
 				<div class="cookie-detail my-5 px-5 d-block">
 					${classItem.content}
@@ -74,6 +74,9 @@
 					</pre> --%>
 				</div>
 				<div class="cookie-review mx-3 mt-3 d-none row">
+					<c:if test="${empty reviews}">
+						<h4 class="text-center my-4">등록된 리뷰가 없습니다.</h4>
+					</c:if>
 					<c:forEach items="${reviews}" var="re">
 						<div class="my-2 p-2 col-6 col-sm-4 col-lg-3 col-xl-2">
 							<div class="p-3 card dropdown-cookie">
@@ -93,7 +96,9 @@
 							</div>
 						</div>
 					</c:forEach>
-					<p class="text-center mt-4"><a href="#" class="text-secondary">더보기</a></p>
+					<c:if test="${not empty reviews}">
+						<p class="text-center mt-4"><a href="#" class="text-secondary">더보기</a></p>
+					</c:if>
 				</div>
 			</main>
 			<jsp:include page="../../common/footer.jsp" />
