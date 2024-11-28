@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSessionListener;
 import service.MemberService;
 import service.MemberServiceImpl;
 
-@WebListener
+//@WebListener
 public class AutoLoginListener implements HttpSessionListener{
 	private MemberService service = MemberServiceImpl.getInstance();
 	
