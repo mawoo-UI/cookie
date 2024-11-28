@@ -41,6 +41,14 @@
 	    </if>
   		order by 1 desc
   	</select>
+  	<select id="trendList" resultMap="boardClass">
+  		select * 
+		from tbl_board_class 
+		where accept = 1 
+		and end = 0 
+		order by view_count desc 
+		limit 3
+  	</select>
   	<insert id="insert">
   		insert into tbl_board_class(title, content, host)
   		values (#{title}, #{content}, #{host})

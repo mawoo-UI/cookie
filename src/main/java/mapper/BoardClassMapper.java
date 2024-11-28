@@ -8,6 +8,8 @@ import vo.BoardClass;
 public interface BoardClassMapper {
 	List<BoardClass> selectList();
 	
+	List<BoardClass> trendList();
+	
 	BoardClass selectOne(Long cbno);
 	
 	List<BoardClass> showList(Criteria cri);

@@ -10,6 +10,8 @@ public interface BoardClassService {
 
 	List<BoardClass> listShow(Criteria cri);
 	
+	List<BoardClass> listTrend();
+	
 	BoardClass findBy(Long cbno);
 	
 	BoardClass view(Long cbno);
