@@ -38,6 +38,7 @@
 							</p>
 							<p><i class="fa-solid fa-sack-dollar fa-lg font-icon-cookie px-2"></i>수강 비용: <fmt:formatNumber value="${classOne.price}" type="number" maxFractionDigits="3" ></fmt:formatNumber>원</p>
 							<p><i class="fa-solid fa-user-group fa-lg font-icon-cookie px-2"></i>수강 정원: ${classOne.max}명</p>
+							<p><i class="fa-solid fa-image-portrait fa-xl font-icon-cookie px-2"></i> 진행 강사: ${host}</p>
 							<p><i class="fa-regular fa-clock fa-lg font-icon-cookie px-2"></i>소요 시간: ${classOne.dutime} (상황에 따라 달라질 수 있습니다.)</p>
 						</div>
 						<div class="text-center mt-5">
