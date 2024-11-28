@@ -18,16 +18,20 @@ import service.ClassCurriculumService;
 import service.ClassCurriculumServiceImpl;
 import service.ClassRegService;
 import service.ClassRegServiceImpl;
+import service.MyClassService;
+import service.MyClassServiceImpl;
 import utils.Commons;
 import vo.ClassCurriculum;
 import vo.ClassReg;
 import vo.Member;
+import vo.MyClass;
 
 @WebServlet("/oneday/regclass")
 public class RegisterClass extends HttpServlet {
 	private BoardClassService boardClassService = new BoardClassServiceImpl();
 	private ClassCurriculumService curriculumService = new ClassCurriculumServiceImpl();
 	private ClassRegService regService = new ClassRegServiceImpl();
+	private MyClassService myClassService = new MyClassServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -46,6 +50,7 @@ public class RegisterClass extends HttpServlet {
 		String nickname = req.getParameter("nickname");
 		String tel = req.getParameter("tel");
 		String startdate = req.getParameter("startdate"); // ccno 찾기
+		System.out.println(startdate);
 		
 		ClassCurriculum curriculum = curriculumService.findByStartdateAndCbno(startdate, cbno);
 		Long ccno = curriculum.getCcno();
@@ -66,6 +71,12 @@ public class RegisterClass extends HttpServlet {
 						.build();
 		System.out.println(classReg);
 		regService.write(classReg);
+		
+		MyClass my = MyClass.builder()
+						.ccno(ccno)
+						.id(writer)
+						.build();
+		myClassService.write(my);
 		
 		resp.sendRedirect("view?cbno=" + req.getParameter("cbno"));
 	}

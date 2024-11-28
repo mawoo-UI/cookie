@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -28,7 +30,14 @@
 					<textarea id="content" name="content" class="form-control dropdown-cookie" rows="15" placeholder="강사님께 전하고 싶은 말을 자유롭게 적어 주세요 (쓰지 않아도 무관합니다)"></textarea>
 					
 					<label for="writer" class="form-label mt-4 text-cookie-secondary"><i class="fa-regular fa-calendar-check fa-lg font-icon-cookie"></i> <b>신청 날짜</b></label>
-					<input type="text" class="form-control dropdown-cookie" id="startdate" name="startdate" value="2024/11/28" readonly>
+					<!-- <input type="text" class="form-control dropdown-cookie" id="startdate" name="startdate" value="2024/11/28" readonly> -->
+					<select class="form-select dropdown-cookie" name="startdate" id="startdate">
+						<c:forEach items="${days}" var="day">
+							<option value="${day.startdate}">
+								<fmt:formatDate value="${day.startdate}" pattern="yyyy/MM/dd" />
+							</option>
+						</c:forEach>
+					</select>
 	
 					<label for="writer" class="form-label mt-4 text-cookie-secondary"><i class="fa-solid fa-user-pen"></i> <b>작성자</b></label>
 					<input type="text" class="form-control dropdown-cookie" id="nick" name="nick" value="${member.nick}" readonly>

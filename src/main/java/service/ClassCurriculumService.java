@@ -2,6 +2,8 @@ package service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import vo.ClassCurriculum;
 
 public interface ClassCurriculumService {
@@ -11,7 +13,7 @@ public interface ClassCurriculumService {
 	
 	ClassCurriculum boardOne(Long cbno);
 	
-	ClassCurriculum findByStartdateAndCbno(String startdate, Long cbno);
+	ClassCurriculum findByStartdateAndCbno(@Param("startdate")String startdate, @Param("cbno")Long cbno);
 	
 	ClassCurriculum findBy(Long ccno);
 	
