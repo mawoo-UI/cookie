@@ -47,6 +47,11 @@
 					</div>
 				</div>
 				<div class="row mt-2">
+					<c:if test="${empty classes}">
+						<hr class="m-0 mt-3 text-cookie-secondary ">
+						<h3 class="text-center my-4"><i class="fa-solid fa-triangle-exclamation text-warning"></i> 검색 결과가 없습니다.</h3>
+						<hr class="m-0 text-cookie-secondary ">
+					</c:if>
 					<c:forEach items="${classes}" var="s" varStatus="status">
 						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2 ">
 			                <div>
