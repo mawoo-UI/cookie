@@ -2,6 +2,7 @@ package mapper;
 
 import java.util.List;
 
+import dto.Criteria;
 import vo.BoardClass;
 
 public interface BoardClassMapper {
@@ -9,7 +10,7 @@ public interface BoardClassMapper {
 	
 	BoardClass selectOne(Long cbno);
 	
-	List<BoardClass> showList();
+	List<BoardClass> showList(Criteria cri);
 	
 	int insert(BoardClass boardClass);
 	

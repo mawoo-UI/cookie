@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import dto.Criteria;
 import mapper.BoardClassMapper;
 import utils.MybatisInit;
 import vo.BoardClass;
@@ -61,10 +62,10 @@ public class BoardClassServiceImpl implements BoardClassService {
 	}
 
 	@Override
-	public List<BoardClass> listShow() {
+	public List<BoardClass> listShow(Criteria cri) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			BoardClassMapper mapper = session.getMapper(BoardClassMapper.class);
-			return mapper.showList();
+			return mapper.showList(cri);
 		}
 	}
 
