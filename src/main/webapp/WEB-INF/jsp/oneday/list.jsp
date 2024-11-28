@@ -10,7 +10,7 @@
 		<div class="wrap">
 			<jsp:include page="../../common/header.jsp" />
 			<main class="container">
-				<h2 class="text-center mt-4 fw-bold">원데이 클래스</h2>
+				<h2 class="text-center mt-4 fw-bold"><a href="${cp}oneday/list" class="text-decoration-none text-dark">원데이 클래스</a></h2>
 				<div class="clearfix">
 				
 					<form>
@@ -18,12 +18,12 @@
 							<div class="col-4">
 								<select class="form-select dropdown-cookie text-cookie-secondary ms-4 mt-2 " name="type">
 									<option value="TCW" ${cri.type == 'TCW' ? 'selected' : ''}>전체</option>
-									<option value="T" ${cri.type == 'T' ? 'selected' : ''}>제목</option>
+									<option value="T" ${cri.type == 'T' ? 'selected' : ''}>클래스</option>
 									<option value="C" ${cri.type == 'C' ? 'selected' : ''}>내용</option>
-									<option value="W" ${cri.type == 'W' ? 'selected' : ''}>작성자</option>
-									<option value="TC" ${cri.type == 'TC' ? 'selected' : ''}>제목+내용</option>
-									<option value="TW" ${cri.type == 'TW' ? 'selected' : ''}>제목+작성자</option>
-									<option value="CW" ${cri.type == 'CW' ? 'selected' : ''}>내용+작성자</option>
+									<option value="W" ${cri.type == 'W' ? 'selected' : ''}>강사</option>
+									<option value="TC" ${cri.type == 'TC' ? 'selected' : ''}>클래스+내용</option>
+									<option value="TW" ${cri.type == 'TW' ? 'selected' : ''}>클래스+강사</option>
+									<option value="CW" ${cri.type == 'CW' ? 'selected' : ''}>내용+강사</option>
 								</select>
 							</div>
 							<div class="col-7">
