@@ -12,10 +12,29 @@
 			<main class="container">
 				<h2 class="text-center mt-4 fw-bold">원데이 클래스</h2>
 				<div class="clearfix">
-					<div class="input-group ms-4 mt-2 p-3 w-25 float-start">
-						<input type="text" class="form-control" placeholder="클래스 검색" name="keyword" value="">
-						<button class="btn btn-cookie" type="submit"><i class="fa-solid fa-magnifying-glass font-icon-cookie"></i></button>
-					</div>
+				
+					<form>
+						<div class="row my-3 float-start">
+							<div class="col-4">
+								<select class="form-select dropdown-cookie text-cookie-secondary ms-4 mt-2 " name="type">
+									<option value="TCW" ${cri.type == 'TCW' ? 'selected' : ''}>전체</option>
+									<option value="T" ${cri.type == 'T' ? 'selected' : ''}>제목</option>
+									<option value="C" ${cri.type == 'C' ? 'selected' : ''}>내용</option>
+									<option value="W" ${cri.type == 'W' ? 'selected' : ''}>작성자</option>
+									<option value="TC" ${cri.type == 'TC' ? 'selected' : ''}>제목+내용</option>
+									<option value="TW" ${cri.type == 'TW' ? 'selected' : ''}>제목+작성자</option>
+									<option value="CW" ${cri.type == 'CW' ? 'selected' : ''}>내용+작성자</option>
+								</select>
+							</div>
+							<div class="col-7">
+								<div class="input-group ms-2 mt-2 ">
+									<input type="text" class="form-control" placeholder="클래스 검색" name="keyword" value="${cri.keyword}">
+									<button class="btn btn-cookie" type="submit"><i class="fa-solid fa-magnifying-glass font-icon-cookie"></i></button>
+								</div>
+							</div>
+						</div>
+					</form>
+					
 					<div class="mt-3 p-2 float-start">
 						<a href="${cp}oneday/writeclass" class="btn btn-cookie-secondary">개설 신청</a>
 					</div>
