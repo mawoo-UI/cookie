@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import dto.Criteria;
+import mapper.AttachMapper;
 import mapper.BoardMapper;
 import utils.MybatisInit;
 import vo.Board;
@@ -16,8 +17,16 @@ public class BoardServiceImpl implements BoardService {
 	public int write(Board post) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			AttachMapper attachMapper = session.getMapper(AttachMapper.class);
 			System.out.println(post);
-			return mapper.insert(post);
+			mapper.insert(post);
+			 
+			System.out.println(post);
+			post.getAttachs().forEach(a -> {
+				a.setPno(post.getPno());
+				attachMapper.insert(a);
+			});
+			 return 1;
 		}
 	}
 
@@ -33,6 +42,8 @@ public class BoardServiceImpl implements BoardService {
 	public int remove(Long pno) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			AttachMapper attachMapper = session.getMapper(AttachMapper.class);
+			attachMapper.delete(pno);
 			return mapper.delete(pno);
 		}
 	}
@@ -41,7 +52,10 @@ public class BoardServiceImpl implements BoardService {
 	public Board findBy(Long pno) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			BoardMapper mapper = session.getMapper(BoardMapper.class);
-			return mapper.selectOne(pno);
+			AttachMapper attachMapper = session.getMapper(AttachMapper.class);
+			Board board = mapper.selectOne(pno);
+			board.setAttachs(attachMapper.selectList(pno));
+			return board;
 		}
 	}
 
@@ -65,8 +79,11 @@ public class BoardServiceImpl implements BoardService {
 	public Board view(Long pno) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			AttachMapper attachMapper = session.getMapper(AttachMapper.class);
 			mapper.increaseViewCount(pno);
-			return mapper.selectOne(pno);
+			Board board = mapper.selectOne(pno);
+			board.setAttachs(attachMapper.selectList(pno));
+			return board;
 		}
 	}
 	

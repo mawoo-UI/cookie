@@ -12,6 +12,6 @@ public class Attach {
 	private boolean image;
 	private Long pno;
 	private Long cbno;
-	private Long neno;
+	private Long reno;
 	
 }

@@ -31,8 +31,8 @@ public class Write extends HttpServlet{
 //					URLEncoder.encode(cp + "/board/write?" + cri.getQs2(), "utf-8"));
 //			return;
 //		}
-//		req.setAttribute("cri", cri);
-//		req.getRequestDispatcher("/WEB-INF/jsp/board/write.jsp").forward(req, resp);
+		req.setAttribute("cri", cri);
+		req.getRequestDispatcher("/WEB-INF/jsp/board/write.jsp").forward(req, resp);
 		
 	}
 	@Override
@@ -50,18 +50,19 @@ public class Write extends HttpServlet{
 		String[] paths = req.getParameterValues("path");
 		String[] images = req.getParameterValues("image");
 		
-//		if(uuids != null) {
-//			for (int i = 0; i < uuids.length;  i++) {
-//				Attach.(Attach.builder()
-//						.uuid(uuids[i])
-//						.origin(origins[i])
-//						.image(images[i].equals("true"))
-//						.path(paths[i])
-//						.build());
-//			}
-//		}
-		boardService.write(Board.builder().title(title).content(content).writer(writer).cno(cno).build());
-//		boardService.write(Board.builder().title(title).content(content).writer(writer).cno(cri.getCategory()).attachs(attachs).build());
+		if(uuids != null) {
+			for (int i = 0; i < uuids.length;  i++) {
+				Attach a = Attach.builder()
+					.uuid(uuids[i])
+					.origin(origins[i])
+					.image(images[i].equals("true"))
+					.path(paths[i])
+					.build();
+				attachs.add(a);
+			}
+		}
+//		boardService.write(Board.builder().title(title).content(content).writer(writer).cno(cri.getCategory()).build());
+		boardService.write(Board.builder().title(title).content(content).writer(writer).cno(cri.getCategory()).attachs(attachs).build());
 		
 		resp.sendRedirect("list?" +cri.getQs2());
 		

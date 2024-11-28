@@ -17,6 +17,9 @@
 	</resultMap>
   	<insert id="insert">
    	 insert into tbl_board (title, writer, content, cno) values(#{title},#{writer},#{content},#{cno})
+   	<selectKey order="AFTER" keyProperty="pno" resultType="long">
+	select max(pno) from tbl_board
+   	</selectKey>
   	</insert>
 
    	<select id="selectOne" resultType="vo.Board">

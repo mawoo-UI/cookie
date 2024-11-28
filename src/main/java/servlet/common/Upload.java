@@ -67,6 +67,7 @@ public class Upload extends HttpServlet {
 		}
 	}
 	
+	
 	public String getTodayStr() {
 		return new SimpleDateFormat("yyyy/MM/dd").format(System.currentTimeMillis());
 	}

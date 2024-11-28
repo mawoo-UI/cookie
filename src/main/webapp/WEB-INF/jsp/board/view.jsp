@@ -18,8 +18,15 @@
         <input type="text" class="form-control text-bg-light" placeholder="${board.title}" disabled>
     
         <textarea class="form-control text-bg-light my-3 " rows="5" id="comment" name="text"  placeholder="${board.content}" disabled></textarea>
-        <input type="file" class="form-control" placeholder="첨부파일" i class="fa-solid fa-paperclip">
-        
+        <label class="form-label mt-3"><i class="fa-solid fa-paperclip text-danger"></i> <b>Attach</b><br></label><br>
+				<ul class="list-group attach-result">
+					<c:if test="${empty board.attachs}">
+					<li class="list-group-item">첨부파일이 없습니다.</li>
+					</c:if>
+					<c:forEach items="${board.attachs}" var="a">
+ 					<li class="list-group-item"><a href="${cp}download?uuid=${a.uuid}&origin=${a.origin}&path=${a.path}">${a.origin}</a></li>
+ 					</c:forEach>
+				</ul>	
 		<hr>
 		<%
 			Member member = Member.builder().id("purplecookie").build();

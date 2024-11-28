@@ -22,20 +22,24 @@ public class Board {
 	private Date regdate;
 	private Date updatedate;
 	private int cno;
+//	private boolean attachFlag;
 	
-//	@Builder.Default
-//	private List<Attach>
-	public Board(Long pno, String title, String content, String writer, Long likes, Long view_count, Date regdate,
-			int cno) {
+	@Builder.Default
+	private List<Attach> attachs = new ArrayList<Attach>();
+	public Board(Long pno, String title, String content, String writer, Long likes, Long viewCount, Date regdate,
+			Date updatedate, int cno) {
+		super();
 		this.pno = pno;
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
 		this.likes = likes;
-		this.viewCount = view_count;
+		this.viewCount = viewCount;
 		this.regdate = regdate;
+		this.updatedate = updatedate;
 		this.cno = cno;
-		
 	}
+	
+
 	
 }
