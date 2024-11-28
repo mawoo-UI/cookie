@@ -16,6 +16,7 @@ import service.BoardLikesServiceImpl;
 import service.BoardService;
 import service.BoardServiceImpl;
 import utils.Commons;
+import vo.Member;
 
 
 @WebServlet("/board/view")
@@ -32,10 +33,15 @@ public class View extends HttpServlet{
 			return;
 		}
 		Long pno = Long.valueOf(pnoString);
-		
 		req.setAttribute("board", service.view(pno));
-		req.setAttribute("likes", likesService.list(pno).stream().map(bl->bl.getId()).collect(Collectors.toList()));
 		req.setAttribute("cri", cri);
+
+		Object obj = req.getSession().getAttribute("member");
+		if(obj != null) {
+			Member member = (Member) obj;
+			req.setAttribute("likes", likesService.findBy(pno, member.getId()));
+		}
+		
 		req.getRequestDispatcher("/WEB-INF/jsp/board/view.jsp").forward(req, resp);
 	
 	}

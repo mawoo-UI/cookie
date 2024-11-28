@@ -7,6 +7,6 @@ import vo.Board;
 import vo.BoardLikes;
 
 public interface BoardLikesService {
-	List<BoardLikes> list(Long pno);
+	BoardLikes findBy(Long pno, String id);
 	
 }

@@ -28,17 +28,14 @@
  					</c:forEach>
 				</ul>	
 		<hr>
-		<%
-			Member member = Member.builder().id("purplecookie").build();
-			request.setAttribute("member", member);
-		%>
+
         <div class="d-grid gap-2 d-md-block">
             <button type="button" class="btn btn-danger btn-sm">신고</button>
             <a href="#" class="btn btn-light btn-sm mx-2 float-end" >
-            	<c:if test="${fn:contains(likes, member.id)}">
+            	<c:if test="${not empty likes}">
             	<i class="fa-solid fa-heart text-danger " ></i> 
             	</c:if>
-            	<c:if test="${not fn:contains(likes, member.id)}">
+            	<c:if test="${empty likes}">
             	<i class="fa-regular fa-heart text-danger" ></i>
             	</c:if>
                  

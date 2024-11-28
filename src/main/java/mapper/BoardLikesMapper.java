@@ -2,8 +2,10 @@ package mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import vo.BoardLikes;
 
 public interface BoardLikesMapper {
-	List<BoardLikes> selectList(Long pno);
+	BoardLikes selectOne(@Param("pno") Long pno, @Param("id") String id);
 }
