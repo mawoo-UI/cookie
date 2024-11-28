@@ -39,6 +39,7 @@ public class View extends HttpServlet{
 		req.setAttribute("classList", classCurriculumService.boardList(cbno));
 		req.setAttribute("classOne", classCurriculumService.boardOne(cbno));
 		req.setAttribute("reviews", reviewService.findReviews(cbno));
+		req.setAttribute("count", reviewService.count(cbno));
 		
 		req.getRequestDispatcher("/WEB-INF/jsp/oneday/view.jsp").forward(req, resp);
 	}
