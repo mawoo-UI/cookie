@@ -31,7 +31,7 @@
 
         <div class="d-grid gap-2 d-md-block">
             <button type="button" class="btn btn-danger btn-sm">신고</button>
-            <a href="#" class="btn btn-light btn-sm mx-2 float-end" >
+            <a href="#" class="btn btn-light btn-sm mx-2 float-end" id="btnLikes">
             	<c:if test="${not empty likes}">
             	<i class="fa-solid fa-heart text-danger " ></i> 
             	</c:if>
@@ -100,6 +100,25 @@
 		<!-- 풋터 -->
 		<jsp:include page="../../common/footer.jsp" />
 	</div>
+	<script>
+	$("#btnLikes").click(function () {
+		event.preventDefault();
+		const data = {pno:'${board.pno}', id: '${member.id}'};
+		if(!data.id) {
+			alert("로그인 후 좋아요 클릭 가능");
+			return;
+		}
+		const url = '${cp}' + "likesToggle"
+		$.ajax({
+			url : url,
+			data : data,
+			success : function (data) {
+				$("#btnLikes i").toggleClass("fa-solid fa-regular");
+				
+			}
+		});
+	});
+	</script>
 
 </body>
 </html>

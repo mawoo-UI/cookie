@@ -16,6 +16,7 @@ import service.BoardLikesServiceImpl;
 import service.BoardService;
 import service.BoardServiceImpl;
 import utils.Commons;
+import vo.BoardLikes;
 import vo.Member;
 
 
@@ -39,7 +40,7 @@ public class View extends HttpServlet{
 		Object obj = req.getSession().getAttribute("member");
 		if(obj != null) {
 			Member member = (Member) obj;
-			req.setAttribute("likes", likesService.findBy(pno, member.getId()));
+			req.setAttribute("likes", likesService.findBy(BoardLikes.builder().pno(pno).id(member.getId()).build()));
 		}
 		
 		req.getRequestDispatcher("/WEB-INF/jsp/board/view.jsp").forward(req, resp);
