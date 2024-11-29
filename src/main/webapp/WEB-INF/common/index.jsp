@@ -140,5 +140,45 @@
 	            wrapperClass:'bx-wrapper mb-5 p-0'
 	        });
 	    </script>
+	    <div class="modal fade" id="ajeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">오늘의 아재</h5>
+		      </div>
+		      <div class="modal-body">
+		      	<h3></h3>
+		      	<div class="d-grid my-3">
+		      	<button type="button" data-bs-toggle="collapse" class="btn btn-cookie btn-block" data-bs-target="#answer">아재되기</button>
+		      	</div>
+		      	<div class="clearfix my-3 h-0">
+			      	<p class="collapse float-start" id="answer"></p>
+			      	<button type="button" class="btn btn-secondary float-end d-none" data-bs-dismiss="modal">Close</button>
+		      	</div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<script>
+		$(function() {
+			const ajeModal = new bootstrap.Modal($("#ajeModal").get(0), {
+				backdrop : false
+			});
+			$("#ajeModal").on("show.bs.modal", function() {
+				$.getJSON("${cp}aje/ajax").done(data => {
+					sessionStorage.setItem("aje", data);
+					$("#ajeModal .modal-body h3").text(data.quiz) 
+					$("#ajeModal .modal-body p").text(data.answer);
+				});
+			})
+			$("#ajeModal .modal-body button[data-bs-toggle]").click(() => $("#ajeModal [data-bs-dismiss]").removeClass("d-none"))
+			/* $("#ajeModal").on("hide.bs.modal", function() {
+				$("#ajeModal .modal-body p").slideDown(1000);
+			}) */
+			//ajeModal.show();
+			$("#ajeModal").modal("show");
+			
+		})
+		</script>
 	</body>
 </html>

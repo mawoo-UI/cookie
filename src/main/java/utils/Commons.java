@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.google.gson.Gson;
+
 import vo.Member;
 
 public class Commons {
@@ -89,5 +91,10 @@ public class Commons {
 	        e.printStackTrace();
 	        return null;
 	    }
+	}
+	
+	public static void respJson(HttpServletResponse resp, Object obj) throws IOException {
+		resp.setContentType("application/json; charset=utf-8");
+		resp.getWriter().print(new Gson().toJson(obj));
 	}
 }
