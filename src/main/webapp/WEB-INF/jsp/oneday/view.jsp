@@ -19,11 +19,21 @@
 					</div>
 					<div class="mt-4">
 						<div class="clearfix">
-							<h3 class="fw-bold mb-4">${classItem.title}</h3>
-							<h4 class="float-start text-warning p-0 m-0 favorite"><i class="fa-regular fa-star"></i></h4>
-							<p><a href="${cp}oneday/regclass?cbno=${param.cbno}" class="btn btn-cookie float-end">신청하기</a></p>
+							<h3 class="fw-bold mb-4 text-center">${classItem.title}</h3>
+							<div class="float-start">
+								<a href="#" class="mx-3 btn btn-white text-cookie favorite">
+									<c:if test="${empty fav}">
+										<i class="fa-regular fa-bookmark fa-xl"></i>
+									</c:if>		
+									<c:if test="${not empty fav}">
+										<i class="fa-solid fa-bookmark fa-xl"></i>
+									</c:if>	
+								</a>
+								<p class="text-cookie-secondary text-center small m-0">즐겨찾기</p>
+							</div>
+							<p><a href="${cp}oneday/regclass?cbno=${param.cbno}" class="btn btn-cookie float-end mt-2">신청하기</a></p>
 						</div>
-						<hr class="text-cookie-secondary">
+						<hr class="text-cookie-secondary my-2">
 						<div class="my-2">
 							<p><i class="fa-solid fa-location-dot fa-lg font-icon-cookie px-2"></i>공방 위치: ${classOne.location}</p>
 							<p><i class="fa-regular fa-calendar-check fa-lg font-icon-cookie px-2"></i>
@@ -125,20 +135,22 @@
 			})  
 			
 			$(".favorite").click(function() {
-				console.log("click~");
-				console.log($(this).hasClass('add-my-favorite'));				
+				event.preventDefault();
 				
-				solidStar = '<i class="fa-solid fa-star"></i>';
-				regularStar = '<i class="fa-regular fa-star"></i>';
+				const data = {cbno: '${classItem.cbno}', memberId: '${member.id}'};
+				if(!data.memberId) {
+					alert("로그인 후 이용하실 수 있습니다.");
+					return;
+				}
+				const url = '${cp}' + "oneday/favorite";
 				
-				$(this).hasClass('add-my-favorite') ? $(this).removeClass('add-my-favorite').html(regularStar) : $(this).addClass('add-my-favorite').html(solidStar);
- 			
-				
-				/* const url = "/cookie/oneday/favorite";
-				const data = JSON.stringify(favorite);
-				$.post({url, data}) {
-					
-				} */
+				$.ajax({
+					url: url,
+					data: data,
+					success : function(data) {
+						$(".favorite i").toggleClass("fa-solid fa-regular");
+					}
+				});
 			});
 		</script>
 	</body>

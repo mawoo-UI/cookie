@@ -11,11 +11,15 @@ import service.BoardClassService;
 import service.BoardClassServiceImpl;
 import service.ClassCurriculumService;
 import service.ClassCurriculumServiceImpl;
+import service.FavoriteService;
+import service.FavoriteServiceImpl;
 import service.MemberService;
 import service.MemberServiceImpl;
 import service.ReviewService;
 import service.ReviewServiceImpl;
 import utils.Commons;
+import vo.Favorite;
+import vo.Member;
 
 @WebServlet("/oneday/view")
 public class View extends HttpServlet{
@@ -23,6 +27,7 @@ public class View extends HttpServlet{
 	private ClassCurriculumService classCurriculumService = ClassCurriculumServiceImpl.getInstance();
 	private ReviewService reviewService = ReviewServiceImpl.getInstance();
 	private MemberService memberService = MemberServiceImpl.getInstance();
+	private FavoriteService favoriteService = FavoriteServiceImpl.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,7 +37,7 @@ public class View extends HttpServlet{
 		}
 		
 		Long cbno = Long.valueOf(req.getParameter("cbno"));
-		String host = memberService.findBy(boardClassService.view(cbno).getHost()).getNick();
+		String host = memberService.findBy(boardClassService.findBy(cbno).getHost()).getNick();
 		
 		req.setAttribute("classItem", boardClassService.view(cbno));
 		req.setAttribute("classList", classCurriculumService.boardList(cbno));
@@ -40,6 +45,14 @@ public class View extends HttpServlet{
 		req.setAttribute("reviews", reviewService.findReviews(cbno));
 		req.setAttribute("count", reviewService.count(cbno));
 		req.setAttribute("host", host);
+		
+		Object memberObj = req.getSession().getAttribute("member");
+		
+		if(memberObj != null) {
+			Member member = (Member) memberObj;
+			String id = member.getId();
+			req.setAttribute("fav", favoriteService.findBy(Favorite.builder().cbno(cbno).memberId(id).build()));
+		}
 		
 		req.getRequestDispatcher("/WEB-INF/jsp/oneday/view.jsp").forward(req, resp);
 	}
