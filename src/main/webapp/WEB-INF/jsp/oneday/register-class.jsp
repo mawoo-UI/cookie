@@ -33,16 +33,17 @@
 					<!-- <input type="text" class="form-control dropdown-cookie" id="startdate" name="startdate" value="2024/11/28" readonly> -->
 					<select class="form-select dropdown-cookie" name="startdate" id="startdate">
 						<c:forEach items="${days}" var="day">
-							<option value="${day.startdate}">
-								<fmt:formatDate value="${day.startdate}" pattern="yyyy/MM/dd" />
+							<fmt:formatDate value="${day.startdate}" pattern="yyyy/MM/dd" var="sd"/>
+							<option value="${sd}">
+								${sd}
 							</option>
 						</c:forEach>
 					</select>
 	
 					<label for="writer" class="form-label mt-4 text-cookie-secondary"><i class="fa-solid fa-user-pen"></i> <b>작성자</b></label>
-					<input type="text" class="form-control dropdown-cookie" id="nick" name="nick" value="${member.nick}" readonly>
+					<input type="text" class="form-control dropdown-cookie" id="writer" name="writer" value="${member.id}" readonly>
 					
-					<input type="hidden" id="writer" name="writer" value="${member.id}">
+					<input type="hidden" name="host" id="host" value="${regClass.host}">
 					
 					<div class="text-center mt-3">
 						<button type="submit" class="btn btn-cookie-secondary mx2 mt-3 px-4">신청</button>
