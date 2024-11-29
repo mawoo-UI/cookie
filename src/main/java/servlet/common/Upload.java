@@ -2,6 +2,7 @@ package servlet.common;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -54,8 +55,15 @@ public class Upload extends HttpServlet {
 					if(!parentPath.exists()) {
 						parentPath.mkdirs();
 					}
-					item.write(new File(parentPath,realName));
-					attachs.add(Attach.builder().uuid(realName).path(path).origin(origin).build());
+					File f = new File(parentPath,realName);
+					// MIME TYPE : ex) image/png,  application/json
+					String mime = Files.probeContentType(f.toPath());
+					boolean image = false;
+					if(mime != null) {
+						image = mime.startsWith("image/");
+					}
+					item.write(f);
+					attachs.add(Attach.builder().uuid(realName).path(path).origin(origin).image(image).build());
 				} 
 				System.out.println(attachs);
 				

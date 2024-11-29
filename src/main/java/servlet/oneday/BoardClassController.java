@@ -1,0 +1,46 @@
+package servlet.oneday;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import dto.Criteria;
+import service.BoardClassService;
+import service.BoardClassServiceImpl;
+import utils.Commons;
+
+
+@WebServlet("/oneday/api/*")
+public class BoardClassController extends HttpServlet{
+	private BoardClassService service = BoardClassServiceImpl.getInstance();
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String uri = req.getRequestURI();
+		uri = uri.replace(req.getContextPath() + "/oneday/api/", "");
+		Criteria cri = Commons.param(req, Criteria.class);
+		Long cbno = null;
+		Long viewCount = null;
+		
+		int tmpIdx = uri.indexOf("/");
+		Long number = null;
+		if(tmpIdx != -1) {
+			String tmp = uri.substring(tmpIdx+1);
+			number = Long.valueOf(tmp);
+		}
+		
+		if(uri.startsWith("cbno")) { 
+			cbno = number;
+		}
+		else if(uri.startsWith("vc")) {
+			viewCount = number;
+			if(tmpIdx == -1) viewCount = 9999_9999L;
+		}
+		Commons.respJson(resp, service.sortCbno(cri, cbno, viewCount));
+	}
+	
+}

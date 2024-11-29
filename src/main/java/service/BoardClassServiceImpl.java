@@ -84,11 +84,16 @@ public class BoardClassServiceImpl implements BoardClassService {
 	}
 
 	@Override
-	public List<BoardClass> sortCbno(Criteria cri, Long cbno) {
+	public List<BoardClass> sortCbno(Criteria cri, Long cbno, Long viewCount) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			BoardClassMapper mapper = session.getMapper(BoardClassMapper.class);
-			return mapper.selectCbnoDesc(cri, cbno);
+			return mapper.selectCbnoDesc(cri, cbno, viewCount);
 		}
 	}
+	
+	public static void main(String[] args) {
+		BoardClassService service = new BoardClassServiceImpl();
+		service.sortCbno(new Criteria(), null, 35392L).forEach(bc -> System.out.println(bc.getCbno() + "::" + bc.getViewCount()));
+	} 
 
 }

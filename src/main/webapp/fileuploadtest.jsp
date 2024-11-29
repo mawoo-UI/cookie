@@ -10,7 +10,7 @@
 <body>
 	<form action="${cp}upload" method="post" enctype="multipart/form-data">
 		<input type="file" multiple name ="files" id ="attach"> 
-		<!-- <button>업로드</button> -->
+		<button>업로드</button> 
 	</form>
 	<ul class="attach-result">
 	

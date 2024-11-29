@@ -15,7 +15,7 @@ public interface BoardClassMapper {
 	
 	List<BoardClass> showList(Criteria cri);
 	
-	List<BoardClass> selectCbnoDesc(@Param("cri")Criteria cri, @Param("cbno")Long cbno);
+	List<BoardClass> selectCbnoDesc(@Param("cri")Criteria cri, @Param("cbno")Long cbno, @Param("viewCount")Long viewCount);
 	
 	int insert(BoardClass boardClass);
 	
