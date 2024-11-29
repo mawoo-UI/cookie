@@ -28,8 +28,7 @@ public class FavoriteClass extends HttpServlet{
 		Map<String, Boolean> map = new HashMap<>();
 		map.put("fav", favoriteService.toggle(favorite));
 		
-		resp.setContentType("application/json; charset=utf-8");
-		resp.getWriter().print(new Gson().toJson(map));
+		Commons.respJson(resp, map);
 	}
 	
 }
