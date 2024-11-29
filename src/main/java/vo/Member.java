@@ -5,6 +5,7 @@ import java.util.Date;
 import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
+import utils.CookieDateFormat;
 
 @Data
 @Builder()
@@ -15,9 +16,12 @@ public class Member {
 	private String name;
 	private String email;
 	private String tel;
+	@CookieDateFormat
 	private Date birth;
 	private String addr;
 	private String detail_addr;
+	
+	@CookieDateFormat("yyyy-MM-dd HH:mm:ss")
 	private Date regdate;
 	private Date updatedate;
 	private boolean black_list;
