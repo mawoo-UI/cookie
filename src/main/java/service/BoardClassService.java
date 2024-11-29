@@ -16,6 +16,8 @@ public interface BoardClassService {
 	
 	BoardClass view(Long cbno);
 	
+	List<BoardClass> sortCbno(Criteria cri, Long cbno);
+	
 	int write(BoardClass boardClass);
 	
 	int remove(Long cbno);

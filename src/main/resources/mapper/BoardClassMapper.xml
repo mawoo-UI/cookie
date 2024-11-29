@@ -40,6 +40,7 @@
 	    	</trim>
 	    </if>
   		order by 1 desc
+  		limit 18;
   	</select>
   	<select id="trendList" resultMap="boardClass">
   		select * 
@@ -48,6 +49,14 @@
 		and end = 0 
 		order by view_count desc 
 		limit 3
+  	</select>
+  	<select id="selectCbnoDesc" resultMap="boardClass">
+  		select * 
+  		from tbl_board_class 
+  		where accept = 1 
+  		and end = 0 
+  		order by 1 desc 
+  		limit 18
   	</select>
   	<insert id="insert">
   		insert into tbl_board_class(title, content, host)

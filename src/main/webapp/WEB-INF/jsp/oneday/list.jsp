@@ -46,13 +46,13 @@
 						<hr class="m-0 text-cookie-secondary">
 					</div>
 				</div>
-				<div class="row mt-2">
+				<div class="row mt-2 show-lists">
 					<c:if test="${empty classes}">
 						<hr class="m-0 mt-5 text-cookie-secondary ">
 						<h3 class="text-center my-4"><i class="fa-solid fa-triangle-exclamation text-warning"></i> 검색 결과가 없습니다.</h3>
 						<hr class="m-0 text-cookie-secondary mb-5">
 					</c:if>
-					<c:forEach items="${classes}" var="s" varStatus="status">
+					<%-- <c:forEach items="${classes}" var="s" varStatus="status">
 						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2 ">
 			                <div>
 			                	<a href="${cp}oneday/view?cbno=${s.cbno}"><img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid"></a>
@@ -75,13 +75,71 @@
 								<a href="${cp}oneday/view?cbno=${s.cbno}" class="text-decoration-none text-dark">${s.title}</a>
 			                </div>
 			            </div>
-					</c:forEach>
+					</c:forEach> --%>
 				</div>
 				<c:if test="${not empty classes}">
-					<p class="text-center mt-4"><a href="#" class="text-secondary">더보기</a></p>
+					<!-- <p class="text-center mt-4"><a href="#" class="text-secondary show-more">더보기</a></p> -->
+					<button class="d-flex justify-content-around mt-4 btn btn-light text-secondary show-more">더보기</button>
 				</c:if>
 			</main>
 			<jsp:include page="../../common/footer.jsp" />
+			<script src="${cp}js/boardClass.js"></script>
+			<script>
+				function list(cri) {
+					boardClassService.listShow(cri, function(data) {
+						console.log(data);
+
+						if(!data.list.length) {
+	                		$(".show-more")
+	                		.text("마지막 페이지입니다.")
+	                		.addClass("text-decoration-none")
+							.click(function() {
+								event.preventDefault();
+							});
+	                		return;
+	                	} 
+	                    
+	                    let str = "";
+	                    for(let i in data.list) {
+	                        str += makeLi(data.list[i]);
+	                    }     
+	                    $(".show-lists").append(str);    
+					});
+				};
+				list();
+
+				// 더보기 클릭 시
+                $(".show-more").click(function() {
+					event.preventDefault();
+                	const lastCbno = $(".show-lists div:last").data("cbno");
+					listShow({lastCbno});
+                });
+				
+				function makeLi(classes) {
+                    return `<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2 " data-cbno="\${classes.cbno}">
+						<div>
+							<a href="\${cp}oneday/view?cbno=\${classes.cbno}"><img src="\${cp}imgs/class-thumbnail.jpg" class="img-fluid"></a>
+							<div class="stars clearfix d-block mt-2">` + `<p class="text-secondary small m-0 p-0 text-end">조회수: \${classes.viewCount}</p>
+							</div>
+							<a href="\${cp}oneday/view?cbno=\${classes.cbno}" class="text-decoration-none text-dark">\${classes.title}</a>
+						</div>
+					</div>`
+                }
+
+				function stars(score) {
+					let starStr='';
+					for(let i = 1; i <= 5; i++) {
+						if(score >= i) {
+							starStr += '<i class="float-start text-warning fa-solid fa-star small"></i>';
+						} else if((score >= i - 0.5) && (score < i)) {
+							starStr += '<i class="float-start text-warning fa-solid fa-star-half-stroke small"></i>';
+						} else {
+							starStr += '<i class="float-start text-warning fa-regular fa-star small"></i>';
+						}
+					}
+					return starStr;
+				}
+			</script>
 		</div>
 	</body>
 </html>
