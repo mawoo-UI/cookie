@@ -2,6 +2,7 @@ package vo;
 import java.util.Date;
 
 import lombok.*;
+import utils.CookieDateFormat;
 
 @Data
 @Builder
@@ -11,6 +12,7 @@ public class ClassCurriculum {
 	private Long ccno;
 	private String lname;
 	private String host;
+	@CookieDateFormat
 	private Date startdate;
 	private Date regdate;
 	private int max;
