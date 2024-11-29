@@ -11,9 +11,9 @@ public interface FavoriteMapper {
 	
 	List<Favorite> selectListByCcno(Long cbno);
 	
-	Favorite selectOne(@Param("cbno")Long cbno, @Param("member_id")String memberId);
+	Favorite selectOne(@Param("cbno")Long cbno, @Param("memberId")String memberId);
 	
 	int insert(Favorite favorite);
 	
-	int delete(@Param("cbno")Long cbno, @Param("member_id")String memberId);
+	int delete(@Param("cbno")Long cbno, @Param("memberId")String memberId);
 }

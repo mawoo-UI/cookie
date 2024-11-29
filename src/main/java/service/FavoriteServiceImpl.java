@@ -33,10 +33,10 @@ public class FavoriteServiceImpl implements FavoriteService {
 	}
 
 	@Override
-	public Favorite findBy(Long cbno, String memberId) {
+	public Favorite findBy(Favorite favorite) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			FavoriteMapper mapper = session.getMapper(FavoriteMapper.class);
-			return mapper.selectOne(cbno, memberId);
+			return mapper.selectOne(favorite.getCbno(), favorite.getMemberId());
 		}
 	}
 
@@ -53,6 +53,22 @@ public class FavoriteServiceImpl implements FavoriteService {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			FavoriteMapper mapper = session.getMapper(FavoriteMapper.class);
 			return mapper.delete(cbno, memberId);
+		}
+	}
+
+	@Override
+	public boolean toggle(Favorite favorite) {
+		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
+			FavoriteMapper mapper = session.getMapper(FavoriteMapper.class);
+			boolean fav = mapper.selectOne(favorite.getCbno(), favorite.getMemberId()) == null;
+			
+			if(fav) {
+				mapper.insert(favorite);
+			} else {
+				mapper.delete(favorite.getCbno(), favorite.getMemberId());
+			}
+			
+			return fav;
 		}
 	}
 

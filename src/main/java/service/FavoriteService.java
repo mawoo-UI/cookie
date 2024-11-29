@@ -9,9 +9,11 @@ public interface FavoriteService {
 	
 	List<Favorite> listByCcno(Long cbno);
 	
-	Favorite findBy(Long cbno, String memberId);
+	Favorite findBy(Favorite favorite);
 	
 	int write(Favorite favorite);
 	
 	int remove(Long cbno, String memberId);
+	
+	boolean toggle(Favorite favorite);
 }
