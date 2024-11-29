@@ -15,10 +15,27 @@ public class BoardLikesServiceImpl implements BoardLikesService {
 
 
 	@Override
-	public BoardLikes findBy(Long pno, String id) {
+	public BoardLikes findBy(BoardLikes boardLikes) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			BoardLikesMapper mapper = session.getMapper(BoardLikesMapper.class);
-			return mapper.selectOne(pno, id);
+			return mapper.selectOne(boardLikes);
+		}
+	}
+
+	@Override
+	public boolean toggleLikes(BoardLikes boardLikes) {
+		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
+			BoardLikesMapper mapper = session.getMapper(BoardLikesMapper.class);
+			boolean result = mapper.selectOne(boardLikes) == null;
+			if(result) {
+				mapper.insert(boardLikes);
+			}
+			else {
+//				delete
+				mapper.delete(boardLikes);
+			}
+			
+			return result;
 		}
 	}
 

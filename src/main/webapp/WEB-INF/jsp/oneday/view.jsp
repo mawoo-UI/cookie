@@ -20,7 +20,7 @@
 					<div class="mt-4">
 						<div class="clearfix">
 							<h3 class="fw-bold mb-4">${classItem.title}</h3>
-							<h4 class="float-start text-warning p-0 m-0"><i class="fa-solid fa-star"></i></h4>
+							<h4 class="float-start text-warning p-0 m-0 favorite"><i class="fa-regular fa-star"></i></h4>
 							<p><a href="${cp}oneday/regclass?cbno=${param.cbno}" class="btn btn-cookie float-end">신청하기</a></p>
 						</div>
 						<hr class="text-cookie-secondary">
@@ -123,6 +123,23 @@
 			$(".review-regdate").html((i, item) => {
 				return moment(item, 'yyyy/MM/DD HH:mm:ss').fromNow() 
 			})  
+			
+			$(".favorite").click(function() {
+				console.log("click~");
+				console.log($(this).hasClass('add-my-favorite'));				
+				
+				solidStar = '<i class="fa-solid fa-star"></i>';
+				regularStar = '<i class="fa-regular fa-star"></i>';
+				
+				$(this).hasClass('add-my-favorite') ? $(this).removeClass('add-my-favorite').html(regularStar) : $(this).addClass('add-my-favorite').html(solidStar);
+ 			
+				
+				/* const url = "/cookie/oneday/favorite";
+				const data = JSON.stringify(favorite);
+				$.post({url, data}) {
+					
+				} */
+			});
 		</script>
 	</body>
 </html>

@@ -7,6 +7,7 @@ import vo.Board;
 import vo.BoardLikes;
 
 public interface BoardLikesService {
-	BoardLikes findBy(Long pno, String id);
+	BoardLikes findBy(BoardLikes boardLikes);
+	boolean toggleLikes(BoardLikes boardLikes);
 	
 }
