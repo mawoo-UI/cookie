@@ -5,6 +5,14 @@
 <html>
 	<head>
 		<jsp:include page="head.jsp" />
+		<!-- <style>
+		   .layer-popup {width: 420px; position: absolute; top: 150px; left: (50%- 210px); display: none;}
+	       .layer-popup img {display: block;}
+	       .layer-popup p { background-color: rgb(130, 212, 247); color: antiquewhite; padding: 8px;}
+	       .layer-popup p input {vertical-align: middle;}
+	       .layer-popup p a {color: aquamarine; text-decoration: none; float: right };
+		</style> -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	</head>
 	<body class="gowun-dodum-regular">
 		<div class="wrap">
@@ -153,8 +161,13 @@
 		      	</div>
 		      	<div class="clearfix my-3 h-0">
 			      	<p class="collapse float-start" id="answer"></p>
-			      	<button type="button" class="btn btn-secondary float-end d-none" data-bs-dismiss="modal">Close</button>
+			      	<button type="button" class="btn btn-secondary float-end d-none btn-my-close" data-bs-dismiss="modal">Close</button>
+	      		</div> 
+	      		<div class="layer-popup text-end hide">
+					<label class=" "><input  type= "checkbox" class="checkbox-stop"> 오늘은 그만 보기</label> 
 		      	</div>
+	
+	
 		      </div>
 		    </div>
 		  </div>
@@ -171,14 +184,29 @@
 					$("#ajeModal .modal-body p").text(data.answer);
 				});
 			})
-			$("#ajeModal .modal-body button[data-bs-toggle]").click(() => $("#ajeModal [data-bs-dismiss]").removeClass("d-none"))
+			$("#ajeModal .modal-body button[data-bs-toggle]").click(() => $("#ajeModal [data-bs-dismiss]").removeClass("d-none").parent().next().removeClass("hide"));
 			/* $("#ajeModal").on("hide.bs.modal", function() {
 				$("#ajeModal .modal-body p").slideDown(1000);
 			}) */
 			//ajeModal.show();
-			$("#ajeModal").modal("show");
+			//$("#ajeModal").modal("show");
 			
+			if(!$.cookie("layer")){
+	    		//$(".layer-popup").show();
+				//ajeModal.show();
+				ajeModal.show();
+		    }
+		    $(".btn-my-close").click(function () {
+				event.preventDefault();
+		    	const checked = $(".checkbox-stop").prop("checked");
+				console.log(checked);
+				if(checked) {
+					$.cookie('layer', 'yes', {expires: 1});
+				}
+				ajeModal.hide();
+			})
 		})
+		
 		</script>
 	</body>
 </html>
