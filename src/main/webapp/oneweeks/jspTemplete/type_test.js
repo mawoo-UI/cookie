@@ -62,5 +62,9 @@ var obj2= {
     b:20
 };
 console.log(obj2.a.b);
+// {} >>객체 리터럴 : 프로퍼티, object, {} 리터럴
+//[] 배열 리터럴: 인덱스, array
 
+var arr = [];
 
+console.log(upload[2].origin);
