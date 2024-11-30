@@ -17,7 +17,7 @@ import service.ReviewServiceImpl;
 import utils.Commons;
 import vo.BoardClass;
 
-@WebServlet("/oneday/list/api/")
+@WebServlet("/oneday/list")
 public class BoardClassList extends HttpServlet{
 	private BoardClassService boardClassService = BoardClassServiceImpl.getInstance();
 	private ReviewService reviewService = ReviewServiceImpl.getInstance();

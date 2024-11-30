@@ -9,12 +9,12 @@
 <div class="wrap">
 	<main class="container">
 	    <div class="row col-md-12 m-2">
-	        <div class="container clearfix p-2 text-center">
-	            <a href="index.html" class="float-center"><img src="img/free-icon-cookie-2682369.png" class="img-fluid" alt="로고" width="50px"></a>
-	            <span class="text-center fw-bold p-3" style="font-size: 32px;">Cookie new Cookie</span>
-	        </div>
+            <div class="container clearfix p-2 text-center">
+                <a href="index.html" class="float-center"><img src="${cp}imgs/free-icon-cookie-2682369.png" class="img-fluid" alt="로고" width="50px"></a>
+                <span class="text-center fw-bold p-3" style="font-size: 32px;">Cookie new Cookie</span>
+            </div>
 	
-	        <form name="frm"class="mx-auto col-md-6 card p-4 mt-5">
+	        <form name="frm" class="mx-auto col-md-6 card p-4 mt-5">
 	            <span class="text-center"><b>마이페이지</b></span>
 	            <ul class="">
 	                <label for="title" class="form-label mt-4">전화번호</label>

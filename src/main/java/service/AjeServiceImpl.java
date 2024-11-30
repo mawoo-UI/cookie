@@ -1,18 +1,12 @@
 package service;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
-
-import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
 
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import mapper.AjeMapper;
-import mapper.BoardCategoryMapper;
 import utils.MybatisInit;
 import vo.Ajegag;
 

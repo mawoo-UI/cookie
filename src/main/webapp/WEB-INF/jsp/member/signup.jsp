@@ -8,7 +8,6 @@
 <body>
     <div class="wrap">
         <main class="container">
-            <div class="row col-md-12 m-2">
             <div class="container clearfix p-2 text-center">
                 <a href="index.html" class="float-center"><img src="${cp}imgs/free-icon-cookie-2682369.png" class="img-fluid" alt="로고" width="50px"></a>
                 <span class="text-center fw-bold p-3" style="font-size: 32px;">Cookie new Cookie</span>
@@ -133,6 +132,7 @@
 	            	url : sendEmailAndSessionCheckURL,
 	            	beforeSend : function() {
 	            		$("#btnEmailVerify").prop("disabled", true).find("span").removeClass("invisible")
+	            		$(".area-email p").hide();
 	            	}
 	            })
 	            .done(function(data) {
@@ -140,6 +140,7 @@
 	            	console.log('메일 발송 완료');
 	            	$("#email").prop("readonly", true).addClass("bg-cookie p-2").next().remove();
 	            	$(".area-auth-num").addClass("d-grid").show();
+	            	
 	            });
                 
             })
@@ -173,6 +174,7 @@
                 method:"post",
             	beforeSend : function() {
             		$(".area-id button").prop("disabled", true).find("span").removeClass("invisible")
+            		$(".area-id p").hide();
             	}
             }).done(function(data) {
                 if(!data.result) {
@@ -204,6 +206,7 @@
                 method:"post",
             	beforeSend : function() {
             		$(".area-nick button").prop("disabled", true).find("span").removeClass("invisible")
+            		$(".area-nick p").hide();
             	}
             }).done(function(data) {
                 if(!data.result) {

@@ -9,7 +9,7 @@ import utils.CookieDateFormat;
 
 @Data
 @Builder()
-@ToString(exclude = "pw")
+@ToString
 public class Member {
 	private String id;
 	private String pw;
@@ -30,7 +30,6 @@ public class Member {
 	private boolean marketing_agree;
 	private String nick;
 	
-	private Long test;
 	
 	public static void main(String[] args) {
 		Member m = Member.builder().build();

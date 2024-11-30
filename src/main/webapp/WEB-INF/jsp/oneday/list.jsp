@@ -77,19 +77,24 @@
 			            </div>
 					</c:forEach> --%>
 				</div>
-				<c:if test="${not empty classes}">
-					<!-- <p class="text-center mt-4"><a href="#" class="text-secondary show-more">더보기</a></p> -->
-					<button class="d-flex justify-content-around mt-4 btn btn-light text-secondary show-more">더보기</button>
-				</c:if>
+				
+				<!-- <p class="text-center mt-4"><a href="#" class="text-secondary show-more">더보기</a></p> -->
+				<button class="d-flex justify-content-around mt-4 btn btn-light text-secondary show-more">더보기</button>
 			</main>
 			<jsp:include page="../../common/footer.jsp" />
 			<script src="${cp}js/boardClass.js"></script>
 			<script>
-				function list(cri) {
-					boardClassService.sortCbno(cri, cbno, viewCount function(data) {
+				// sortCbno	???
+				const cri = {amount:18, keyword:"", type:""};
+				let cbno;
+				let viewCount;
+				
+				function list(cri, param) {
+					param = param || {cbno, viewCount};
+					boardClassService.sortCbno('${cp}', cri, param, function(data) {
 						console.log(data);
 
-						if(!data.classList.length) {
+						if(!data.length) {
 	                		$(".show-more")
 	                		.text("마지막 페이지입니다.")
 	                		.addClass("text-decoration-none")
@@ -100,31 +105,35 @@
 	                	} 
 	                    
 	                    let str = "";
-	                    for(let i in data.classList) {
-	                        str += makeLi(data.list[i]);
+	                    for(let i in data) {
+	                        str += makeLi(data[i]);
 	                    }     
 	                    $(".show-lists").append(str);    
 					});
 				};
-				list();
-
+				list(cri);
 				// 더보기 클릭 시
+				
                 $(".show-more").click(function() {
 					event.preventDefault();
-                	const cbno = $(".show-lists div:last").data("cbno");
-					sortCbno(cri, cbno, viewCount);
+                	
+					const cbno = $(".show-lists > div:last").data("cbno");
+					
+                	console.log(cbno)
+					list(cri, {cbno})
                 });
 				
 				function makeLi(classList) {
                     return `<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2 " data-cbno="\${classList.cbno}">
 						<div>
-							<a href="\${cp}oneday/view?cbno=\${classList.cbno}"><img src="\${cp}imgs/class-thumbnail.jpg" class="img-fluid"></a>
+							<a href="${cp}oneday/view?cbno=\${classList.cbno}"><img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid"></a>
 							<div class="stars clearfix d-block mt-2">` + `<p class="text-secondary small m-0 p-0 text-end">조회수: \${classList.viewCount}</p>
 							</div>
-							<a href="\${cp}oneday/view?cbno=\${classList.cbno}" class="text-decoration-none text-dark">\${classList.title}</a>
+							<a href="${cp}oneday/view?cbno=\${classList.cbno}" class="text-decoration-none text-dark">\${classList.title}</a>
 						</div>
 					</div>`
                 }
+				/* 
 
 				function stars(score) {
 					let starStr='';
@@ -138,7 +147,7 @@
 						}
 					}
 					return starStr;
-				}
+				} */
 			</script>
 		</div>
 	</body>
