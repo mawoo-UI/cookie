@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,90 +9,58 @@
 <body>
 <jsp:include page="../../common/admin_menu.jsp" />
 <div class="container mt-5">
-    <h2 class="text-center ">자유게시판</h2>
+
+    <h2 class="text-center ">${cname}</h2>
     <table class="table table-hover">
     <thead>
         <tr>
-            <th class="text-center">글 번호</th>
-            <th class="text-center">제목</th>
-            <th class="text-center">작성자</th>
-            <th class="text-center">작성일</th>
-            <th class="text-center">조회수</th>
+            <th class="text-center"><label for="checkbox" class="form-label"><span class="btn btn-cookie btn-sm">전체선택</span></label></th>
+            <th class="text-center align-middle">글 번호</th>
+            <th class="text-center align-middle" style="width: 50%">제목</th>
+            <th class="text-center align-middle">작성자</th>
+            <th class="text-center align-middle">작성일</th>
+            <th class="text-center align-middle">조회수</th>
         </tr>
     </thead>
     <tbody>
-        <tr class="">
-            <td class="text-center bg-cookie"><i class="fa-solid fa-fire text-danger"></i> </td>
-            <td class="text-left bg-cookie"><span class="badge bg-secondary">인기</span> <a href="Post_view.html">골프 동호회</a></td>
-            <td class="text-center bg-cookie">임마누엘</td>
-            <td class="text-center bg-cookie">2024-11-18</td>
-            <td class="text-center bg-cookie">1</td>
-        </tr>
+        
+        <c:forEach items="${boards}" var="b">
+        
         <tr>
-            <td class="text-center">1</td>
-            <td class="text-left"><a href="Post_view.html">골프 동호회</a></td>
-            <td class="text-center">임마누엘</td>
-            <td class="text-center">2024-11-18</td>
-            <td class="text-center">1</td>
+            <td class="text-center"><input type= "checkbox"></td>
+            <td class="text-center">${b.pno}</td>
+            <td class="text-left"><a href="view?pno=${b.pno}&${pageDto.cri.qs2}" class="text-cookie-secondary text-decoration-none ">${b.title}</a></td>
+            <td class="text-center">${b.writer}</td>
+            <td class="text-center">${b.regdate}</td>
+            <td class="text-center">${b.viewCount}</td>
         </tr>
-        <tr>
-            <td class="text-center">2</td>
-            <td class="text-left">7080 등산모임(남자 마감,여성 환영)</td>
-            <td class="text-center">곽두팔</td>
-            <td class="text-center">2024-11-18</td>
-            <td class="text-center">0</td>
-        </tr>
-        <tr>
-            <td class="text-center">3</td>
-            <td class="text-left">식물 키우는분들 모집합니다.</td>
-            <td class="text-center">박두창</td>
-            <td class="text-center">2024-11-18</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="text-center">4</td>
-            <td class="text-left">바이크 동호회 모집합니다.</td>
-            <td class="text-center">마풍강</td>
-            <td class="text-center">2024-11-18</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="text-center">5</td>
-            <td class="text-left">독서 모임(주 1회 참가 가능하신분만)</td>
-            <td class="text-center">제갈제니</td>
-            <td class="text-center">2024-11-18</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="text-center">6</td>
-            <td class="text-left">카페투어 모임 구합니다.</td>
-            <td class="text-center">곽한구</td>
-            <td class="text-center">2024-11-18</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="text-center">7</td>
-            <td class="text-left">맛집 투어 모임 구합니다.</td>
-            <td class="text-center">임꺽정</td>
-            <td class="text-center">2024-11-18</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="text-center">8</td>
-            <td class="text-left">게임모임 구합니다.</td>
-            <td class="text-center">김풍</td>
-            <td class="text-center">2024-11-18</td>
-            <td class="text-center"></td>
-        </tr>
+        </c:forEach>
+        
     </tbody>
     </table>
     <ul class="pagination justify-content-center">
-        <li class="page-item"><a class="page-link border-0" href="#"><i class="fa-solid fa-angle-left" style="color: #493208;"></i></a></li>
-        <li class="page-item"><a class="page-link border-0 text-dark" href="#">1</a></li>
-        <li class="page-item"><a class="page-link border-0 text-dark" href="#">2</a></li>
-        <li class="page-item"><a class="page-link border-0 text-dark" href="#">3</a></li>
-        <li class="page-item"><a class="page-link border-0 text-dark" href="#"><i class="fa-solid fa-angle-right" style="color: #493208;"></i></a></li>
-    </ul>
-</div>
+        	<c:if test="${pageDto.doublePrev}">
+        	<li class="page-item"><a class="page-link border-0 rounded-0 text-cookie-secondary" href="board?page=${pageDto.startPage- 1}&${pageDto.cri.qs}"><i class="fa-solid fa-angles-left"></i></a></li>
+            </c:if>
+            <c:if test="${pageDto.prev}">
+            <li class="page-item"><a class="page-link border-0 rounded-0 text-cookie-secondary" href="board?page=${pageDto.cri.page-1}&${pageDto.cri.qs}"><i class="fa-solid fa-angle-left "></i></a></li>
+            </c:if>
+            <c:forEach begin ="${pageDto.startPage}" end="${pageDto.endPage}" var ="page">
+            <li class="page-item ${page == pageDto.cri.page ? 'active' : ''}"><a class="page-link border-0 text-cookie-secondary" href="board?page=${page}&${pageDto.cri.qs}">${page}</a></li>
+            </c:forEach>
+            
+            <c:if test="${pageDto.next}">
+            <li class="page-item"><a class="page-link border-0 rounded-0 text-cookie-secondary" href="board?page=${pageDto.cri.page+1}&${pageDto.cri.qs}"><i class="fa-solid fa-angle-right "></i></a></li>
+            </c:if>
+            
+            <c:if test="${pageDto.doubleNext}">
+            <li class="page-item"><a class="page-link border-0 rounded-0 text-cookie-secondary" href="board?page=${pageDto.endPage+1}&${pageDto.cri.qs}"><i class="fa-solid fa-angles-right"></i></a></li>
+	        </c:if> 
+        </ul>
+          <c:forEach items="${posts}" var="post" varStatus="stat" begin="3" end="10" step="2">
+			<h3>${stat.index} // ${stat.count} // ${post.title}</h3>	
+			<p> ${boards[stat.index] == board} </p>
+		 </c:forEach>
+    </div>
 </body>
 </html>
