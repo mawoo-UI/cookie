@@ -47,11 +47,11 @@
 					</div>
 				</div>
 				<div class="row mt-2 show-lists">
-					<c:if test="${empty classes}">
+					<%-- <c:if test="${empty classes}">
 						<hr class="m-0 mt-5 text-cookie-secondary ">
 						<h3 class="text-center my-4"><i class="fa-solid fa-triangle-exclamation text-warning"></i> 검색 결과가 없습니다.</h3>
 						<hr class="m-0 text-cookie-secondary mb-5">
-					</c:if>
+					</c:if> --%>
 					<%-- <c:forEach items="${classes}" var="s" varStatus="status">
 						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2 ">
 			                <div>
@@ -86,10 +86,10 @@
 			<script src="${cp}js/boardClass.js"></script>
 			<script>
 				function list(cri) {
-					boardClassService.listShow(cri, function(data) {
+					boardClassService.sortCbno(cri, cbno, viewCount function(data) {
 						console.log(data);
 
-						if(!data.list.length) {
+						if(!data.classList.length) {
 	                		$(".show-more")
 	                		.text("마지막 페이지입니다.")
 	                		.addClass("text-decoration-none")
@@ -100,7 +100,7 @@
 	                	} 
 	                    
 	                    let str = "";
-	                    for(let i in data.list) {
+	                    for(let i in data.classList) {
 	                        str += makeLi(data.list[i]);
 	                    }     
 	                    $(".show-lists").append(str);    
@@ -111,17 +111,17 @@
 				// 더보기 클릭 시
                 $(".show-more").click(function() {
 					event.preventDefault();
-                	const lastCbno = $(".show-lists div:last").data("cbno");
-					listShow({lastCbno});
+                	const cbno = $(".show-lists div:last").data("cbno");
+					sortCbno(cri, cbno, viewCount);
                 });
 				
-				function makeLi(classes) {
-                    return `<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2 " data-cbno="\${classes.cbno}">
+				function makeLi(classList) {
+                    return `<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2 " data-cbno="\${classList.cbno}">
 						<div>
-							<a href="\${cp}oneday/view?cbno=\${classes.cbno}"><img src="\${cp}imgs/class-thumbnail.jpg" class="img-fluid"></a>
-							<div class="stars clearfix d-block mt-2">` + `<p class="text-secondary small m-0 p-0 text-end">조회수: \${classes.viewCount}</p>
+							<a href="\${cp}oneday/view?cbno=\${classList.cbno}"><img src="\${cp}imgs/class-thumbnail.jpg" class="img-fluid"></a>
+							<div class="stars clearfix d-block mt-2">` + `<p class="text-secondary small m-0 p-0 text-end">조회수: \${classList.viewCount}</p>
 							</div>
-							<a href="\${cp}oneday/view?cbno=\${classes.cbno}" class="text-decoration-none text-dark">\${classes.title}</a>
+							<a href="\${cp}oneday/view?cbno=\${classList.cbno}" class="text-decoration-none text-dark">\${classList.title}</a>
 						</div>
 					</div>`
                 }

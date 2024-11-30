@@ -1,16 +1,19 @@
 const boardClassService = (function() {
-    const url = "/cookie/oneday/list"
+    const url = "/cookie/oneday/list/api"
 
-    function listShow(cri, callback) {
-        // console.log(cbno);
+    function sortCbno(cri, cbno, viewCount, callback) {
+        console.log(cbno);
 
-        if(cri && cri.lastCbno) {
-			url += "/" + cri.lastCbno;
+        if(cri && cbno) {
+			url += "/cbno/" + cbno;
+		}
+		if(cri && viewCount) {
+			url += "/vc/" + viewCount;
 		}
         $.getJSON(url).done(function(data) {
             if(callback) callback(data);
         });
     }
     
-    return {listShow};
+    return {sortCbno};
 })();

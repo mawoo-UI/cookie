@@ -1,6 +1,7 @@
 package service;
 
 import java.util.List;
+import java.util.Map;
 
 import dto.Criteria;
 import vo.BoardClass;
@@ -16,7 +17,7 @@ public interface BoardClassService {
 	
 	BoardClass view(Long cbno);
 	
-	List<BoardClass> sortCbno(Criteria cri, Long cbno, Long viewCount);
+	Map<String, List<BoardClass>> sortCbno(Criteria cri, Long cbno, Long viewCount);
 	
 	int write(BoardClass boardClass);
 	
