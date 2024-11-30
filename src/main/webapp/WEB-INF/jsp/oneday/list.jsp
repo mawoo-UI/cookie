@@ -201,9 +201,30 @@
 						</div>
 					</div>`
                 }
-				/* 
 
-				function stars(score) {
+				/* function scoreStr(param) {
+					param = param || {cbno};
+					reviewService.score('${cp}', param, function(data) {
+						console.log(cri);
+						console.log(param);
+						
+						
+						let starStr='';
+						for(let i = 1; i <= 5; i++) {
+							if(score >= i) {
+								starStr += '<i class="float-start text-warning fa-solid fa-star small"></i>';
+							} else if((score >= i - 0.5) && (score < i)) {
+								starStr += '<i class="float-start text-warning fa-solid fa-star-half-stroke small"></i>';
+							} else {
+								starStr += '<i class="float-start text-warning fa-regular fa-star small"></i>';
+							}
+						}
+
+						return starStr;
+					});
+				} */
+
+				/* function stars(score) {
 					let starStr='';
 					for(let i = 1; i <= 5; i++) {
 						if(score >= i) {
@@ -215,7 +236,7 @@
 						}
 					}
 					return starStr;
-				} */
+				}  */
 			</script>
 		</div>
 	</body>

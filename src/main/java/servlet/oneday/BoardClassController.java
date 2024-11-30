@@ -11,11 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import dto.Criteria;
 import service.BoardClassService;
 import service.BoardClassServiceImpl;
+import service.ReviewService;
+import service.ReviewServiceImpl;
 import utils.Commons;
 
 @WebServlet("/oneday/list/api/*")
 public class BoardClassController extends HttpServlet{
 	private BoardClassService boardClassService = BoardClassServiceImpl.getInstance();
+	private ReviewService reviewService = ReviewServiceImpl.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -42,9 +45,6 @@ public class BoardClassController extends HttpServlet{
 			if(tmpIdx == -1) viewCount = 9999_9999L;
 		}
 		
-		System.out.println(cri);
-		System.out.println(cbno);
-		System.out.println(viewCount);
 		Commons.respJson(resp, boardClassService.sortCbno(cri, cbno, viewCount));
 	}
 	
