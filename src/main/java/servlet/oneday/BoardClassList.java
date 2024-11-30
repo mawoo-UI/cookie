@@ -14,7 +14,6 @@ import service.BoardClassService;
 import service.BoardClassServiceImpl;
 import service.ReviewService;
 import service.ReviewServiceImpl;
-import utils.Commons;
 import vo.BoardClass;
 
 @WebServlet("/oneday/list")
@@ -25,18 +24,25 @@ public class BoardClassList extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Criteria cri = new Criteria(req);
-		/*
-		 * List<BoardClass> boards = boardClassService.sortCbno(cri, null, null);
-		 * 
-		 * int size = boardClassService.listShow(cri).size(); Double[] scores = new
-		 * Double[size]; for(int i = 0; i < boards.size(); i++) {
-		 * if(reviewService.findReviews(boards.get(i).getCbno()) == null ) { scores[i] =
-		 * 0.; continue; } scores[i] = reviewService.score(boards.get(i).getCbno()); }
-		 * 
-		 * 
-		 * req.setAttribute("classes", boards); req.setAttribute("scores", scores);
-		 * req.setAttribute("cri", cri);
-		 */
+		
+//		List<BoardClass> boards = boardClassService.listShow(cri);
+//	 
+//		int size = boardClassService.listShow(cri).size(); 
+//		Double[] scores = new Double[size]; 
+//		
+//		for(int i = 0; i < boards.size(); i++) {
+//			if(reviewService.findReviews(boards.get(i).getCbno()) == null ) { 
+//				scores[i] = 0.; 
+//				continue; 
+//			} 
+//			scores[i] = reviewService.score(boards.get(i).getCbno()); 
+//		}
+//	
+//		 
+//		req.setAttribute("classes", boards); 
+//		req.setAttribute("scores", scores);
+//		req.setAttribute("criteria", cri);
+		 
 		req.getRequestDispatcher("/WEB-INF/jsp/oneday/list.jsp").forward(req, resp);
 	}
 }
