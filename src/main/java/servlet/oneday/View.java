@@ -42,7 +42,7 @@ public class View extends HttpServlet{
 		req.setAttribute("classItem", boardClassService.view(cbno));
 		req.setAttribute("classList", classCurriculumService.boardList(cbno));
 		req.setAttribute("classOne", classCurriculumService.boardOne(cbno));
-		req.setAttribute("reviews", reviewService.findReviews(cbno));
+//		req.setAttribute("reviews", reviewService.findReviews(cbno));
 		req.setAttribute("count", reviewService.count(cbno));
 		req.setAttribute("host", host);
 		

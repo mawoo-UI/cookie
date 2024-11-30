@@ -85,7 +85,7 @@
 					</pre> --%>
 				</div>
 				<div class="cookie-review mx-3 mt-3 d-none row">
-					<c:if test="${empty reviews}">
+					<%-- <c:if test="${empty reviews}">
 						<h4 class="text-center my-4">등록된 리뷰가 없습니다.</h4>
 					</c:if>
 					<c:forEach items="${reviews}" var="re">
@@ -109,11 +109,13 @@
 					</c:forEach>
 					<c:if test="${not empty reviews}">
 						<p class="text-center mt-4"><a href="#" class="text-secondary">더보기</a></p>
-					</c:if>
+					</c:if> --%>
 				</div>
+				<p class="text-center mt-4"><a href="#" class="text-secondary show-more">더보기</a></p>
 			</main>
 			<jsp:include page="../../common/footer.jsp" />
 		</div>
+		<script src="${cp}js/review.js"></script>
 		<script>
 			moment.locale("ko")
 			$(".cookie-menu-detail").click(function() {
@@ -128,6 +130,7 @@
 				$('.cookie-menu-detail').hasClass('fw-bold') ? $('.cookie-menu-detail').removeClass('fw-bold') : '';
 				$('.cookie-review').hasClass('d-none') ? $('.cookie-review').removeClass('d-none') : '';
 				$('.cookie-detail').hasClass('d-none') ? '' : $('.cookie-detail').addClass('d-none');
+				list();
 			});
 			
 			$(".review-regdate").html((i, item) => {
@@ -152,6 +155,61 @@
 					}
 				});
 			});
+
+			function list(param) {
+				param = param || {reno};
+				reviewService.findReviews('${cp}', cbno, param, function(data) {
+
+					if(!data.length) {
+						$(".show-more")
+						.text("마지막 페이지입니다.")
+						.addClass("text-decoration-none")
+						.click(function() {
+							event.preventDefault();
+						});
+						return;
+					}
+
+					let str = "";
+					for(let i in data) {
+						str += makeLi(data[i]);
+					} 
+					$(".cookie-review").append(str);
+				});
+			};
+
+			// 더보기 클릭 시
+			$(".show-more").click(function() {
+				event.preventDefault();
+
+				const reno = $(".cookie-review > div:last").data("reno");
+				list({reno});
+			});
+
+			function makeLi(review) {
+				const score = '\${review.score}';
+				let starStr='';
+				for(let i = 1; i <= 5; i++) {
+					if(score >= i) {
+						starStr += '<i class="float-start text-warning fa-solid fa-star small"></i>';
+					} else if((score >= i - 0.5) && (score < i)) {
+						starStr += '<i class="float-start text-warning fa-solid fa-star-half-stroke small"></i>';
+					} else {
+						starStr += '<i class="float-start text-warning fa-regular fa-star small"></i>';
+					}
+				}
+
+				return `<div class="my-2 p-2 col-6 col-sm-4 col-lg-3 col-xl-2" data-reno="\${review.reno}">
+							<div class="p-3 card dropdown-cookie">
+								<a href="${cp}oneday/review?cbno=${param.cbno}&reno=\${review.reno}"><img src="${cp}imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" ></a>
+								<div class="stars clearfix d-block mt-2 mb-1">` + 
+									
+								`</div>
+								<a href="${cp}oneday/review?cbno=${param.cbno}&reno=\${review.reno}" class="text-decoration-none text-dark text-truncate"><span class="mb-1 small">\${review.content}</span></a>
+								<p class="text-end text-secondary small mb-1"><span class="review-regdate">/* <fmt:formatDate value="\${review.regdate}" pattern="yyyy/MM/dd HH:mm:ss"/> */</span> | \${review.writer}</p>
+							</div>
+						</div>`;
+			}
 		</script>
 	</body>
 </html>

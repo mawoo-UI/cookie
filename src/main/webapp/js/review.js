@@ -14,5 +14,18 @@ const reviewService = (function() {
         });
     }
 
-    return {score};
+    function findReviews(cp, cbno, param, callback) {
+        let url = "oneday/view/api";
+        url = cp + url + "/cbno/" + cbno;
+
+        if(param && param.reno) {
+            url += "/reno/" + param.reno;
+        }
+
+        $.getJSON(url).done(function(data) {
+            if(callback) callback(data);
+        });
+    }
+
+    return {score, findReviews};
 })();

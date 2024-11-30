@@ -11,7 +11,7 @@ public interface ReviewService {
 	
 	Double score(Long cbno);
 	
-	List<Review> findReviews(Long cbno);
+	List<Review> findReviews(Long cbno, Long reno);
 	
 	int count(Long cbno);
 	

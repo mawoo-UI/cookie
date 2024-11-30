@@ -20,7 +20,13 @@
 		from tbl_class_curriculum 
 		join tbl_review tr using(ccno)
 		where cbno = #{cbno.cbno}
+		<if test="reno != null">
+  		<![CDATA[
+  		and reno < #{reno}
+  		]]>
+  		</if>
 		order by reno desc
+		limit 18
   	</select>
   	<select id="getCount" resultType="int">
   		select count(*)
