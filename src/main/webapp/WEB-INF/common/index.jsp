@@ -82,6 +82,7 @@
 							</ul>
 						</li>
 						<li><a class="dropdown-item mx-5" href="${cp}/board/list?category=4">공지사항</a></li>
+						<li><a class="dropdown-item mx-5" href="${cp}/board/list?category=5">이벤트</a></li>
 						<li><a class="dropdown-item mx-5" href="${cp}/member/mypage">마이페이지</a></li>
 					</ul>
 				</nav>
