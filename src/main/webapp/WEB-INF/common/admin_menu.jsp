@@ -6,7 +6,7 @@
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="pe-4">
-        <a href="index.html" class="mx-4 float-start"><img src="../imgs/logo.png" alt="로고" class="img-fluid" width="53"></a>
+        <a href="index.html" class="mx-4 float-start"><img src="${cp}imgs/logo.png" alt="로고" class="img-fluid" width="53"></a>
         <h2 class="fw-bold p-0 float-start mt-1">Cookie 관리자 페이지</h2>
         </div>
         <p></p>
