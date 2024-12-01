@@ -45,6 +45,9 @@
 	 <update id="increaseViewCount" >
     	update tbl_board set view_count = view_count +1 where pno = #{pno}
 	 </update>
+	 <update id="changeLikes" >
+    	update tbl_board set likes = likes + #{value} where pno = #{pno}
+	 </update>
 	 <delete id="delete" >
     	delete from tbl_board where pno = #{pno} 
 	 </delete>

@@ -209,7 +209,7 @@
 		})
 		
 		</script>
-	    <div class="toast-container position-absolute p-3 bottom-0 end-0" id="toastPlacement" data-original-class="toast-container position-absolute p-3">
+	    <div class="toast-container position-fixed p-3 bottom-0 end-0" id="toastPlacement" data-original-class="toast-container position-absolute p-3">
 	        <div class="toast fade show">
 	            <div class="toast-header bg-cookie">
 	            <img src="${cp}imgs/free-icon-cookie-2682369.png" class="rounded me-2" alt="..." style="width: 24px;">

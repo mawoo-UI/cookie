@@ -2,23 +2,19 @@ package utils;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.Arrays;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.ibatis.annotations.Param;
-
 import com.google.gson.Gson;
-
-import vo.Member;
+import com.google.gson.GsonBuilder;
 
 public class Commons {
 	public static final String UPLOAD_PATH = "c:/upload";
-	private static final Gson GSON = new Gson();
+	private static final Gson GSON = new GsonBuilder().registerTypeAdapter(Date.class, new DateEpochSerializer()).create();
 	
 	public static void printMsg(String msg, String url, HttpServletResponse resp) throws IOException {
 		resp.setContentType("text/html; charset=utf-8");

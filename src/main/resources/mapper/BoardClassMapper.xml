@@ -30,7 +30,7 @@
   		<result column="updatedate" property="updatedate"/>
   		<result column="end" property="end"/>
   		<result column="accept" property="accept"/>
-  		<result column="avgStar" property="avg_star"/>
+  		<result column="avg_star" property="avgStar"/>
   	</resultMap>
   	<select id="selectOne" resultMap="boardClass">
   		select tbc.*, nvl(avg_star, 0) avg_star
