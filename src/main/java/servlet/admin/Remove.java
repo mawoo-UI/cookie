@@ -21,7 +21,7 @@ public class Remove extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String pnoStr = req.getParameter("pno");
-//		Object memberObject = req.getSession().getAttribute("member");
+		Object memberObject = req.getSession().getAttribute("member");
 		Criteria cri = new Criteria(req);
 		String redirectUrl = "list?" + cri.getQs2();
 		
@@ -32,7 +32,7 @@ public class Remove extends HttpServlet{
 		Long pno = Long.valueOf(pnoStr);
 //		Member m = (Member) memberObject;
 //		if(!m.getId().equals(service.findBy(pno).getWriter())) {
-//			printMsg("본인이 작성한 글만 삭제할 수 있습니다.", redirectUrl, resp);
+//			Commons.printMsg("본인이 작성한 글만 삭제할 수 있습니다.", redirectUrl, resp);
 //			return;
 //		}
 		service.remove(pno);
@@ -40,6 +40,14 @@ public class Remove extends HttpServlet{
 		
 		resp.sendRedirect(redirectUrl);
 	}
-	
+//	void printMsg(String msg, String url, HttpServletResponse resp) throws IOException {
+//		resp.setContentType("text/html; charset=utf-8");
+//		PrintWriter pw = resp.getWriter();
+//		pw.println("<script>");
+//		pw.printf("alert('%s'); %n", msg);
+//		pw.printf("location.href = '%s';%n", url);
+//		pw.println("</script>");
+//	}
+//	
 			
 }
