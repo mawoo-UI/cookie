@@ -55,6 +55,22 @@
 	  insert into tbl_board (title, content, writer) values (#{title}, #{content}, #{writer})
 	  </insert>
 
+	<select id="selectLikesList">
+	SELECT
+    tb.*
+	FROM (
+	    SELECT
+	        tb.*,
+	        ROW_NUMBER() OVER (PARTITION BY tb.cno ORDER BY tb.likes DESC) AS rn
+	    FROM
+	        tbl_board tb
+	) tb
+	WHERE
+	    tb.rn &lt;= 2
+	ORDER BY
+	    tb.cno,
+	    tb.likes DESC
+	</select>
 </mapper>
 
 
