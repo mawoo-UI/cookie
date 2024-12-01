@@ -9,11 +9,10 @@
 	<jsp:include page="../../../common/head.jsp" />
 </head>
 <body>
-	<div class="wrap">
-		<jsp:include page="../../../common/admin_menu.jsp" />
-		<main class="container">
-    <div class="container mt-3">
-        <h2 class="text-center ">자유게시판</h2>
+	<jsp:include page="../../../common/admin_menu.jsp" />
+
+    <div class="container mt-5">
+        <h2 class="text-center ">${cname}</h2>
 
         <input type="text" class="form-control text-bg-light" placeholder="${board.title}" disabled>
     
@@ -96,10 +95,8 @@
         </div>
         
     </div>
-		</main>
 		<!-- 풋터 -->
 		<jsp:include page="../../../common/footer.jsp" />
-	</div>
 	<script>
 	$("#btnLikes").click(function () {
 		event.preventDefault();

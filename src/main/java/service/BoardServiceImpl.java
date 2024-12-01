@@ -6,9 +6,11 @@ import org.apache.ibatis.session.SqlSession;
 
 import dto.Criteria;
 import mapper.AttachMapper;
+import mapper.BoardLikesMapper;
 import mapper.BoardMapper;
 import utils.MybatisInit;
 import vo.Board;
+import vo.BoardLikes;
 
 public class BoardServiceImpl implements BoardService {
 
@@ -43,7 +45,10 @@ public class BoardServiceImpl implements BoardService {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			BoardMapper mapper = session.getMapper(BoardMapper.class);
 			AttachMapper attachMapper = session.getMapper(AttachMapper.class);
+			BoardLikesMapper boardLikesMapper = session.getMapper(BoardLikesMapper.class);
 			attachMapper.delete(pno);
+			boardLikesMapper.deleteAll(pno);
+			
 			return mapper.delete(pno);
 		}
 	}

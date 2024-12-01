@@ -14,5 +14,7 @@ public interface BoardLikesMapper {
 	void insert(BoardLikes boardLikes);
 	@Delete("delete from tbl_likes where pno =#{pno} and id =#{id}")
 	void delete(BoardLikes boardLikes);
+	@Delete("delete from tbl_likes where pno =#{pno}")
+	void deleteAll(Long pno);
 	
 }

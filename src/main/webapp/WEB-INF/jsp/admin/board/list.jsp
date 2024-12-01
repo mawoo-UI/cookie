@@ -12,7 +12,7 @@
 	<div class="dropdown">
         <a href="write?${pageDto.cri.qs2}" class="btn btn-cookie btn-sm float-end" >글 작성하기</a>
     </div>
-    <h2 class="text-center ">${cname}</h2>
+    <h2 class="text-center pe-3 ">${cname}</h2>
     <table class="table table-hover">
     <thead>
         <tr>
