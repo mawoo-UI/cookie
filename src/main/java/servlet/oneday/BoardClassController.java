@@ -18,7 +18,6 @@ import utils.Commons;
 @WebServlet("/oneday/list/api/*")
 public class BoardClassController extends HttpServlet{
 	private BoardClassService boardClassService = BoardClassServiceImpl.getInstance();
-	private ReviewService reviewService = ReviewServiceImpl.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,12 +27,10 @@ public class BoardClassController extends HttpServlet{
 		Long cbno = null;
 		Long viewCount = null;
 		
-		System.out.println(uri);
 		int tmpIdx = uri.indexOf("/");
 		Long number = null;
 		if(tmpIdx != -1) {
 			String tmp = uri.substring(tmpIdx+1);
-			System.out.println(tmp);
 			number = Long.valueOf(tmp.split("/")[1]);
 		}
 		
@@ -45,8 +42,9 @@ public class BoardClassController extends HttpServlet{
 			if(tmpIdx == -1) viewCount = 9999_9999L;
 		}
 		
+		System.out.println(boardClassService.sortCbno(cri, cbno, viewCount).get(0).getTitle());
+		System.out.println(boardClassService.sortCbno(cri, cbno, viewCount).get(0).getAvgStar());
 		Commons.respJson(resp, boardClassService.sortCbno(cri, cbno, viewCount));
-//		Commons.respJson(resp, reviewService.score(cbno));
 	}
 	
 }

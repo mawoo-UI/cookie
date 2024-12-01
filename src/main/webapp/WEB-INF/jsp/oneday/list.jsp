@@ -196,12 +196,12 @@
 				});
 				
 				function makeLi(classList) {
-					const cbno = '${classList.cbno}';
+					const score = '${classList.avgStar}';
 					
                     return `<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2 " data-cbno="\${classList.cbno}" data-vc="\${classList.viewCount}">
 						<div>
 							<a href="${cp}oneday/view?cbno=\${classList.cbno}"><img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid"></a>
-							<div class="stars clearfix d-block mt-2">` + `<p class="text-secondary small m-0 p-0 text-end">조회수: \${classList.viewCount}</p>
+							<div class="stars clearfix d-block mt-2">` + stars(score) +`<p class="text-secondary small m-0 p-0 text-end">조회수: \${classList.viewCount}</p>
 							</div>
 							<a href="${cp}oneday/view?cbno=\${classList.cbno}" class="text-decoration-none text-dark">\${classList.title}</a>
 						</div>

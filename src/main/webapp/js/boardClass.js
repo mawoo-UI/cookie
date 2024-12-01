@@ -10,7 +10,6 @@ const boardClassService = (function() {
 				
 			}
 		}
-		console.log(param);
         if(param && param.cbno) { 
 			url += "/cbno/" + param.cbno;
 		}
