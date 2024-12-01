@@ -39,10 +39,12 @@ public class Signup extends HttpServlet{
 			Commons.printMsg("약관 동의 이후에 접근할 수 있습니다.", "term" , resp);
 			return;
 		}
-	
+		req.setAttribute("clause", clauseAgree);	
+		req.setAttribute("info", infoAgree);
+		
 		String referer = req.getHeader("Referer");
 		System.out.println(referer);
-		if(referer.endsWith("term")) {
+		if(referer.endsWith("term") ) {
 			req.getRequestDispatcher("/WEB-INF/jsp/member/signup.jsp").forward(req, resp);
 			return;
 		}
