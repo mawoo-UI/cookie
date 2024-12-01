@@ -25,12 +25,12 @@ public class Write extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Criteria cri = new Criteria(req);
-//		if(req.getSession().getAttribute("member")== null) {
-//			String cp = req.getContextPath();
-//			resp.sendRedirect(cp + "/signin?url=" + 
-//					URLEncoder.encode(cp + "/board/write?" + cri.getQs2(), "utf-8"));
-//			return;
-//		}
+		if(req.getSession().getAttribute("member")== null) {
+			String cp = req.getContextPath();
+			resp.sendRedirect(cp + "/member/signin?url=" + 
+					URLEncoder.encode(cp + "/board/write?" + cri.getQs2(), "utf-8"));
+			return;
+		}
 		req.setAttribute("cri", cri);
 		req.getRequestDispatcher("/WEB-INF/jsp/board/write.jsp").forward(req, resp);
 		
