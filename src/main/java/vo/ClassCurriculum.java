@@ -20,4 +20,6 @@ public class ClassCurriculum {
 	private String location;
 	private Long cbno;
 	private String dutime;
+	
+	private double avgStar;
 }

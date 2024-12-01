@@ -30,32 +30,71 @@
   		<result column="updatedate" property="updatedate"/>
   		<result column="end" property="end"/>
   		<result column="accept" property="accept"/>
+  		<result column="avgStar" property="avg_star"/>
   	</resultMap>
   	<select id="selectOne" resultMap="boardClass">
-  		select * from tbl_board_class where cbno = #{cbno}
+  		select tbc.*, nvl(avg_star, 0) avg_star
+		from tbl_board_class tbc
+		left join (
+			select cbno, round(avg(a) * 2) / 2 avg_star from (
+				select ccno, nvl(avg(score), 0) a, cbno
+				from tbl_review right join tbl_class_curriculum using(ccno) group by ccno, cbno
+			) a 
+			group by cbno
+		) a using (cbno)
+  		where cbno = #{cbno}
   	</select>
   	<select id="selectList" resultMap="boardClass">
-  		select * from tbl_board_class
+  		select tbc.*, nvl(avg_star, 0) avg_star
+		from tbl_board_class tbc
+		left join (
+			select cbno, round(avg(a) * 2) / 2 avg_star from (
+				select ccno, nvl(avg(score), 0) a, cbno
+				from tbl_review right join tbl_class_curriculum using(ccno) group by ccno, cbno
+			) a 
+			group by cbno
+		) a using (cbno)
   	</select>
   	<select id="showList" resultMap="boardClass">
-  		select tbc.* 
-  		from tbl_board_class tbc
+  		select tbc.*, nvl(avg_star, 0) avg_star
+		from tbl_board_class tbc
+		left join (
+			select cbno, round(avg(a) * 2) / 2 avg_star from (
+				select ccno, nvl(avg(score), 0) a, cbno
+				from tbl_review right join tbl_class_curriculum using(ccno) group by ccno, cbno
+			) a 
+			group by cbno
+		) a using (cbno)
   		where accept = 1 
   		<include refid="searchSql" />
   		order by 1 desc
   		limit 18;
   	</select>
   	<select id="trendList" resultMap="boardClass">
-  		select * 
-		from tbl_board_class 
+  		select tbc.*, nvl(avg_star, 0) avg_star
+		from tbl_board_class tbc
+		left join (
+			select cbno, round(avg(a) * 2) / 2 avg_star from (
+				select ccno, nvl(avg(score), 0) a, cbno
+				from tbl_review right join tbl_class_curriculum using(ccno) group by ccno, cbno
+			) a 
+			group by cbno
+		) a using (cbno) 
 		where accept = 1 
 		and end = 0 
 		order by view_count desc 
 		limit 3
   	</select>
   	<select id="selectCbnoDesc" resultMap="boardClass">
-  		select * 
-  		from tbl_board_class 
+  		select tbc.*, nvl(avg_star, 0) avg_star
+		from tbl_board_class tbc
+		left join (
+			select cbno, round(avg(a) * 2) / 2 avg_star from (
+				select ccno, nvl(avg(score), 0) a, cbno
+				from tbl_review right join tbl_class_curriculum using(ccno) group by ccno, cbno
+			) a 
+			group by cbno
+		) a using (cbno) 
   		where accept = 1 
   		and end = 0 
   		<if test="cbno != null">

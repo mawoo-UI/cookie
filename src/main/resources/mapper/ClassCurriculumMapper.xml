@@ -3,20 +3,35 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="mapper.ClassCurriculumMapper">
+  	<sql id="includeScore">
+  		select tcc.*, nvl(round(a * 2) / 2, 0) as "avgStar" from tbl_class_curriculum  tcc
+		left join (
+			select avg(score) a, ccno
+			from tbl_class_curriculum tcc 
+			join tbl_review tr 
+			using (ccno)
+			group by ccno
+		) a
+		using (ccno)
+  	</sql>
   	<select id="selectOne" resultType="vo.ClassCurriculum">
-  		select * from tbl_class_curriculum where ccno = #{ccno}
+  		<include refid="includeScore" />
+		where ccno = #{ccno}
   	</select>
   	<select id="selectOneByStartdate" resultType="vo.ClassCurriculum">
-  		select * from tbl_class_curriculum where startdate = #{startdate} and cbno = #{cbno}
+  		<include refid="includeScore" />
+		where startdate = #{startdate} and cbno = #{cbno}
   	</select>
   	<select id="selectList" resultType="vo.ClassCurriculum">
-  		select * from tbl_class_curriculum
+  		<include refid="includeScore" />
   	</select>
   	<select id="selectBoardList" resultType="vo.ClassCurriculum">
-  		select * from tbl_class_curriculum where cbno = #{cbno}
+  		<include refid="includeScore" />
+		where cbno = #{cbno}
   	</select>
   	<select id="selectBoardOne" resultType="vo.ClassCurriculum">
-  		select * from tbl_class_curriculum where cbno = #{cbno} limit 1
+  		<include refid="includeScore" /> 
+  		where cbno = #{cbno} limit 1
   	</select>
   	<insert id="insert">
   		insert into tbl_class_curriculum (lname, host, startdate, max, price, location)

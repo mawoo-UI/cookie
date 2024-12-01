@@ -18,4 +18,6 @@ public class BoardClass {
 	private Date updatedate;
 	private boolean end;
 	private boolean accept;
+	
+	private double avgStar; 
 }
