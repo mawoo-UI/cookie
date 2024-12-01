@@ -19,7 +19,7 @@
 		select reno, content, (select nick from tbl_member tm where tm.id = tr.writer) writer, score, tr.regdate, updatedate, ccno 
 		from tbl_class_curriculum 
 		join tbl_review tr using(ccno)
-		where cbno = #{cbno.cbno}
+		where cbno = #{cbno}
 		<if test="reno != null">
   		<![CDATA[
   		and reno < #{reno}

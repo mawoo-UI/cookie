@@ -17,14 +17,20 @@ const reviewService = (function() {
     function findReviews(cp, cbno, param, callback) {
         let url = "oneday/view/api";
         url = cp + url + "/cbno/" + cbno;
-
+		alert();
+		console.log("before done :: " + url);
+		
         if(param && param.reno) {
             url += "/reno/" + param.reno;
         }
-
-        $.getJSON(url).done(function(data) {
-            if(callback) callback(data);
-        });
+		
+		$.ajax({
+			url,
+			data: cbno
+		}).done(function(data) {
+			console.log(data);
+			if(callback) callback(data);
+		});
     }
 
     return {score, findReviews};

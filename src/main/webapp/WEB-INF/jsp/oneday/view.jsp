@@ -57,8 +57,8 @@
 					</div>
 				</div>
 				<div class="row mt-5">
-					<div class="cookie-menu-detail col-6 p-0 text-center fw-bold border-cookie-right border-cookie-bottom"><p>상세 설명<p></div>
-					<div class="cookie-menu-review col-6 p-0 text-center border-cookie-bottom"><p>리뷰(${count})</p></div>
+					<div class="cookie-menu-detail col-6 p-0 text-center fw-bold border-cookie-right border-cookie-bottom py-3"><a href="#" class="text-decoration-none text-dark">상세 설명</a></div>
+					<div class="cookie-menu-review col-6 p-0 text-center border-cookie-bottom py-3"><a href="#" class="text-decoration-none text-dark">리뷰(${count})</a></div>
 				</div>
 				<div class="cookie-detail my-5 px-5 d-block">
 					${classItem.content}
@@ -117,8 +117,13 @@
 		</div>
 		<script src="${cp}js/review.js"></script>
 		<script>
-			moment.locale("ko")
+			moment.locale("ko");
+			const cbno = `${classItem.cbno}`;
+			
 			$(".cookie-menu-detail").click(function() {
+				event.preventDefault();
+				event.stopPropagation();
+
 				$(this).hasClass('fw-bold') ? '' : $(this).addClass('fw-bold');
 				$('.cookie-menu-review').hasClass('fw-bold') ? $('.cookie-menu-review').removeClass('fw-bold') : '';
 				$('.cookie-detail').hasClass('d-none') ? $('.cookie-detail').removeClass('d-none') : '';
@@ -126,6 +131,9 @@
 			});
 
 			$(".cookie-menu-review").click(function() {
+				event.preventDefault();
+				event.stopPropagation();
+				
 				$(this).hasClass('fw-bold') ? '' : $(this).addClass('fw-bold');
 				$('.cookie-menu-detail').hasClass('fw-bold') ? $('.cookie-menu-detail').removeClass('fw-bold') : '';
 				$('.cookie-review').hasClass('d-none') ? $('.cookie-review').removeClass('d-none') : '';
@@ -157,9 +165,10 @@
 			});
 
 			function list(param) {
+				let reno = undefined;
 				param = param || {reno};
 				reviewService.findReviews('${cp}', cbno, param, function(data) {
-
+					
 					if(!data.length) {
 						$(".show-more")
 						.text("마지막 페이지입니다.")
@@ -181,7 +190,7 @@
 			// 더보기 클릭 시
 			$(".show-more").click(function() {
 				event.preventDefault();
-
+				alert(1)
 				const reno = $(".cookie-review > div:last").data("reno");
 				list({reno});
 			});
@@ -206,7 +215,7 @@
 									
 								`</div>
 								<a href="${cp}oneday/review?cbno=${param.cbno}&reno=\${review.reno}" class="text-decoration-none text-dark text-truncate"><span class="mb-1 small">\${review.content}</span></a>
-								<p class="text-end text-secondary small mb-1"><span class="review-regdate">/* <fmt:formatDate value="\${review.regdate}" pattern="yyyy/MM/dd HH:mm:ss"/> */</span> | \${review.writer}</p>
+								<p class="text-end text-secondary small mb-1"><span class="review-regdate"></span> | \${review.writer}</p>
 							</div>
 						</div>`;
 			}

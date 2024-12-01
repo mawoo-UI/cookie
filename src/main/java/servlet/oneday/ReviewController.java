@@ -21,7 +21,7 @@ public class ReviewController extends HttpServlet{
 		String uri = req.getRequestURI();
 		uri = uri.replace(req.getContextPath() + "/oneday/view/api", "");
 		
-		Long cbno = Long.valueOf(req.getParameter("cbno"));
+		Long cbno = null;
 		Long reno = null;
 		Long number = null;
 		
@@ -30,12 +30,17 @@ public class ReviewController extends HttpServlet{
 			String tmp = uri.substring(tmpIdx+1);
 			System.out.println(tmp);
 			number = Long.valueOf(tmp.split("/")[1]);
+			System.out.println(number);
 		}
 		
 		if(uri.startsWith("/reno")) {
 			reno = number;
 		}
 		
+		if(uri.startsWith("/cbno")) {
+			cbno = number;
+		}
+		System.out.println("cbno ::: " + cbno + " reno ::: " + reno);
 		Commons.respJson(resp, reviewService.findReviews(cbno, reno));
 	}
 	
