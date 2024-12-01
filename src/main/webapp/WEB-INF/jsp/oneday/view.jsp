@@ -111,7 +111,7 @@
 						<p class="text-center mt-4"><a href="#" class="text-secondary">더보기</a></p>
 					</c:if> --%>
 				</div>
-				<p class="text-center mt-4"><a href="#" class="text-secondary show-more">더보기</a></p>
+				<p class="text-center mt-4"><a href="#" class="text-secondary show-more d-none">더보기</a></p>
 			</main>
 			<jsp:include page="../../common/footer.jsp" />
 		</div>
@@ -128,6 +128,7 @@
 				$('.cookie-menu-review').hasClass('fw-bold') ? $('.cookie-menu-review').removeClass('fw-bold') : '';
 				$('.cookie-detail').hasClass('d-none') ? $('.cookie-detail').removeClass('d-none') : '';
 				$('.cookie-review').hasClass('d-none') ? '' : $('.cookie-review').addClass('d-none');
+				$('.show-more').hasClass('d-none') ? '' : $('.show-more').addClass('d-none');
 			});
 
 			$(".cookie-menu-review").click(function() {
@@ -137,8 +138,8 @@
 				$(this).hasClass('fw-bold') ? '' : $(this).addClass('fw-bold');
 				$('.cookie-menu-detail').hasClass('fw-bold') ? $('.cookie-menu-detail').removeClass('fw-bold') : '';
 				$('.cookie-review').hasClass('d-none') ? $('.cookie-review').removeClass('d-none') : '';
+				$('.show-more').hasClass('d-none') ? $('.show-more').removeClass('d-none') : '';
 				$('.cookie-detail').hasClass('d-none') ? '' : $('.cookie-detail').addClass('d-none');
-				list();
 			});
 			
 			$(".review-regdate").html((i, item) => {
@@ -186,11 +187,11 @@
 					$(".cookie-review").append(str);
 				});
 			};
+			list();
 
 			// 더보기 클릭 시
 			$(".show-more").click(function() {
 				event.preventDefault();
-				alert(1)
 				const reno = $(".cookie-review > div:last").data("reno");
 				list({reno});
 			});
