@@ -27,12 +27,28 @@ public class Signup extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/jsp/member/signup.jsp").forward(req, resp);
+		doPost(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String clauseAgree = req.getParameter("clause");
+		String infoAgree = req.getParameter("info");
+		
+		if(clauseAgree == null || infoAgree == null) {
+			Commons.printMsg("약관 동의 이후에 접근할 수 있습니다.", "term" , resp);
+			return;
+		}
+	
+		String referer = req.getHeader("Referer");
+		System.out.println(referer);
+		if(referer.endsWith("term")) {
+			req.getRequestDispatcher("/WEB-INF/jsp/member/signup.jsp").forward(req, resp);
+			return;
+		}
+		
 		Member member = Commons.param(req, Member.class);
+		
 		service.register(member);
 		Commons.printMsg("회원 가입이 완료되었습니다", "signin", resp);
 	}

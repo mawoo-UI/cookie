@@ -7,79 +7,77 @@
 </head>    
 <body>
     <div class="wrap">
-        <main class="container">
-            <div class="container clearfix p-2 text-center">
-                <a href="index.html" class="float-center"><img src="${cp}imgs/free-icon-cookie-2682369.png" class="img-fluid" alt="로고" width="50px"></a>
-                <span class="text-center fw-bold p-3" style="font-size: 32px;">Cookie new Cookie</span>
+        <div class="container clearfix p-2 text-center">
+            <a href="index.html" class="float-center"><img src="${cp}imgs/free-icon-cookie-2682369.png" class="img-fluid" alt="로고" width="50px"></a>
+            <span class="text-center fw-bold p-3" style="font-size: 32px;">Cookie new Cookie</span>
+        </div>
+        <form name="frm"class="mx-auto col-lg-5 card p-4 mt-5" method="post">
+            <!-- 이메일 -->
+            <div class="area-signup-form area-email d-grid">
+                <div class="form-floating mt-3">
+                    <input type="text" class="form-control" id="email" placeholder name="email">
+                    <label for="email">Email을 입력하세요.</label>
+                </div>
+                <button class="btn btn-cookie mt-3 btn-block" type="button" id="btnEmailVerify"><span class="spinner-border spinner-border-sm invisible"></span> 이메일 인증</button>
+                <p class="text-danger small mb-0 hide">이미 사용중인 이메일 입니다.</p>
             </div>
-            <form name="frm"class="mx-auto col-lg-5 card p-4 mt-5" method="post">
-                <!-- 이메일 -->
-                <div class="area-signup-form area-email d-grid">
-                    <div class="form-floating mt-3">
-                        <input type="text" class="form-control" id="email" placeholder name="email">
-                        <label for="email">Email을 입력하세요.</label>
-                    </div>
-                    <button class="btn btn-cookie mt-3 btn-block" type="button" id="btnEmailVerify"><span class="spinner-border spinner-border-sm invisible"></span> 이메일 인증</button>
-                    <p class="text-danger small mb-0 hide">이미 사용중인 이메일 입니다.</p>
+            <div class="area-signup-form area-auth-num hide">                    
+                <div class="form-floating mt-3">
+                    <input type="text" class="form-control" id="authNum" placeholder name="authNum">
+                    <label for="authNum">메일로 발송된 인증번호를 입력하세요</label>
                 </div>
-                <div class="area-signup-form area-auth-num hide">                    
-                    <div class="form-floating mt-3">
-                        <input type="text" class="form-control" id="authNum" placeholder name="authNum">
-                        <label for="authNum">메일로 발송된 인증번호를 입력하세요</label>
-                    </div>
-                    <button class="btn btn-cookie mt-3 btn-block" type="button">인증번호 확인</button>
-                    <p class="text-danger small mb-0 hide">인증번호가 일치하지 않습니다.</p>
-                </div>
+                <button class="btn btn-cookie mt-3 btn-block" type="button">인증번호 확인</button>
+                <p class="text-danger small mb-0 hide">인증번호가 일치하지 않습니다.</p>
+            </div>
 
-                <!-- 아이디 -->
-                <div class="area-signup-form area-id">
-                    <div class="form-floating mt-3">
-                        <input type="text" class="form-control" id="id" placeholder name="id">
-                        <label for="id">사용하실 아이디를 입력하세요</label>
-                    </div>
-                    <button class="btn btn-cookie mt-3 btn-block" type="button"><span class="spinner-border spinner-border-sm invisible"></span> 아이디 중복 확인</button>
-                    <p class="text-danger small mb-0 hide">이미 사용중인 아이디 입니다.</p>
+            <!-- 아이디 -->
+            <div class="area-signup-form area-id">
+                <div class="form-floating mt-3">
+                    <input type="text" class="form-control" id="id" placeholder name="id">
+                    <label for="id">사용하실 아이디를 입력하세요</label>
                 </div>
+                <button class="btn btn-cookie mt-3 btn-block" type="button"><span class="spinner-border spinner-border-sm invisible"></span> 아이디 중복 확인</button>
+                <p class="text-danger small mb-0 hide">이미 사용중인 아이디 입니다.</p>
+            </div>
 
-                <!-- 비밀번호 -->
-                <div class="area-signup-form area-pw">
-                    <div class="form-floating mt-3 position-relative">
-                        <input type="password" class="form-control" id="pw" placeholder name="pw">
-                        <label for="password">비밀번호</label>
-                        <div class="position-absolute" style="top:18px; right:18px">
-                            <a href="#" class="text-cookie-secondary"><i class="fa-regular fa-eye" title="비밀번호 보기"></i></a>
-                            <a href="#" class="text-cookie-secondary  d-none"><i class="fa-regular fa-eye-slash" title="비밀번호 숨기기"></i></a>
-                        </div>
+            <!-- 비밀번호 -->
+            <div class="area-signup-form area-pw">
+                <div class="form-floating mt-3 position-relative">
+                    <input type="password" class="form-control" id="pw" placeholder name="pw">
+                    <label for="password">비밀번호</label>
+                    <div class="position-absolute" style="top:18px; right:18px">
+                        <a href="#" class="text-cookie-secondary"><i class="fa-regular fa-eye" title="비밀번호 보기"></i></a>
+                        <a href="#" class="text-cookie-secondary  d-none"><i class="fa-regular fa-eye-slash" title="비밀번호 숨기기"></i></a>
                     </div>
-                    <button class="btn btn-cookie mt-3 btn-block" type="button">입력</button>
-                    <p class="text-danger small mb-0 hide">비밀번호 규칙에 일치하지 않습니다.</p>
                 </div>
+                <button class="btn btn-cookie mt-3 btn-block" type="button">입력</button>
+                <p class="text-danger small mb-0 hide">비밀번호 규칙에 일치하지 않습니다.</p>
+            </div>
 
-                <!-- 이름 -->
-                <div class="area-signup-form area-name">
-                    <div class="form-floating mt-3">
-                        <input type="text" class="form-control" id="name" placeholder name="name">
-                        <label for="name">이름</label>
-                    </div>
-                    <button class="btn btn-cookie mt-3 btn-block" type="button">입력</button>
-                    <p class="text-danger small mb-0">이름 규칙에 일치하지 않습니다.</p>
+            <!-- 이름 -->
+            <div class="area-signup-form area-name">
+                <div class="form-floating mt-3">
+                    <input type="text" class="form-control" id="name" placeholder name="name">
+                    <label for="name">이름</label>
                 </div>
+                <button class="btn btn-cookie mt-3 btn-block" type="button">입력</button>
+                <p class="text-danger small mb-0">이름 규칙에 일치하지 않습니다.</p>
+            </div>
 
-                <!-- 닉네임 -->
-                <div class="area-signup-form area-nick">
-                    <div class="form-floating mt-3">
-                        <input type="text" class="form-control" id="nick" placeholder name="nick">
-                        <label for="nick">닉네임</label>
-                    </div>
-                    <button class="btn btn-cookie mt-3 btn-block" type="button"><span class="spinner-border spinner-border-sm invisible"></span>닉네임 중복 체크</button>
-                    <p class="text-danger small mb-0 hide">중복된 닉네임이 존재합니다.</p>
+            <!-- 닉네임 -->
+            <div class="area-signup-form area-nick">
+                <div class="form-floating mt-3">
+                    <input type="text" class="form-control" id="nick" placeholder name="nick">
+                    <label for="nick">닉네임</label>
                 </div>
-                
-                <div class="area-signup-form area-submit"> 
-                	<button class="btn btn-cookie mt-3 btn-block" >회원 가입</button>
-                </div>
-            </form>
-        </main>
+                <button class="btn btn-cookie mt-3 btn-block" type="button"><span class="spinner-border spinner-border-sm invisible"></span>닉네임 중복 체크</button>
+                <p class="text-danger small mb-0 hide">중복된 닉네임이 존재합니다.</p>
+            </div>
+            
+            <div class="area-signup-form area-submit"> 
+            	<button class="btn btn-cookie mt-3 btn-block" >회원 가입</button>
+            </div>
+        </form>
     </div>
     <script>
     function goPopup(){
