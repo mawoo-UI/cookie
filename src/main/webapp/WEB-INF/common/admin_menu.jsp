@@ -24,7 +24,7 @@
                 <a class="nav-link" aria-current="page" href="#">회원관리</a>
             </li>
             <li class="nav-item list-group-item bg-cookie">
-                <a class="nav-link" aria-current="page" href="board?category=4">공지 관리</a>
+                <a class="nav-link" aria-current="page" href="list?category=4">공지 관리</a>
             </li>
             <li class="nav-item dropdown list-group-item bg-cookie">
                 <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -35,6 +35,9 @@
                 <li class="list-group-item"><a class="dropdown-item" href="list?category=2">자유게시판</a></li>
                 <li class="list-group-item"><a class="dropdown-item" href="list?category=3">지역게시판</a></li>
                 </ul>
+            </li>
+            <li class="nav-item list-group-item bg-cookie">
+                <a class="nav-link" aria-current="page" href="list?category=5">이벤트관리</a>
             </li>
             <li class="nav-item dropdown list-group-item bg-cookie">
                 <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
