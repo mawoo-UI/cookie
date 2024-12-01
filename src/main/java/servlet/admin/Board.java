@@ -15,7 +15,7 @@ import service.BoardCategoryServiceImpl;
 import service.BoardService;
 import service.BoardServiceImpl;
 
-@WebServlet("/admin/board")
+@WebServlet("/admin/board/list")
 public class Board extends HttpServlet{
 	private BoardService service = new BoardServiceImpl();
 	private BoardCategoryService categoryService = new BoardCategoryServiceImpl();
@@ -23,10 +23,11 @@ public class Board extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Criteria cri = new Criteria(req);
+		System.out.println(cri);
 		req.setAttribute("boards", service.list(cri));
 		req.setAttribute("pageDto", new PageDto(cri, service.count(cri)));
 		req.setAttribute("cname", categoryService.findBy(cri.getCategory()).getCname());
-		req.getRequestDispatcher("/WEB-INF/jsp/admin/board.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/jsp/admin/board/list.jsp").forward(req, resp);
 	}
 	
 }

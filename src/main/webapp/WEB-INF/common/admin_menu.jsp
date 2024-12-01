@@ -31,9 +31,9 @@
                 커뮤니티 관리
                 </a>
                 <ul class="dropdown-menu p-0 border-0" aria-labelledby="offcanvasNavbarDropdown">
-                <li class="list-group-item"><a class="dropdown-item" href="board?category=1">취미모임</a></li>
-                <li class="list-group-item"><a class="dropdown-item" href="board?category=2">자유게시판</a></li>
-                <li class="list-group-item"><a class="dropdown-item" href="board?category=3">지역게시판</a></li>
+                <li class="list-group-item"><a class="dropdown-item" href="list?category=1">취미모임</a></li>
+                <li class="list-group-item"><a class="dropdown-item" href="list?category=2">자유게시판</a></li>
+                <li class="list-group-item"><a class="dropdown-item" href="list?category=3">지역게시판</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown list-group-item bg-cookie">
