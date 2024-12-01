@@ -82,6 +82,7 @@
 							</ul>
 						</li>
 						<li><a class="dropdown-item mx-5" href="${cp}/board/list?category=4">공지사항</a></li>
+						<li><a class="dropdown-item mx-5" href="${cp}/board/list?category=5">이벤트</a></li>
 						<li><a class="dropdown-item mx-5" href="${cp}/member/mypage">마이페이지</a></li>
 					</ul>
 				</nav>
@@ -220,7 +221,7 @@
 	            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
 	            </div>
 	            <div class="toast-body">
-	                <a href="#" class="fw-bold text-cookie-secondary">치킨집 추천</a>
+	                <a href="${cp}/board/list?category=5" class="fw-bold text-cookie-secondary">블랙리스트 회생 이벤트</a>
 	                <div class="float-end">
 	                    <div><span class="badge bg-cookie pb-1 pt-2"> <i class="fa-solid fa-heart text-danger"></i> 125</span></div>
 	                </div>

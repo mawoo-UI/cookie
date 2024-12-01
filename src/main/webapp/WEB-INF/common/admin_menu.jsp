@@ -12,13 +12,13 @@
         <p></p>
         <div class="offcanvas offcanvas-start bg-cookie" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title text-cookie" id="offcanvasNavbarLabel"><a href="#">관리자 페이지</a></h5>
+            <h5 class="offcanvas-title text-cookie" id="offcanvasNavbarLabel"><a href="list?category=4">관리자 페이지</a></h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-start flex-grow-1 pe-3 list-group list-group-flush">
             <li class="nav-item list-group-item bg-cookie">
-                <a class="nav-link" aria-current="page" href="#">홈으로 돌아가기</a>
+                <a class="nav-link" aria-current="page" href="${cp}index">홈으로 돌아가기</a>
             </li>
             <li class="nav-item list-group-item bg-cookie">
                 <a class="nav-link" aria-current="page" href="#">회원관리</a>
