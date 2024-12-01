@@ -208,5 +208,24 @@
 		})
 		
 		</script>
+	    <div class="toast-container position-absolute p-3 bottom-0 end-0" id="toastPlacement" data-original-class="toast-container position-absolute p-3">
+	        <div class="toast fade show">
+	            <div class="toast-header bg-cookie">
+	            <img src="${cp}imgs/free-icon-cookie-2682369.png" class="rounded me-2" alt="..." style="width: 24px;">
+	
+	            <strong class="text-cookie-secondary me-2">인기이벤트</strong>
+	            <img src="${cp}imgs/free-icon-cookie-2682369.png" class="rounded me-auto" alt="..." style="width: 24px;">
+	            
+	            <small class="text-cookie-secondary ">11 분전</small>
+	            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+	            </div>
+	            <div class="toast-body">
+	                <a href="#" class="fw-bold text-cookie-secondary">치킨집 추천</a>
+	                <div class="float-end">
+	                    <div><span class="badge bg-cookie pb-1 pt-2"> <i class="fa-solid fa-heart text-danger"></i> 125</span></div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
 	</body>
 </html>
