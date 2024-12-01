@@ -41,10 +41,9 @@ public class View extends HttpServlet{
 		BoardClass bc = boardClassService.view(cbno);
 		String host = memberService.findBy(bc.getHost()).getNick();
 		
-		req.setAttribute("classItem", boardClassService.view(cbno));
+		req.setAttribute("classItem", bc);
 		req.setAttribute("classList", classCurriculumService.boardList(cbno));
 		req.setAttribute("classOne", classCurriculumService.boardOne(cbno));
-//		req.setAttribute("reviews", reviewService.findReviews(cbno));
 		req.setAttribute("count", reviewService.count(cbno));
 		req.setAttribute("host", host);
 		

@@ -115,6 +115,7 @@
 			</main>
 			<jsp:include page="../../common/footer.jsp" />
 			<script src="${cp}js/boardClass.js"></script>
+			<script src="${cp}js/review.js"></script>
 			<script>
 				// sortCbno
 				const cri = {amount:18, keyword:"", type:""};
@@ -175,8 +176,11 @@
 					
 					const cbno = 99999999;
 					
-					 $(".show-lists").html("");
+					$(".show-lists").html("");
 					list(cri, {cbno});
+					
+					console.log(scoreStr($(".show-lists > div").data("cbno")));
+					$(".show-lists > div .stars").html(scoreStr($(".show-lists > div").data("cbno")));
 				});
 				
 				// 인기순
@@ -192,6 +196,8 @@
 				});
 				
 				function makeLi(classList) {
+					const cbno = '${classList.cbno}';
+					
                     return `<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2 " data-cbno="\${classList.cbno}" data-vc="\${classList.viewCount}">
 						<div>
 							<a href="${cp}oneday/view?cbno=\${classList.cbno}"><img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid"></a>
@@ -202,29 +208,15 @@
 					</div>`
                 }
 
-				/* function scoreStr(param) {
-					param = param || {cbno};
-					reviewService.score('${cp}', param, function(data) {
-						console.log(cri);
-						console.log(param);
+				function scoreStr(cbno) {
+					reviewService.score('${cp}', cbno, function(data) {
+						console.log("scoreStr ::: " + cbno);
 						
-						
-						let starStr='';
-						for(let i = 1; i <= 5; i++) {
-							if(score >= i) {
-								starStr += '<i class="float-start text-warning fa-solid fa-star small"></i>';
-							} else if((score >= i - 0.5) && (score < i)) {
-								starStr += '<i class="float-start text-warning fa-solid fa-star-half-stroke small"></i>';
-							} else {
-								starStr += '<i class="float-start text-warning fa-regular fa-star small"></i>';
-							}
-						}
-
-						return starStr;
+						stars(data);
 					});
-				} */
+				}
 
-				/* function stars(score) {
+				function stars(score) {
 					let starStr='';
 					for(let i = 1; i <= 5; i++) {
 						if(score >= i) {
@@ -236,7 +228,7 @@
 						}
 					}
 					return starStr;
-				}  */
+				}
 			</script>
 		</div>
 	</body>

@@ -46,6 +46,7 @@ public class BoardClassController extends HttpServlet{
 		}
 		
 		Commons.respJson(resp, boardClassService.sortCbno(cri, cbno, viewCount));
+//		Commons.respJson(resp, reviewService.score(cbno));
 	}
 	
 }

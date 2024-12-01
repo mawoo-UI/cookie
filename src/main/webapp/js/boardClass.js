@@ -17,12 +17,11 @@ const boardClassService = (function() {
 		if(param && param.viewCount) {
 			url += "/vc/" + param.viewCount;
 		}
-		console.log(url)
+
 		$.ajax({
 			url,
 			data : cri
 		}).done(function(data) {
-			//console.log(data);
             if(callback) callback(data);
         });
 		

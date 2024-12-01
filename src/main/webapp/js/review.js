@@ -1,12 +1,17 @@
 const reviewService = (function() {
 
-    function score(cp, param, callback) {
+    function score(cp, cbno, callback) {
         let url= "oneday/list/api";
         url = cp + url;
 
+		if(cbno) {
+			url += "/star/" + cbno;
+		}
+		console.log(url);
+		
         $.ajax({
             url,
-            data: score
+            data: cbno
         }).done(function(data) {
             console.log(data);
             
@@ -17,8 +22,6 @@ const reviewService = (function() {
     function findReviews(cp, cbno, param, callback) {
         let url = "oneday/view/api";
         url = cp + url + "/cbno/" + cbno;
-		alert();
-		console.log("before done :: " + url);
 		
         if(param && param.reno) {
             url += "/reno/" + param.reno;
@@ -28,7 +31,6 @@ const reviewService = (function() {
 			url,
 			data: cbno
 		}).done(function(data) {
-			console.log(data);
 			if(callback) callback(data);
 		});
     }
