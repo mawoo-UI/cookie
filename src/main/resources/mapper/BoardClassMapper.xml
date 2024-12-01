@@ -30,6 +30,10 @@
   		<result column="updatedate" property="updatedate"/>
   		<result column="end" property="end"/>
   		<result column="accept" property="accept"/>
+  		<result column="max" property="max"/>
+  		<result column="price" property="price"/>
+  		<result column="location" property="location"/>
+  		<result column="dutime" property="dutime"/>
   		<result column="avg_star" property="avgStar"/>
   	</resultMap>
   	<select id="selectOne" resultMap="boardClass">

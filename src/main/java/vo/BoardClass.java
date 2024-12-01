@@ -18,6 +18,10 @@ public class BoardClass {
 	private Date updatedate;
 	private boolean end;
 	private boolean accept;
+	private int max;
+	private int price;
+	private String location;
+	private String dutime;
 	
 	private double avgStar; 
 }
