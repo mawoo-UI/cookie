@@ -8,7 +8,7 @@
 <body>
     <div class="wrap">
 		<div class="container clearfix p-2 text-center">
-			<a href="index.html" class="float-center"><img src="${cp}imgs/free-icon-cookie-2682369.png" class="img-fluid" alt="로고" width="50px"></a>
+			<a href="${cp}" class="float-center"><img src="${cp}imgs/free-icon-cookie-2682369.png" class="img-fluid" alt="로고" width="50px"></a>
 			<span class="text-center fw-bold p-3" style="font-size: 32px;">Cookie new Cookie</span>
 		</div>
 		

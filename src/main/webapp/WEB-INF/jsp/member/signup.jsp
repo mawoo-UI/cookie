@@ -8,7 +8,7 @@
 <body>
     <div class="wrap">
         <div class="container clearfix p-2 text-center">
-            <a href="index.html" class="float-center"><img src="${cp}imgs/free-icon-cookie-2682369.png" class="img-fluid" alt="로고" width="50px"></a>
+            <a href="${cp}" class="float-center"><img src="${cp}imgs/free-icon-cookie-2682369.png" class="img-fluid" alt="로고" width="50px"></a>
             <span class="text-center fw-bold p-3" style="font-size: 32px;">Cookie new Cookie</span>
         </div>
         <form name="frm"class="mx-auto col-lg-5 card p-4 mt-5" method="post">
@@ -77,6 +77,8 @@
             <div class="area-signup-form area-submit"> 
             	<button class="btn btn-cookie mt-3 btn-block" >회원 가입</button>
             </div>
+            <input type="hidden" name="clause" value="${clause}">
+            <input type="hidden" name="info" value="${info}">
         </form>
     </div>
     <script>

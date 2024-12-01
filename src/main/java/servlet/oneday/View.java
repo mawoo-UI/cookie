@@ -18,6 +18,7 @@ import service.MemberServiceImpl;
 import service.ReviewService;
 import service.ReviewServiceImpl;
 import utils.Commons;
+import vo.BoardClass;
 import vo.Favorite;
 import vo.Member;
 
@@ -37,7 +38,8 @@ public class View extends HttpServlet{
 		}
 		
 		Long cbno = Long.valueOf(req.getParameter("cbno"));
-		String host = memberService.findBy(boardClassService.findBy(cbno).getHost()).getNick();
+		BoardClass bc = boardClassService.view(cbno);
+		String host = memberService.findBy(bc.getHost()).getNick();
 		
 		req.setAttribute("classItem", boardClassService.view(cbno));
 		req.setAttribute("classList", classCurriculumService.boardList(cbno));

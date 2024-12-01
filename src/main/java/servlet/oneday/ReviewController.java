@@ -23,23 +23,18 @@ public class ReviewController extends HttpServlet{
 		
 		Long cbno = null;
 		Long reno = null;
-		Long number = null;
 		
 		int tmpIdx = uri.indexOf("/");
 		if(tmpIdx != -1) {
 			String tmp = uri.substring(tmpIdx+1);
 			System.out.println(tmp);
-			number = Long.valueOf(tmp.split("/")[1]);
-			System.out.println(number);
+			String[] splits = tmp.split("/");
+			cbno = Long.valueOf(splits[1]);
+			if(splits.length > 2) {
+				reno = Long.valueOf(tmp.split("/")[3]);
+			}
 		}
 		
-		if(uri.startsWith("/reno")) {
-			reno = number;
-		}
-		
-		if(uri.startsWith("/cbno")) {
-			cbno = number;
-		}
 		System.out.println("cbno ::: " + cbno + " reno ::: " + reno);
 		Commons.respJson(resp, reviewService.findReviews(cbno, reno));
 	}
