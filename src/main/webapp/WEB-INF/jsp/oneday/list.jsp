@@ -115,7 +115,6 @@
 			</main>
 			<jsp:include page="../../common/footer.jsp" />
 			<script src="${cp}js/boardClass.js"></script>
-			<script src="${cp}js/review.js"></script>
 			<script>
 				// sortCbno
 				const cri = {amount:18, keyword:"", type:""};
@@ -196,7 +195,7 @@
 				});
 				
 				function makeLi(classList) {
-					const score = '${classList.avgStar}';
+					const score = `\${classList.avgStar}`;
 					
                     return `<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2 " data-cbno="\${classList.cbno}" data-vc="\${classList.viewCount}">
 						<div>
@@ -207,15 +206,7 @@
 						</div>
 					</div>`
                 }
-
-				function scoreStr(cbno) {
-					reviewService.score('${cp}', cbno, function(data) {
-						console.log("scoreStr ::: " + cbno);
-						
-						stars(data);
-					});
-				}
-
+				
 				function stars(score) {
 					let starStr='';
 					for(let i = 1; i <= 5; i++) {
