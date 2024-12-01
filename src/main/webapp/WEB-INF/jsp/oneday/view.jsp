@@ -35,8 +35,8 @@
 						</div>
 						<hr class="text-cookie-secondary my-2">
 						<div class="my-2">
-							<p><i class="fa-solid fa-location-dot fa-lg font-icon-cookie px-2"></i>공방 위치: ${classOne.location}</p>
-							<p><i class="fa-regular fa-calendar-check fa-lg font-icon-cookie px-2"></i>
+							<p><i class="fa-solid fa-location-dot fa-lg font-icon-cookie px-2"></i>공방 위치: ${classItem.location}</p>
+							<p><i class="fa-regular fa-calendar-check fa-lg font-icon-cookie px-2"></i> 진행 날짜: 
 								<c:forEach items="${classList}" var="c" varStatus="status">
 									<c:if test="${not status.last}">
 										<fmt:formatDate value="${c.startdate}" pattern="yyyy/MM/dd" />,								
@@ -46,10 +46,10 @@
 									</c:if>
 								</c:forEach>
 							</p>
-							<p><i class="fa-solid fa-sack-dollar fa-lg font-icon-cookie px-2"></i>수강 비용: <fmt:formatNumber value="${classOne.price}" type="number" maxFractionDigits="3" ></fmt:formatNumber>원</p>
-							<p><i class="fa-solid fa-user-group fa-lg font-icon-cookie px-2"></i>수강 정원: ${classOne.max}명</p>
+							<p><i class="fa-solid fa-sack-dollar fa-lg font-icon-cookie px-2"></i>수강 비용: <fmt:formatNumber value="${classItem.price}" type="number" maxFractionDigits="3" ></fmt:formatNumber>원</p>
+							<p><i class="fa-solid fa-user-group fa-lg font-icon-cookie px-2"></i>수강 정원: ${classItem.max}명</p>
 							<p><i class="fa-solid fa-image-portrait fa-xl font-icon-cookie px-2"></i> 진행 강사: ${host}</p>
-							<p><i class="fa-regular fa-clock fa-lg font-icon-cookie px-2"></i>소요 시간: ${classOne.dutime} (상황에 따라 달라질 수 있습니다.)</p>
+							<p><i class="fa-regular fa-clock fa-lg font-icon-cookie px-2"></i>소요 시간: ${classItem.dutime} (상황에 따라 달라질 수 있습니다.)</p>
 						</div>
 						<div class="text-center mt-5">
 							<a href="${cp}oneday/list" class="btn btn-cookie-secondary px-5">목록</a>
@@ -197,28 +197,32 @@
 			});
 
 			function makeLi(review) {
-				const score = '\${review.score}';
-				let starStr='';
-				for(let i = 1; i <= 5; i++) {
-					if(score >= i) {
-						starStr += '<i class="float-start text-warning fa-solid fa-star small"></i>';
-					} else if((score >= i - 0.5) && (score < i)) {
-						starStr += '<i class="float-start text-warning fa-solid fa-star-half-stroke small"></i>';
-					} else {
-						starStr += '<i class="float-start text-warning fa-regular fa-star small"></i>';
-					}
-				}
-
+				const score = `\${review.score}`;
+				let day = `\${review.regdate}`;
+				
+				/* day = moment(day).format("YYYY/MM/DD"); */
+				console.log(day);
+				
 				return `<div class="my-2 p-2 col-6 col-sm-4 col-lg-3 col-xl-2" data-reno="\${review.reno}">
 							<div class="p-3 card dropdown-cookie">
 								<a href="${cp}oneday/review?cbno=${param.cbno}&reno=\${review.reno}"><img src="${cp}imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" ></a>
-								<div class="stars clearfix d-block mt-2 mb-1">` + 
-									
-								`</div>
+								<div class="stars clearfix d-block mt-2 mb-1">` + stars(score) + `</div>
 								<a href="${cp}oneday/review?cbno=${param.cbno}&reno=\${review.reno}" class="text-decoration-none text-dark text-truncate"><span class="mb-1 small">\${review.content}</span></a>
 								<p class="text-end text-secondary small mb-1"><span class="review-regdate"></span> | \${review.writer}</p>
 							</div>
 						</div>`;
+			}
+			
+			function stars(score) {
+				let starStr='';
+				for(let i = 1; i <= 5; i++) {
+					if(score >= i) {
+						starStr += '<i class="float-start text-warning fa-solid fa-star small"></i>';
+					} else {
+						starStr += '<i class="float-start text-warning fa-regular fa-star small"></i>';
+					}
+				}
+				return starStr;
 			}
 		</script>
 	</body>
