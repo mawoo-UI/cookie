@@ -90,15 +90,14 @@ public class BoardClassServiceImpl implements BoardClassService {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			BoardClassMapper mapper = session.getMapper(BoardClassMapper.class);
 			List<BoardClass> list = mapper.selectCbnoDesc(cri, cbno, viewCount);
-			list.forEach(bc -> System.out.println(bc.getCbno() + ":::" + bc.getAvgStar()));
 			return list;
 			
 		}
 	}
 	
-	public static void main(String[] args) {
-		BoardClassService service = new BoardClassServiceImpl();
-		service.sortCbno(new Criteria(), 93L, null).forEach(bc -> System.out.println(bc.getCbno() + "::" + bc.getViewCount()));
-	} 
+//	public static void main(String[] args) {
+//		BoardClassService service = new BoardClassServiceImpl();
+//		service.sortCbno(new Criteria(), 93L, null).forEach(bc -> System.out.println(bc.getCbno() + "::" + bc.getViewCount()));
+//	} 
 
 }

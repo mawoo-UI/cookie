@@ -27,7 +27,6 @@ public class ReviewController extends HttpServlet{
 		int tmpIdx = uri.indexOf("/");
 		if(tmpIdx != -1) {
 			String tmp = uri.substring(tmpIdx+1);
-			System.out.println(tmp);
 			String[] splits = tmp.split("/");
 			cbno = Long.valueOf(splits[1]);
 			if(splits.length > 2) {
@@ -35,7 +34,6 @@ public class ReviewController extends HttpServlet{
 			}
 		}
 		
-		System.out.println("cbno ::: " + cbno + " reno ::: " + reno);
 		Commons.respJson(resp, reviewService.findReviews(cbno, reno));
 	}
 	

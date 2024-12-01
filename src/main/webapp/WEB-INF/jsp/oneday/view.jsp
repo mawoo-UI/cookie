@@ -198,17 +198,15 @@
 
 			function makeLi(review) {
 				const score = `\${review.score}`;
-				let day = `\${review.regdate}`;
-				
-				/* day = moment(day).format("YYYY/MM/DD"); */
-				console.log(day);
+				let day = review.regdate;
+				day = moment(day).format('l');
 				
 				return `<div class="my-2 p-2 col-6 col-sm-4 col-lg-3 col-xl-2" data-reno="\${review.reno}">
 							<div class="p-3 card dropdown-cookie">
 								<a href="${cp}oneday/review?cbno=${param.cbno}&reno=\${review.reno}"><img src="${cp}imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" ></a>
 								<div class="stars clearfix d-block mt-2 mb-1">` + stars(score) + `</div>
 								<a href="${cp}oneday/review?cbno=${param.cbno}&reno=\${review.reno}" class="text-decoration-none text-dark text-truncate"><span class="mb-1 small">\${review.content}</span></a>
-								<p class="text-end text-secondary small mb-1"><span class="review-regdate"></span> | \${review.writer}</p>
+								<p class="text-end text-secondary small mb-1"><span class="review-regdate"></span>` + day + ` | \${review.writer}</p>
 							</div>
 						</div>`;
 			}

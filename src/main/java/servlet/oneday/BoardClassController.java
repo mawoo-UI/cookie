@@ -42,8 +42,6 @@ public class BoardClassController extends HttpServlet{
 			if(tmpIdx == -1) viewCount = 9999_9999L;
 		}
 		
-		System.out.println(boardClassService.sortCbno(cri, cbno, viewCount).get(0).getTitle());
-		System.out.println(boardClassService.sortCbno(cri, cbno, viewCount).get(0).getAvgStar());
 		Commons.respJson(resp, boardClassService.sortCbno(cri, cbno, viewCount));
 	}
 	
