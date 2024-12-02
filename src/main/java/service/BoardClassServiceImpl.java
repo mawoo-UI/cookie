@@ -10,6 +10,7 @@ import dto.Criteria;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import mapper.AttachMapper;
 import mapper.BoardClassMapper;
 import utils.MybatisInit;
 import vo.BoardClass;
@@ -31,7 +32,11 @@ public class BoardClassServiceImpl implements BoardClassService {
 	public BoardClass findBy(Long cbno) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			BoardClassMapper mapper = session.getMapper(BoardClassMapper.class);
-			return mapper.selectOne(cbno);
+			AttachMapper attachMapper = session.getMapper(AttachMapper.class);
+			
+			BoardClass boardClass = mapper.selectOne(cbno);
+			boardClass.setAttachs(attachMapper.selectClassList(cbno));
+			return boardClass;
 		}
 	}
 
@@ -39,8 +44,10 @@ public class BoardClassServiceImpl implements BoardClassService {
 	public BoardClass view(Long cbno) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			BoardClassMapper mapper = session.getMapper(BoardClassMapper.class);
+			AttachMapper attachMapper = session.getMapper(AttachMapper.class);
 			BoardClass boardClass = findBy(cbno);
 			mapper.increaseViewCount(cbno);
+			boardClass.setAttachs(attachMapper.selectClassList(cbno));
 			return boardClass;
 		}
 	}
@@ -49,7 +56,17 @@ public class BoardClassServiceImpl implements BoardClassService {
 	public int write(BoardClass boardClass) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			BoardClassMapper mapper = session.getMapper(BoardClassMapper.class);
-			return mapper.insert(boardClass);
+			AttachMapper attachMapper = session.getMapper(AttachMapper.class);
+			// cbno null
+			mapper.insert(boardClass);
+			// cbno not null
+			
+			boardClass.getAttachs().forEach(a -> {
+				a.setCbno(boardClass.getCbno());
+				attachMapper.insert(a);
+			});
+			
+			return 1;
 		}
 	}
 

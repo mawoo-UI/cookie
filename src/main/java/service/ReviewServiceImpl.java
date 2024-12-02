@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import mapper.AttachMapper;
 import mapper.ReviewMapper;
 import utils.MybatisInit;
 import vo.Review;
@@ -25,10 +26,14 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public Review findBy(Long regno) {
+	public Review findBy(Long reno) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			ReviewMapper mapper = session.getMapper(ReviewMapper.class);
-			return mapper.selectOne(regno);
+			AttachMapper attachMapper = session.getMapper(AttachMapper.class);
+			
+			Review review = mapper.selectOne(reno);
+			review.setAttachs(attachMapper.selectReviewList(reno));
+			return review;
 		}
 	}
 
@@ -36,7 +41,15 @@ public class ReviewServiceImpl implements ReviewService {
 	public int write(Review review) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			ReviewMapper mapper = session.getMapper(ReviewMapper.class);
-			return mapper.insert(review);
+			AttachMapper attachMapper = session.getMapper(AttachMapper.class);
+			
+			mapper.insert(review);
+			review.getAttachs().forEach(a -> {
+				a.setReno(review.getReno());
+				attachMapper.insert(a);
+			});
+			
+			return 1;
 		}
 	}
 

@@ -7,7 +7,7 @@ import vo.Review;
 public interface ReviewService {
 	List<Review> list();
 	
-	Review findBy(Long regno);
+	Review findBy(Long reno);
 	
 	Double score(Long cbno);
 	
