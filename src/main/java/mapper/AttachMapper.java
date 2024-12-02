@@ -15,6 +15,12 @@ public interface AttachMapper {
 	@Select("select * from tbl_attach where pno = #{pno}")
 	List<Attach> selectList (Long pno);
 	
+	@Select("select * from tbl_attach where cbno = #{cbno}")
+	List<Attach> selectClassList(Long cbno);
+	
+	@Select("select * from tbl_attach where reno = #{reno}")
+	List<Attach> selectReviewList(Long reno);
+	
 	@Delete("delete from tbl_attach where pno = #{pno}")
 	int delete(Long pno);
 }
