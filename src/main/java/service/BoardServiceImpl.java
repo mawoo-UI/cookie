@@ -91,6 +91,22 @@ public class BoardServiceImpl implements BoardService {
 			return board;
 		}
 	}
+
+	@Override
+	public List<Board> listLikes() {
+		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			return mapper.selectLikesList();
+		}
+	}
+
+	@Override
+	public List<Board> listLikesBy(Criteria cri) {
+		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			return mapper.selectList(cri);
+		}
+	}
 	
 	
 

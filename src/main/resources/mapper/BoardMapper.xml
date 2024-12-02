@@ -56,20 +56,23 @@
 	  </insert>
 
 	<select id="selectLikesList">
-	SELECT
-    tb.*
+	SELECT pno, title, content, writer, likes, view_count viewCount, regdate, updatedate, cno
 	FROM (
 	    SELECT
 	        tb.*,
 	        ROW_NUMBER() OVER (PARTITION BY tb.cno ORDER BY tb.likes DESC) AS rn
-	    FROM
-	        tbl_board tb
-	) tb
-	WHERE
-	    tb.rn &lt;= 2
-	ORDER BY
-	    tb.cno,
-	    tb.likes DESC
+	    FROM tbl_board tb
+	) a
+	WHERE rn &lt;= 2 and cno != 5
+	ORDER BY cno, likes DESC
+	</select>
+	
+	<select id="selectLikesListBy">
+	select * 
+	from tbl_board
+	where cno = #{cno}
+	order by likes desc
+	limit #{amount}
 	</select>
 </mapper>
 

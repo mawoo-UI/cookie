@@ -107,30 +107,12 @@
 					<div class="col-6">
 						<h6 class="fw-bold text-center"><img src="imgs/icon-3.png" alt="로고" class="img-fluid icon-cookie">인기 게시글</h6>
 						<ul class="list-group mx-4">
-							<li class="list-group-item list-group-item-action border-0">
-								<a href="#" class="text-decoration-none text-dark float-start">[공지] | 홈페이지 개편 안내</a>
-								<a href="#" class="text-decoration-none text-secondary small float-end">조회수 132</a>
-							</li>
-							<li class="list-group-item list-group-item-action border-0">
-								<a href="#" class="text-decoration-none text-dark float-start">[공지] | 원데이 클래스 개설 신청서 양식</a>
-								<a href="#" class="text-decoration-none text-secondary small float-end">조회수 368</a>
-							</li>
-							<li class="list-group-item list-group-item-action border-0">
-								<a href="#" class="text-decoration-none text-dark float-start">[자유] | 체리를 부르면 체리블라썸~ 푸하하</a>
-								<a href="#" class="text-decoration-none text-secondary small float-end">댓글 44 조회수 232</a>
-							</li>
-							<li class="list-group-item list-group-item-action border-0">
-								<a href="#" class="text-decoration-none text-dark float-start">[자유] | binary는 호남선 </a>
-								<a href="#" class="text-decoration-none text-secondary small float-end">댓글 32 조회수 211</a>
-							</li>
-							<li class="list-group-item list-group-item-action border-0">
-								<a href="#" class="text-decoration-none text-dark float-start">[지역] | 이번 주말에 강아지 데리고 놀러가실 분(경기)</a>
-								<a href="#" class="text-decoration-none text-secondary small float-end">댓글 25 조회수 132</a>
-							</li>
-							<li class="list-group-item list-group-item-action border-0">
-								<a href="#" class="text-decoration-none text-dark float-start">[자유] | 뜨개질 클래스 들으신 분 계신가여</a>
-								<a href="#" class="text-decoration-none text-secondary small float-end">댓글 8 조회수 101</a>
-							</li>
+							<c:forEach items="${likesList}" var="board">
+								<li class="list-group-item list-group-item-action border-0">
+									<a href="${cp}board/view?pno=${board.pno}&${qs2}" class="text-decoration-none text-dark float-start">[${categories[board.cno-1].cname.substring(0, 2)}] | ${board.title}</a>
+									<a href="#" class="text-decoration-none text-secondary small float-end">좋아요 ${board.likes}</a>
+								</li>
+							</c:forEach>
 						</ul>
 					</div>
 				</div>

@@ -106,6 +106,7 @@
 		const data = {pno:'${board.pno}', id: '${member.id}'};
 		if(!data.id) {
 			alert("로그인 후 좋아요 클릭 가능");
+			location.href = '${cp}' + "member/signin?url=" + encodeURIComponent(location.href); 
 			return;
 		}
 		const url = '${cp}' + "likesToggle"

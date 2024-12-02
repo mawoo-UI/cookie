@@ -20,4 +20,6 @@ public interface BoardService {
 	
 	int count(Criteria cri);
 	
+	List<Board> listLikes();
+	List<Board> listLikesBy(Criteria cri);
 }

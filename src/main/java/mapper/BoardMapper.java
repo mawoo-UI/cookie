@@ -27,5 +27,6 @@ public interface BoardMapper {
 	int write(Board post);
 	
 	List<Board> selectLikesList();
+	List<Board> selectLikesListBy(Criteria cri);
 	
 }
