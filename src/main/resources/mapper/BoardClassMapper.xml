@@ -124,8 +124,8 @@
   		limit 18
   	</select>
   	<insert id="insert">
-  		insert into tbl_board_class(title, content, host)
-  		values (#{title}, #{content}, #{host})
+  		insert into tbl_board_class(title, content, host, accept, max, price, location, dutime)
+  		values (#{title}, #{content}, #{host}, #{accept}, #{max}, #{price}, #{location}, #{dutime})
   	</insert>
   	<update id="update">
   		update tbl_board_class set title= #{title}, content = #{content}, updatedate = now() where cbno = #{cbno}

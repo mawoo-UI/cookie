@@ -111,7 +111,12 @@
 						<p class="text-center mt-4"><a href="#" class="text-secondary">더보기</a></p>
 					</c:if> --%>
 				</div>
-				<p class="text-center mt-4"><a href="#" class="text-secondary show-more d-none">더보기</a></p>
+				<c:if test="${count eq 0}">
+					<p class="text-center mt-4 text-secondary no-reviews d-none">등록된 리뷰가 없습니다.</p>
+				</c:if>
+				<c:if test="${count ne 0}">
+					<p class="text-center mt-4"><a href="#" class="text-secondary show-more d-none">더보기</a></p>
+				</c:if>
 			</main>
 			<jsp:include page="../../common/footer.jsp" />
 		</div>
@@ -129,6 +134,7 @@
 				$('.cookie-detail').hasClass('d-none') ? $('.cookie-detail').removeClass('d-none') : '';
 				$('.cookie-review').hasClass('d-none') ? '' : $('.cookie-review').addClass('d-none');
 				$('.show-more').hasClass('d-none') ? '' : $('.show-more').addClass('d-none');
+				$('.no-reviews').hasClass('d-none') ? '' : $('.no-reviews').addClass('d-none');
 			});
 
 			$(".cookie-menu-review").click(function() {
@@ -140,6 +146,7 @@
 				$('.cookie-review').hasClass('d-none') ? $('.cookie-review').removeClass('d-none') : '';
 				$('.show-more').hasClass('d-none') ? $('.show-more').removeClass('d-none') : '';
 				$('.cookie-detail').hasClass('d-none') ? '' : $('.cookie-detail').addClass('d-none');
+				$('.no-reviews').hasClass('d-none') ? $('.no-reviews').removeClass('d-none') : '';
 			});
 			
 			$(".review-regdate").html((i, item) => {

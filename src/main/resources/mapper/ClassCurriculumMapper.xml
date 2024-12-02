@@ -34,8 +34,8 @@
   		where cbno = #{cbno} limit 1
   	</select>
   	<insert id="insert">
-  		insert into tbl_class_curriculum (lname, host, startdate, max, price, location)
-  		values(#{lname}, #{host}, #{startdate}, #{max}, #{price}, #{location})
+  		insert into tbl_class_curriculum (lname, host, startdate, max, price, location, dutime, cbno)
+  		values(#{lname}, #{host}, #{startdate}, #{max}, #{price}, #{location}, #{dutime}, #{cbno})
   	</insert>
   	<delete id="delete">
   		delete from tbl_class_curriculum where ccno = #{ccno}

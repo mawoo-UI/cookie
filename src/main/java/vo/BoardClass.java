@@ -17,7 +17,7 @@ public class BoardClass {
 	private Date regdate;
 	private Date updatedate;
 	private boolean end;
-	private boolean accept;
+	private int accept;
 	private int max;
 	private int price;
 	private String location;

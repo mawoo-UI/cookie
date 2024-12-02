@@ -17,25 +17,35 @@
 		<div class="wrap">
 			<jsp:include page="../../common/header.jsp" />
 			<main class="container my-4">
-				<form>
-					<label for="lname" class="form-label mt-3 text-cookie-secondary"><i class="fa-solid fa-cookie-bite"></i> <b>강좌명</b></label>
-					<input type="text" class="form-control dropdown-cookie" id="" name="" value="" placeholder="ex) 간단 수제 쿠키 클래스">
+				<form method="post">
+					<label for="title" class="form-label mt-3 text-cookie-secondary"><i class="fa-solid fa-cookie-bite"></i> <b>강좌명</b></label>
+					<input type="text" class="form-control dropdown-cookie" id="title" name="title" value="" placeholder="ex) 간단 수제 쿠키 클래스">
 	
 					<label for="content" class="form-label mt-4 text-cookie-secondary"><i class="fa-regular fa-clipboard"></i> <b>신청 내용</b></label>
-					<textarea class="form-control dropdown-cookie" rows="15" placeholder="상세 설명에 추가할 내용과 시작 시간을 필수로 입력해 주세요"></textarea>
+					<textarea class="form-control dropdown-cookie" rows="15" id="content" name="content" placeholder="상세 설명에 추가할 내용과 시작 시간을 필수로 입력해 주세요"></textarea>
 					
 					<!-- <textarea id="summernote" class="form-control dropdown-cookie"></textarea> -->
 					
-					<label for="writer" class="form-label mt-4 text-cookie-secondary"><i class="fa-solid fa-location-dot fa-lg font-icon-cookie"></i> <b>공방 주소</b></label>
-					<input type="text" class="form-control dropdown-cookie" id="" name="" value="" placeholder="ex) 서울특별시 구로구 디지털로 23 ㅇㅇ건물 ㅇㅇ호">
+					<label for="location" class="form-label mt-4 text-cookie-secondary"><i class="fa-solid fa-location-dot fa-lg font-icon-cookie"></i> <b>공방 주소</b></label>
+					<input type="text" class="form-control dropdown-cookie" id="location" name="location" value="" placeholder="ex) 서울특별시 구로구 디지털로 23 ㅇㅇ건물 ㅇㅇ호">
 					
-					<label for="writer" class="form-label mt-4 text-cookie-secondary"><i class="fa-regular fa-calendar-check fa-lg font-icon-cookie"></i> <b>개설 날짜</b></label>
-					<input type="text" class="form-control dropdown-cookie" id="" name="" value="" placeholder="2024/11/28, 2024/11/29">
+					<label for="max" class="form-label mt-4 text-cookie-secondary"><i class="fa-solid fa-user-group fa-lg font-icon-cookie px-2"></i> <b>수강 정원</b></label>
+					<input type="text" class="form-control dropdown-cookie" id="max" name="max" value="" placeholder="ex) 10">
+					
+					<label for="price" class="form-label mt-4 text-cookie-secondary"><i class="fa-solid fa-sack-dollar fa-lg font-icon-cookie px-2"></i> <b>수강 비용</b></label>
+					<input type="text" class="form-control dropdown-cookie" id="price" name="price" value="" placeholder="ex) 20000">
+					
+					<label for="dutime" class="form-label mt-4 text-cookie-secondary"><i class="fa-regular fa-clock fa-lg font-icon-cookie px-2"></i> <b>소요 시간</b></label>
+					<input type="text" class="form-control dropdown-cookie" id="dutime" name="dutime" value="" placeholder="ex) 1시간 30분">
+					
+					<label for="startdate" class="form-label mt-4 text-cookie-secondary"><i class="fa-regular fa-calendar-check fa-lg font-icon-cookie"></i> <b>개설 날짜</b></label>
+					<input type="text" class="form-control dropdown-cookie" id="startdate" name="startdate" value="" placeholder="ex) 2024/11/28, 2024/11/29">
 	
-					<label for="writer" class="form-label mt-4 text-cookie-secondary"><i class="fa-solid fa-user-pen"></i> <b>신청자</b></label>
-					<input type="text" class="form-control dropdown-cookie" id="writer" name="writer" value="허정윤" readonly>
+					<label for="host" class="form-label mt-4 text-cookie-secondary"><i class="fa-solid fa-user-pen"></i> <b>신청자</b></label>
+					<input type="hidden" id="host" name="host" value="${member.id}" >
+					<input type="text" class="form-control dropdown-cookie" id="nick" name="nick" value="${member.nick}" readonly>
 					
-					<label class="form-label mt-4 text-cookie-secondary"><i class="fa-solid fa-paperclip"></i> <b>첨부파일</b><br></label>
+					<label class="form-label mt-4 text-cookie-secondary"><i class="fa-solid fa-paperclip"></i> <b>썸네일로 쓸 이미지</b><br></label>
                     <label for="attach"><span class="btn btn-cookie mx-2">추가하기</span></label>
 					<span class="mx-2 attach-count-txt"></span>	                    
                     <input type="file" class="d-none mb-2" id="attach" name="files" multiple>
