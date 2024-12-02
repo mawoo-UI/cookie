@@ -1,5 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<!-- 최신 이벤트 -->
+<jsp:useBean id="service" scope="request" class="service.BoardServiceImpl" />
+<c:set value="${service.getLatestEvent()}" var="board"/>
+<div class="toast-container position-fixed p-3 bottom-0 end-0" id="toastPlacement" data-original-class="toast-container position-absolute p-3">
+    <div class="toast fade show">
+        <div class="toast-header bg-cookie">
+        <img src="${cp}imgs/free-icon-cookie-2682369.png" class="rounded me-2" alt="..." style="width: 24px;">
+
+        <strong class="text-cookie-secondary me-2">이벤트</strong>
+        <img src="${cp}imgs/free-icon-cookie-2682369.png" class="rounded me-auto" alt="..." style="width: 24px;">
+        
+        <small class="text-cookie-secondary ">${board.regdate.getTime()}</small>
+        <script>$("#toastPlacement small").text(moment($("#toastPlacement small").text()/1).fromNow())</script>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            <a href="${cp}/board/view?&pno=${board.pno}&category=5" class="fw-bold text-cookie-secondary">${board.title}</a>
+            <div class="float-end">
+                <div><span class="badge bg-cookie pb-1 pt-2"> <i class="fa-solid fa-heart text-danger"></i> ${board.likes}</span></div>
+            </div>
+        </div>
+    </div>
+</div>    
 <header class="container-fluid mb-0">
     <div class="container clearfix p-2 pb-0">
         <div class="row my-2">

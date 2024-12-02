@@ -2,6 +2,7 @@ package mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import dto.Criteria;
@@ -26,7 +27,11 @@ public interface BoardMapper {
 	
 	int write(Board post);
 	
+	void changeLikes(@Param("value") int value, @Param("pno") Long pno);
+	
 	List<Board> selectLikesList();
 	List<Board> selectLikesListBy(Criteria cri);
+	
+	Board selectMaxEvent();
 	
 }

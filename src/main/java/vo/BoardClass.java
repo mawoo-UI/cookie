@@ -24,11 +24,12 @@ public class BoardClass {
 	private int price;
 	private String location;
 	private String dutime;
-	
-	private double avgStar; 
-	
-	@Builder.Default
+
+	private double avgStar;
+
+//	@Builder.Default
 	private List<Attach> attachs = new ArrayList<Attach>();
+
 	public BoardClass(Long cbno, String title, String content, String host, Long viewCount, Date regdate,
 			Date updatedate, boolean end, int accept, int max, int price, String location, String dutime,
 			double avgStar) {
@@ -48,5 +49,5 @@ public class BoardClass {
 		this.dutime = dutime;
 		this.avgStar = avgStar;
 	}
-	
+
 }

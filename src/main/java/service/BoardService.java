@@ -22,4 +22,6 @@ public interface BoardService {
 	
 	List<Board> listLikes();
 	List<Board> listLikesBy(Criteria cri);
+
+	Board getLatestEvent();
 }

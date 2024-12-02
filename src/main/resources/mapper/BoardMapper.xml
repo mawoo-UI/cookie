@@ -67,12 +67,16 @@
 	ORDER BY cno, likes DESC
 	</select>
 	
-	<select id="selectLikesListBy">
+	<select id="selectLikesListBy" >
 	select * 
 	from tbl_board
 	where cno = #{cno}
 	order by likes desc
 	limit #{amount}
+	</select>
+	
+	<select id="selectMaxEvent" >
+	select * from tbl_board where cno = 5 limit 1;
 	</select>
 </mapper>
 

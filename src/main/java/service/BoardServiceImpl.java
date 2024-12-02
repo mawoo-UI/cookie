@@ -108,6 +108,14 @@ public class BoardServiceImpl implements BoardService {
 		}
 	}
 	
+	@Override
+	public Board getLatestEvent() {
+		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			return mapper.selectMaxEvent();
+		}
+	}
+	
 	
 
 

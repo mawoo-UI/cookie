@@ -1,14 +1,10 @@
 package service;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 
-import dto.Criteria;
 import mapper.BoardLikesMapper;
 import mapper.BoardMapper;
 import utils.MybatisInit;
-import vo.Board;
 import vo.BoardLikes;
 
 public class BoardLikesServiceImpl implements BoardLikesService {
@@ -26,13 +22,16 @@ public class BoardLikesServiceImpl implements BoardLikesService {
 	public boolean toggleLikes(BoardLikes boardLikes) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			BoardLikesMapper mapper = session.getMapper(BoardLikesMapper.class);
+			BoardMapper boardMapper = session.getMapper(BoardMapper.class);
 			boolean result = mapper.selectOne(boardLikes) == null;
 			if(result) {
 				mapper.insert(boardLikes);
+				boardMapper.changeLikes(1, boardLikes.getPno());
 			}
 			else {
 //				delete
 				mapper.delete(boardLikes);
+				boardMapper.changeLikes(-1, boardLikes.getPno());
 			}
 			
 			return result;

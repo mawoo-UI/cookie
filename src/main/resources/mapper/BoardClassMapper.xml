@@ -20,6 +20,13 @@
 	    	</trim>
 	    </if>
   	</sql>
+  	<resultMap type="vo.Attach" id="att">
+  		<id column="uuid" property="uuid"/>
+  		<result column="origin" property="origin"/>
+  		<result column="path" property="path"/>
+  		<result column="image" property="image"/>
+  		<result column="cbno" property="cbno"/>
+  	</resultMap>
   	<resultMap type="vo.BoardClass" id="boardClass">
   		<id column="cbno" property="cbno"/>
   		<result column="title" property="title"/>
@@ -34,7 +41,8 @@
   		<result column="price" property="price"/>
   		<result column="location" property="location"/>
   		<result column="dutime" property="dutime"/>
-  		<result column="avg_star" property="avgStar"/>
+  		<result column="avg_star" property="avgStar"  />
+  		<collection property="attachs" resultMap="att"  />
   	</resultMap>
   	<select id="selectOne" resultMap="boardClass">
   		select tbc.*, nvl(avg_star, 0) avg_star
@@ -90,6 +98,7 @@
 		limit 3
   	</select>
   	<select id="selectCbnoDesc" resultMap="boardClass">
+  	select a.*, uuid, origin, path, image from (
   		select tbc.*, nvl(avg_star, 0) avg_star
 		from tbl_board_class tbc
 		left join (
@@ -122,6 +131,8 @@
   		</if>
   		desc 
   		limit 18
+  	) a
+  	left join tbl_attach ta using(cbno)
   	</select>
   	<insert id="insert">
   		insert into tbl_board_class(title, content, host, accept, max, price, location, dutime)

@@ -112,9 +112,9 @@ public class BoardClassServiceImpl implements BoardClassService {
 		}
 	}
 	
-//	public static void main(String[] args) {
-//		BoardClassService service = new BoardClassServiceImpl();
-//		service.sortCbno(new Criteria(), 93L, null).forEach(bc -> System.out.println(bc.getCbno() + "::" + bc.getViewCount()));
-//	} 
+	public static void main(String[] args) {
+		BoardClassService service = new BoardClassServiceImpl();
+		System.out.println(service.sortCbno(new Criteria(), null, null).size());
+	} 
 
 }
