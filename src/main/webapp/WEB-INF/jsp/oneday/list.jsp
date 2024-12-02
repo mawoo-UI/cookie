@@ -196,7 +196,7 @@
 				
 				function makeLi(classList) {
 					const score = `\${classList.avgStar}`;
-					
+					const cbno = `\${classList.cbno}`;
                     return `<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2 " data-cbno="\${classList.cbno}" data-vc="\${classList.viewCount}">
 						<div>
 							<a href="${cp}oneday/view?cbno=\${classList.cbno}"><img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid"></a>
@@ -219,6 +219,14 @@
 						}
 					}
 					return starStr;
+				}
+				
+				function thumbnail(cbno) {
+					let imgStr = `<a href="${cp}oneday/view?cbno=\${classList.cbno}">
+						<img src="${cp}display?path=${attach.path}&uuid=${attach.uuid}" class="img-fluid">
+   						</a>`;
+   					
+   					return imgStr;
 				}
 			</script>
 		</div>
