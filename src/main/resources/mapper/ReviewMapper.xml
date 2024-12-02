@@ -37,6 +37,9 @@
 	<insert id="insert">
 		insert into tbl_review(content, writer, score, ccno)
 		values (#{content}, #{writer}, #{score}, #{ccno})
+		<selectKey resultType="long" order="AFTER" keyProperty="reno">
+			select max(reno) from tbl_review
+		</selectKey>
 	</insert>
 	<update id="update">
 		update tbl_review set content = #{content}, score = #{score}, updatedate = now() where reno = #{reno}
