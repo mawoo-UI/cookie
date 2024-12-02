@@ -3,10 +3,28 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.ReviewMapper">
-	<select id="selectOne" resultType="vo.Review">
+	<resultMap type="vo.Attach" id="att">
+  		<id column="uuid" property="uuid"/>
+  		<result column="origin" property="origin"/>
+  		<result column="path" property="path"/>
+  		<result column="image" property="image"/>
+  		<result column="reno" property="reno"/>
+  		<result column="cbno" property="cbno"/>
+  	</resultMap>
+  	<resultMap type="vo.Review" id="review">
+  		<id column="reno" property="reno" />
+  		<result column="content" property="content"/>
+  		<result column="writer" property="writer"/>
+  		<result column="score" property="score"/>
+  		<result column="regdate" property="regdate"/>
+  		<result column="updatedate" property="updatedate"/>
+  		<result column="ccno" property="ccno"/>
+  		<collection property="attachs" resultMap="att"  />
+  	</resultMap>
+	<select id="selectOne" resultMap="review">
 		select * from tbl_review where reno = #{reno}
 	</select>
-	<select id="selectList" resultType="vo.Review">
+	<select id="selectList" resultMap="review">
 		select * from tbl_review
 	</select>
 	<select id="calcScore" resultType="Double">
@@ -15,8 +33,9 @@
 		where tcc.ccno = tr.ccno 
 		and cbno = #{cbno}
 	</select>
-	<select id="getReviews" resultType="vo.Review">
-		select reno, content, (select nick from tbl_member tm where tm.id = tr.writer) writer, score, tr.regdate, updatedate, ccno 
+	<select id="getReviews" resultMap="review">
+		select a.*, uuid, origin, path, image from (
+  		select reno, content, (select nick from tbl_member tm where tm.id = tr.writer) writer, score, tr.regdate, updatedate, ccno 
 		from tbl_class_curriculum 
 		join tbl_review tr using(ccno)
 		where cbno = #{cbno}
@@ -26,7 +45,8 @@
   		]]>
   		</if>
 		order by reno desc
-		limit 18
+		limit 18 ) a
+		left join tbl_attach ta using(reno)
   	</select>
   	<select id="getCount" resultType="int">
   		select count(*)
