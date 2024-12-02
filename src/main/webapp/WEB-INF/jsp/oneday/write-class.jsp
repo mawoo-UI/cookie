@@ -48,33 +48,9 @@
 					<label class="form-label mt-4 text-cookie-secondary"><i class="fa-solid fa-paperclip"></i> <b>썸네일로 쓸 이미지</b><br></label>
                     <label for="attach"><span class="btn btn-cookie mx-2">추가하기</span></label>
 					<span class="mx-2 attach-count-txt"></span>	                    
-                    <input type="file" class="d-none mb-2" id="attach" name="files" multiple>
+                    <input type="file" class="d-none mb-2" id="attach" name="files" multiple accept="image/png, image/gif, image/jpeg">
                    
                    	<div class="row mt-2 attach-result">
-						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
-							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
-						</div>
-						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
-							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
-						</div>
-						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
-							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
-						</div>
-						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
-							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
-						</div>
-						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
-							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
-						</div>
-						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
-							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
-						</div>
-						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
-							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
-						</div>
-						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
-							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
-						</div>
 						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
 							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
 						</div>
@@ -109,12 +85,15 @@
         			data:formData
         		})
         		.done(function(data) {
-        			$(".attach-count-txt").text(data.length +"개의 파일");
-        			let str = '';
+        			console.log(data);
         			let strHidden = '';
+        			let str = "";
         			for(let i in data){
-	        			str += `<li class="list-group-item">\${data[i].origin}</li>`;
-						strHidden += ``;
+        				if(!data[i].image) continue;
+        				
+        				str += `<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
+							<img src="${cp}display?path=\${data[i].path}&uuid=\${data[i].uuid}" class="img-fluid">
+    						</div>`;
 						strHidden += `<input type="hidden" name="uuid" value="\${data[i].uuid}" >`;
 						strHidden += `<input type="hidden" name="origin" value="\${data[i].origin}" >`;
 						strHidden += `<input type="hidden" name="image" value="\${data[i].image}" >`;
