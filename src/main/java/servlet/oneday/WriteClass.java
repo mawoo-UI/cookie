@@ -57,7 +57,6 @@ public class WriteClass extends HttpServlet {
 
 		BoardClass newClass = boardClassService.listAll().getLast();
 		if(newClass.getAccept() != 0) {
-			System.out.println("cbno는? " + newClass.getCbno());
 			curri.setCbno(newClass.getCbno());
 		}
 		

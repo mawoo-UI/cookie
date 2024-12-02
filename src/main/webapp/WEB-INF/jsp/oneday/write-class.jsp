@@ -49,9 +49,36 @@
                     <label for="attach"><span class="btn btn-cookie mx-2">추가하기</span></label>
 					<span class="mx-2 attach-count-txt"></span>	                    
                     <input type="file" class="d-none mb-2" id="attach" name="files" multiple>
-                    <ul class="list-group attach-result mt-2">
-
-					</ul>
+                   
+                   	<div class="row mt-2 attach-result">
+						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
+							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
+						</div>
+						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
+							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
+						</div>
+						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
+							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
+						</div>
+						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
+							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
+						</div>
+						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
+							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
+						</div>
+						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
+							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
+						</div>
+						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
+							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
+						</div>
+						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
+							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
+						</div>
+						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
+							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
+						</div>
+					</div>
 					
 					<div class="text-center mt-3">
 						<button type="submit" class="btn btn-cookie-secondary mx2 mt-3 px-4">신청</button>
@@ -62,28 +89,43 @@
 			<jsp:include page="../../common/footer.jsp" />
 		</div>
 		<script>
-			$(document).ready(function() {
-				$('#summernote').summernote({
-					tabsize: 2,
-					height: 400,
-					width: 1140,
-					minHeight: 400,
-  					maxHeight: 500,
-					toolbar: [
-						['style', ['style']],
-						['font', ['bold', 'underline', 'clear']],
-						['color', ['color']],
-						['para', ['ul', 'ol', 'paragraph']],
-						['table', ['table']],
-						['insert', ['link', 'picture', 'video']],
-						['view', ['fullscreen', 'codeview', 'help']]
-       				 ],
-					fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
-					fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
-					lang: "ko-KR",
-					placeholder : "상세 설명에 추가할 내용과 시작 시간을 필수로 입력해 주세요"
-				});
-			});
-		</script>		
+            $("#attach").change(function() {
+            	const url = '${cp}' + 'upload'
+        		const formData = new FormData();
+        		const files = this.files;
+        		
+        		if(!files) {
+        			$(".attach-count-txt").text("");
+        			$(".attach-result").empty();
+        			return;
+        		}
+        		for (let i = 0; i < files.length; i++) {
+        			formData.append("file", files[i]);
+        		}
+        		$.post({
+        			url,
+        			contentType:false,
+        			processData:false,
+        			data:formData
+        		})
+        		.done(function(data) {
+        			$(".attach-count-txt").text(data.length +"개의 파일");
+        			let str = '';
+        			let strHidden = '';
+        			for(let i in data){
+	        			str += `<li class="list-group-item">\${data[i].origin}</li>`;
+						strHidden += ``;
+						strHidden += `<input type="hidden" name="uuid" value="\${data[i].uuid}" >`;
+						strHidden += `<input type="hidden" name="origin" value="\${data[i].origin}" >`;
+						strHidden += `<input type="hidden" name="image" value="\${data[i].image}" >`;
+						strHidden += `<input type="hidden" name="path" value="\${data[i].path}" >`;
+        			}
+        			$(".attach-result").html(str);
+					$(".uploaded-input").html(strHidden);
+        			console.log(data);
+        		});
+        	});
+
+      	</script>
 	</body>
 </html>
