@@ -60,8 +60,12 @@
 					<div class="cookie-menu-detail col-6 p-0 text-center fw-bold border-cookie-right border-cookie-bottom py-3"><a href="#" class="text-decoration-none text-dark">상세 설명</a></div>
 					<div class="cookie-menu-review col-6 p-0 text-center border-cookie-bottom py-3"><a href="#" class="text-decoration-none text-dark">리뷰(${count})</a></div>
 				</div>
-				<div class="cookie-detail my-5 px-5 d-block">
-					${classItem.content}
+				<div class="cookie-detail my-5 px-5 d-block text-center">
+					<p>${classItem.content}</p>
+					
+					<c:forEach items="${classItem.attachs}" var="attach">
+						<img src="${cp}display?path=${attach.path}&uuid=${attach.uuid}" class="img-fluid p-5 detail-cookie">
+					</c:forEach>
 					<%-- 
 					<pre>
 					
@@ -176,6 +180,7 @@
 				let reno = undefined;
 				param = param || {reno};
 				reviewService.findReviews('${cp}', cbno, param, function(data) {
+					console.log(data);
 					
 					if(!data.length) {
 						$(".show-more")
