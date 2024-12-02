@@ -196,10 +196,10 @@
 				
 				function makeLi(classList) {
 					const score = `\${classList.avgStar}`;
-					const cbno = `\${classList.cbno}`;
-                    return `<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2 " data-cbno="\${classList.cbno}" data-vc="\${classList.viewCount}">
+
+					return `<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2 " data-cbno="\${classList.cbno}" data-vc="\${classList.viewCount}">
 						<div>
-							<a href="${cp}oneday/view?cbno=\${classList.cbno}"><img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid"></a>
+							<a href="${cp}oneday/view?cbno=\${classList.cbno}"><img src="${cp}display?path=\${classList.attachs[0].path}&uuid=\${classList.attachs[0].uuid}" class="img-fluid thumbnail-cookie" onerror="this.src='https://placehold.co/188x195?text=No+Image'"></a>
 							<div class="stars clearfix d-block mt-2">` + stars(score) +`<p class="text-secondary small m-0 p-0 text-end">조회수: \${classList.viewCount}</p>
 							</div>
 							<a href="${cp}oneday/view?cbno=\${classList.cbno}" class="text-decoration-none text-dark">\${classList.title}</a>
@@ -219,14 +219,6 @@
 						}
 					}
 					return starStr;
-				}
-				
-				function thumbnail(cbno) {
-					let imgStr = `<a href="${cp}oneday/view?cbno=\${classList.cbno}">
-						<img src="${cp}display?path=${attach.path}&uuid=${attach.uuid}" class="img-fluid">
-   						</a>`;
-   					
-   					return imgStr;
 				}
 			</script>
 		</div>
