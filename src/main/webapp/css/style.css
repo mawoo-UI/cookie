@@ -36,8 +36,9 @@
 	height: 450px;
 }
 .review-cookie {
-  width: 330px;
-  height: 350px;
+	background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .dropdown-cookie {
   border-color: #d1b098;
