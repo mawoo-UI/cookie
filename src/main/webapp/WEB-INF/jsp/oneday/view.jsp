@@ -215,7 +215,7 @@
 				
 				return `<div class="my-2 p-2 col-6 col-sm-4 col-lg-3 col-xl-2" data-reno="\${review.reno}">
 							<div class="p-3 card dropdown-cookie">
-								<a href="${cp}oneday/review?cbno=${param.cbno}&reno=\${review.reno}"><img src="${cp}imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" ></a>
+								<a href="${cp}oneday/review?cbno=${param.cbno}&reno=\${review.reno}"><img src="${cp}display?path=\${review.attachs[0].path}&uuid=\${review.attachs[0].uuid}" class="img-fluid thumbnail-cookie" alt="썸네일" onerror="this.src='https://placehold.co/188x195?text=No+Image'"></a>
 								<div class="stars clearfix d-block mt-2 mb-1">` + stars(score) + `</div>
 								<a href="${cp}oneday/review?cbno=${param.cbno}&reno=\${review.reno}" class="text-decoration-none text-dark text-truncate"><span class="mb-1 small">\${review.content}</span></a>
 								<p class="text-end text-secondary small mb-1"><span class="review-regdate"></span>` + day + ` | \${review.writer}</p>
