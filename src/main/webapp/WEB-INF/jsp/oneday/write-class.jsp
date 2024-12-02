@@ -51,15 +51,14 @@
                     <input type="file" class="d-none mb-2" id="attach" name="files" multiple accept="image/png, image/gif, image/jpeg">
                    
                    	<div class="row mt-2 attach-result">
-						<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
-							<img src="${cp}imgs/class-thumbnail.jpg" class="img-fluid">
-						</div>
+						
 					</div>
 					
 					<div class="text-center mt-3">
 						<button type="submit" class="btn btn-cookie-secondary mx2 mt-3 px-4">신청</button>
            				<a href="${cp}oneday/list" class="btn btn-cookie mx-2 mt-3 px-4">취소</a>
            			</div>
+           			<div class="uploaded-input"></div>
 				</form>	
 			</main>
 			<jsp:include page="../../common/footer.jsp" />

@@ -41,10 +41,12 @@
 					<label class="form-label mt-3"><i class="fa-regular fa-image text-cookie-secondary"></i> <b class="text-cookie-secondary">사진 첨부</b><br></label>
                     <label for="attach"><span class="btn btn-cookie mx-2">추가하기</span></label>
 					<span class="mx-2 attach-count-txt"></span>	                    
-                    <input type="file" class="d-none mb-2" id="attach" name="files" multiple>
-                    <ul class="list-group attach-result mt-2">
-
-					</ul>
+                    <input type="file" class="d-none mb-2" id="attach" name="files" multiple accept="image/png, image/gif, image/jpeg">
+                    
+					<div class="row mt-2 attach-result">
+						
+					</div>
+					<div class="uploaded-input"></div>
 					
 					<div class="text-center mt-3">
 						<button type="submit" class="btn btn-cookie-secondary mx2 mt-3 px-4">작성</button>
@@ -75,6 +77,47 @@
 				
 	            return Math.floor(x / width * 5)- 45 + 2;
 	        }
+	        // 첨부파일
+	        $("#attach").change(function() {
+            	const url = '${cp}' + 'upload'
+        		const formData = new FormData();
+        		const files = this.files;
+        		
+        		if(!files) {
+        			$(".attach-count-txt").text("");
+        			$(".attach-result").empty();
+        			return;
+        		}
+        		for (let i = 0; i < files.length; i++) {
+        			formData.append("file", files[i]);
+        		}
+        		$.post({
+        			url,
+        			contentType:false,
+        			processData:false,
+        			data:formData
+        		})
+        		.done(function(data) {
+        			console.log(data);
+        			let strHidden = '';
+        			let str = "";
+        			for(let i in data){
+        				if(!data[i].image) continue;
+        				
+        				str += `<div class="p-3 col-6 col-sm-4 col-lg-3 col-xl-2">
+							<img src="${cp}display?path=\${data[i].path}&uuid=\${data[i].uuid}" class="img-fluid">
+    						</div>`;
+						strHidden += `<input type="hidden" name="uuid" value="\${data[i].uuid}" >`;
+						strHidden += `<input type="hidden" name="origin" value="\${data[i].origin}" >`;
+						strHidden += `<input type="hidden" name="image" value="\${data[i].image}" >`;
+						strHidden += `<input type="hidden" name="path" value="\${data[i].path}" >`;
+        			}
+        			$(".attach-result").html(str);
+					$(".uploaded-input").html(strHidden);
+        			console.log(data);
+        		});
+        	});
+
     </script>
 	</body>
 </html>
