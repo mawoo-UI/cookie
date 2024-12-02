@@ -17,6 +17,7 @@ import service.MyClassServiceImpl;
 import service.ReviewService;
 import service.ReviewServiceImpl;
 import utils.Commons;
+import vo.Attach;
 import vo.ClassCurriculum;
 import vo.Member;
 import vo.MyClass;
@@ -52,6 +53,26 @@ public class WriteReview extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Review review = Commons.param(req, Review.class);
+		
+		List<Attach> attachs = new ArrayList<Attach>();
+		
+		String[] uuids = req.getParameterValues("uuid");
+		String[] origins = req.getParameterValues("origin");
+		String[] paths = req.getParameterValues("path");
+		String[] images = req.getParameterValues("image");
+		
+		if(uuids != null) {
+			for (int i = 0; i < uuids.length;  i++) {
+				Attach a = Attach.builder()
+					.uuid(uuids[i])
+					.origin(origins[i])
+					.image(images[i].equals("true"))
+					.path(paths[i])
+					.build();
+				attachs.add(a);
+			}
+		}
+		review.setAttachs(attachs);
 		reviewService.write(review);
 		
 		Long cbno = Long.valueOf(curriculumService.findBy(review.getCcno()).getCbno());

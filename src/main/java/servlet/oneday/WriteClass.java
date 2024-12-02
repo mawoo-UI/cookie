@@ -1,6 +1,8 @@
 package servlet.oneday;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +15,7 @@ import service.BoardClassServiceImpl;
 import service.ClassCurriculumService;
 import service.ClassCurriculumServiceImpl;
 import utils.Commons;
+import vo.Attach;
 import vo.BoardClass;
 import vo.ClassCurriculum;
 
@@ -39,8 +42,24 @@ public class WriteClass extends HttpServlet {
 		ClassCurriculum curri = Commons.param(req, ClassCurriculum.class);
 		curri.setLname(bc.getTitle());
 		
-		System.out.println(bc);
-		System.out.println(curri);
+		List<Attach> attachs = new ArrayList<Attach>();
+		
+		String[] uuids = req.getParameterValues("uuid");
+		String[] origins = req.getParameterValues("origin");
+		String[] paths = req.getParameterValues("path");
+		String[] images = req.getParameterValues("image");
+		
+		if(uuids != null) {
+			for (int i = 0; i < uuids.length;  i++) {
+				Attach a = Attach.builder()
+					.uuid(uuids[i])
+					.origin(origins[i])
+					.image(images[i].equals("true"))
+					.path(paths[i])
+					.build();
+				attachs.add(a);
+			}
+		}
 		
 		bc = BoardClass.builder()
 						.title(bc.getTitle())
@@ -51,6 +70,7 @@ public class WriteClass extends HttpServlet {
 						.location(curri.getLocation())
 						.price(curri.getPrice())
 						.max(curri.getMax())
+						.attachs(attachs)
 						.build();
 		
 		boardClassService.write(bc);
@@ -59,7 +79,6 @@ public class WriteClass extends HttpServlet {
 		if(newClass.getAccept() != 0) {
 			curri.setCbno(newClass.getCbno());
 		}
-		
 		curriculumService.write(curri);
 		
 		resp.sendRedirect("list");
