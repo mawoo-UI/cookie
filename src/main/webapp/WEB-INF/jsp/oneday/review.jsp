@@ -12,11 +12,19 @@
 			<jsp:include page="../../common/header.jsp" />
 			<main class="container">
 				<hr class="text-cookie-secondary my-5">
-				<div class="clearfix">
-					<div class="float-start border-cookie-right mx-5 px-4">
-						<img src="${cp}imgs/class-thumbnail.jpg" alt="썸네일" class="img-fluid review-cookie mx-5">
+				<div class="row">
+					<div class="bxslider border-cookie-right pb-0">
+						<c:if test="${empty review.attachs}">
+							<div><img src="this.src='https://placehold.co/400x350?text=No+Image'" class="review-cookie img-fluid" onerror="this.src='https://placehold.co/400x350?text=No+Image'"></div>
+						</c:if>
+						<c:forEach items="${review.attachs}" var="attach">
+							<div><img src="${cp}display?path=${attach.path}&uuid=${attach.uuid}" class="img-fluid review-cookie" onerror="this.src='https://placehold.co/400x350?text=No+Image'"></div>
+						</c:forEach>
+					
+						<%-- <img src="${cp}imgs/class-thumbnail.jpg" alt="썸네일" class="img-fluid review-cookie mx-5"> --%>
 					</div>
-					<div class="py-1 mx-4 float-start">
+					<div class="col-1"></div>
+					<div class="py-1 mx-4 col-5">
 						<form class="mx-4">
 							<textarea rows="6" cols="65" id="content" name="content" class="form-control mt-2 border-0" readonly>${review.content}</textarea>
 							<br>
@@ -59,5 +67,16 @@
 			</main>
 			<jsp:include page="../../common/footer.jsp" />
 		</div>
+		<script>
+			$(function(){
+			    $('.bxslider').bxSlider({
+			      mode: 'fade',
+			      captions: true,
+			      slideWidth: 450
+			    });
+			    
+			    $('.bx-wrapper').addClass('mx-5').addClass('col-6');
+			  });
+		</script>
 	</body>
 </html>
