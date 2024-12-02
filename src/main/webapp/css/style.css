@@ -40,6 +40,9 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+.detail-cookie {
+	max-width: 800px;
+}
 .dropdown-cookie {
   border-color: #d1b098;
 }
