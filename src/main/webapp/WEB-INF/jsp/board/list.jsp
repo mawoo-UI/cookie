@@ -12,9 +12,11 @@
 		<main class="container">
 		    <div class="container mt-3">
 		        <h2 class="text-center" >${cname}</h2>
+		        <c:if test="${member.admin || param.category <= 3}">
 		        <div class="dropdown">
 		            <a href="write?${pageDto.cri.qs2}" class="btn btn-cookie btn-sm float-end" >글 작성하기</a>
 		        </div>
+		        </c:if>
         
         <table class="table table-hover ">
             <thead>

@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dto.Criteria;
+import service.BoardCategoryService;
+import service.BoardCategoryServiceImpl;
 import service.BoardLikesService;
 import service.BoardLikesServiceImpl;
 import service.BoardService;
@@ -24,6 +26,7 @@ import vo.Member;
 public class View extends HttpServlet{
 	private BoardService service = new BoardServiceImpl();
 	private BoardLikesService likesService = new BoardLikesServiceImpl();
+	private BoardCategoryService categoryService = new BoardCategoryServiceImpl();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Criteria cri = new Criteria(req);
@@ -36,7 +39,8 @@ public class View extends HttpServlet{
 		Long pno = Long.valueOf(pnoString);
 		req.setAttribute("board", service.view(pno));
 		req.setAttribute("cri", cri);
-
+		req.setAttribute("cname", categoryService.findBy(cri.getCategory()).getCname());
+		
 		Object obj = req.getSession().getAttribute("member");
 		if(obj != null) {
 			Member member = (Member) obj;

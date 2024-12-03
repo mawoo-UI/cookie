@@ -24,9 +24,7 @@
                 
                 <nav class="navbar navbar-expand-sm">
                     <ul class="navbar-nav container justify-content-around">
-                        <li class="mx-2 nav-item" ><a href="#" style="text-decoration: none; color: black;">아이디 찾기</a></li>
-                        <li class="mx-2 nav-item"><a href="#" style="text-decoration: none; color: black;">비밀번호 찾기</a></li>
-                        <li class="mx-2 nav-item"><a href="#" style="text-decoration: none; color: black;">회원가입</a></li>
+                        <li class="mx-2 nav-item"><a href="term" style="text-decoration: none; color: black;">회원가입</a></li>
                     </ul>
                 </nav>
             </form>

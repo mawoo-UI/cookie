@@ -2,6 +2,7 @@ package servlet.member;
 
 import java.io.IOException;
 import java.net.URLDecoder;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import at.favre.lib.bytes.BinaryToTextEncoding.Encoder;
 import service.MemberService;
 import service.MemberServiceImpl;
 import utils.Commons;
@@ -37,8 +39,6 @@ public class Signin extends HttpServlet{
 		System.out.println(remember);
 		
 		Member member = Commons.param(req, Member.class);
-		
-		
 		
 		if(service.login(member)) {
 			// 로그인 성공
@@ -71,7 +71,7 @@ public class Signin extends HttpServlet{
 			resp.sendRedirect(redirectURL);
 		}
 		else {
-			resp.sendRedirect("login?msg=fail");
+			resp.sendRedirect("signin?msg=fail");
 		}
 	}
 	
