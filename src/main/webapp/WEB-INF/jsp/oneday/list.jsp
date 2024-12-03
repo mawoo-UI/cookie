@@ -178,7 +178,6 @@
 					$(".show-lists").html("");
 					list(cri, {cbno});
 					
-					console.log(scoreStr($(".show-lists > div").data("cbno")));
 					$(".show-lists > div .stars").html(scoreStr($(".show-lists > div").data("cbno")));
 				});
 				

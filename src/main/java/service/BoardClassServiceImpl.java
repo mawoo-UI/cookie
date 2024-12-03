@@ -98,7 +98,14 @@ public class BoardClassServiceImpl implements BoardClassService {
 	public List<BoardClass> listTrend() {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			BoardClassMapper mapper = session.getMapper(BoardClassMapper.class);
-			return mapper.trendList();
+			AttachMapper attachMapper = session.getMapper(AttachMapper.class);
+			
+			List<BoardClass> list = mapper.trendList();
+			list.forEach(b -> {
+				b.setAttachs(attachMapper.selectClassList(b.getCbno()));
+			});
+			
+			return list;
 		}
 	}
 
@@ -114,7 +121,7 @@ public class BoardClassServiceImpl implements BoardClassService {
 	
 	public static void main(String[] args) {
 		BoardClassService service = new BoardClassServiceImpl();
-		System.out.println(service.sortCbno(new Criteria(), null, null).size());
+		System.out.println(service.listTrend());
 	} 
 
 }

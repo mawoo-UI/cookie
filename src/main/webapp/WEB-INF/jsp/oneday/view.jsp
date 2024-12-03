@@ -15,7 +15,7 @@
 			<main class="container">
 				<div class="d-flex justify-content-around my-3">
 					<div class="mt-4">
-						<img src="${cp}imgs/class-thumbnail.jpg" alt="썸네일" class="img-fluid oneday-view-cookie">
+						<img src="${cp}display?path=${classItem.attachs[0].path}&uuid=${classItem.attachs[0].uuid}" alt="썸네일" class="img-fluid oneday-view-cookie" onerror="this.src='https://placehold.co/600x450?text=No+Image'">
 					</div>
 					<div class="mt-4">
 						<div class="clearfix">

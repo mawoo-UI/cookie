@@ -23,7 +23,7 @@
   margin-right: 10px;
 }
 .thumbnail-cookie {
-	width: 188px;
+	width: 188px !important;
 	height: 195px !important;
 }
 .border-cookie-right{

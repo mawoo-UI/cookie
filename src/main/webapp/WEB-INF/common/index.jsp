@@ -26,7 +26,7 @@
 						<div class="d-flex justify-content-around">
 							<c:forEach items="${trendList}" var="trend">
 								<div class="mt-2 p-0 float-start w-25">
-									<a href="${cp}oneday/view?cbno=${trend.cbno}" class="text-decoration-none text-dark"><img src="${cp}imgs/class-thumbnail.jpg" alt="클래스썸네일" class="img-fluid" width="150"><br>${trend.title}</a>
+									<a href="${cp}oneday/view?cbno=${trend.cbno}" class="text-decoration-none text-dark "><img src="${cp}display?path=${trend.attachs[0].path}&uuid=${trend.attachs[0].uuid}" alt="클래스썸네일" class="img-fluid thumbnail-cookie py-2" onerror="this.src='https://placehold.co/188x195?text=No+Image'"><br>${trend.title}</a>
 								</div>
 							</c:forEach>
 						</div>

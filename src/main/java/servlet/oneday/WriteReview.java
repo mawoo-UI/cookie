@@ -34,7 +34,7 @@ public class WriteReview extends HttpServlet{
 		Object memberObj = req.getSession().getAttribute("member");
 		
 		if(memberObj == null) {
-			Commons.printMsg("비정상적인 접근입니다.", "list", resp);
+			Commons.printMsg("로그인 후 이용하실 수 있습니다.", "/cookie/member/signin", resp);
 			return;
 		}
 		
