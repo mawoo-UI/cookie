@@ -76,7 +76,7 @@
 	</select>
 	
 	<select id="selectMaxEvent" >
-	select * from tbl_board where cno = 5 limit 1;
+	select * from tbl_board where cno = 5 order by pno desc limit 1;
 	</select>
 </mapper>
 

@@ -14,16 +14,6 @@
 	            <h2 class="text-center my-4">글작성</h2>
 	        </div>
             <input type="text" class="form-control" name="title" placeholder="제목을 입력하세요">
-            
-            <!-- 
-            <button type="button" class="btn btn-Light float-end " data-bs-toggle="dropdown">
-            	<i class="fa-solid fa-sort-down" style="color: #443722;"></i>
-                카테고리
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="BoardFreebulletin_board.html">자유게시판</a></li>
-                <li><a class="dropdown-item" href="BoardArea .html">지역게시판</a></li>
-            </ul> -->
             <select class="form-select my-3" name="cno">
 			  <option value="1">취미/모임</option>
 			  <option value="2">자유게시판</option>

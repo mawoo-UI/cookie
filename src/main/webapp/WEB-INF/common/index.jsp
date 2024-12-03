@@ -5,55 +5,12 @@
 <html>
 	<head>
 		<jsp:include page="head.jsp" />
-		<!-- <style>
-		   .layer-popup {width: 420px; position: absolute; top: 150px; left: (50%- 210px); display: none;}
-	       .layer-popup img {display: block;}
-	       .layer-popup p { background-color: rgb(130, 212, 247); color: antiquewhite; padding: 8px;}
-	       .layer-popup p input {vertical-align: middle;}
-	       .layer-popup p a {color: aquamarine; text-decoration: none; float: right };
-		</style> -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	</head>
 	<body class="gowun-dodum-regular">
 		<div class="wrap">
-			<header class="container-fluid mb-0">
-			    <div class="container clearfix p-2 pb-0">
-			        <div class="row my-2">
-			            <a href="${cp}index" class="logo-cookie p-3"><img src="${cp}imgs/logo.png" alt="로고" class="img-fluid" width="250"></a>
-			            <div class="col-9">
-			                <div class="clearfix">
-			                    <h1 class="fw-bold p-3 float-start"><a href="${cp}index" class="text-dark text-decoration-none">Cookie new cookie</a></h1>
-			                    <div class="input-group mt-2 p-3 w-25 float-start">
-			                        <input type="text" class="form-control" placeholder="검색어 입력" name="keyword" value="">
-			                        <button class="btn btn-cookie" type="submit"><i class="fa-solid fa-magnifying-glass font-icon-cookie"></i></button>
-			                    </div>
-			                </div>
-			            </div>
-			            <c:if test="${empty member}">
-				            <div class="col-1 p-0 text-end">
-				                <a href="${cp}member/signup" class="btn btn-cookie-secondary my-4 px-2">회원가입</a>
-				            </div>
-				            <div class="col-1 p-0 text-center">
-				                <a href="${cp}member/signin" class="btn btn-cookie my-4">로그인</a>
-				            </div>
-			            </c:if>
-			            <c:if test="${not empty member}">
-			            	<div class="col-2">
-			            		<p class="text-cookie mt-1"><a href="${cp}member/mypage" class="text-cookie-secondary fw-bold">${member.nick}</a>님 환영합니다</p>
-			            		<a href="${cp}member/logout" class="btn btn-cookie-secondary px-2">로그아웃</a>
-			            		<span class="text-cookie-secondary small">실명 : </span><a href="${cp}member/mypage" class="${empty member.name ? 'text-danger' : 'text-primary'}">${empty member.name ? '미인증' : '인증됨'} </a>
-			            		<span class="text-cookie-secondary small">주소 : </span><a href="${cp}member/mypage" class="${empty member.name ? 'text-danger' : 'text-primary'}">${empty member.addr ? '미인증' : '인증됨'} </a>
-			            		<c:if test="${member.admin}">
-			            		<a class="text-cookie-secondary small" href="${cp}admin/">관리자페이지</a>
-			            		</c:if>
-			            		
-			            	</div>
-			            	
-			            </c:if>
-			        </div>
-			    </div>
-			    <hr class="mb-0">
-			</header>
+			<jsp:include page="headertop.jsp"/>
+			<hr class="mb-0">
 			<main class="container">
 				<div class="bxslider pb-0">
 					<div><img src="${cp}imgs/slider-1.jpg" /></div>
@@ -62,31 +19,7 @@
 					<div><img src="${cp}imgs/slider-1.jpg" /></div>
 					<div><img src="${cp}imgs/slider-2.jpg" /></div>
 				</div>
-				<nav class="navbar navbar-expand-sm">
-					<ul class="navbar-nav container justify-content-center">
-						<li class="nav-item dropdown mx-5">
-							<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">원데이 클래스</a>
-							<ul class="dropdown-menu dropdown-cookie">
-								<li><a class="dropdown-item" href="${cp}oneday/list">원데이 클래스</a></li>
-								<li><a class="dropdown-item" href="${cp}oneday/writeclass">클래스 개설 신청</a></li>
-								<li><a class="dropdown-item" href="${cp}oneday/requestclass">희망 클래스 신청</a></li>
-								<li><a class="dropdown-item" href="${cp}oneday/writereview">리뷰 작성</a></li>
-							</ul>
-						</li>
-						<li><a class="dropdown-item mx-5" href="${cp}/board/list?category=1">취미 모임</a></li>
-						<li class="nav-item dropdown mx-5">
-							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">커뮤니티</a>
-							<ul class="dropdown-menu dropdown-cookie">
-								<li><a class="dropdown-item" href="${cp}/board/list?category=2">자유게시판</a></li>
-								<li><a class="dropdown-item" href="${cp}/board/list?category=3">지역게시판</a></li>
-							</ul>
-						</li>
-						<li><a class="dropdown-item mx-5" href="${cp}/board/list?category=4">공지사항</a></li>
-						<li><a class="dropdown-item mx-5" href="${cp}/board/list?category=5">이벤트</a></li>
-						<li><a class="dropdown-item mx-5" href="${cp}/member/mypage">마이페이지</a></li>
-					</ul>
-				</nav>
-				<hr class="m-0 text-cookie-secondary">
+				<jsp:include page="headermenu.jsp"/>
 				<div class="row mt-3">
 					<div class="col-6 border-cookie-right">
 						<h6 class="fw-bold text-center"><img src="imgs/icon.png" alt="로고" class="img-fluid icon-cookie">인기 클래스</h6>
@@ -96,12 +29,6 @@
 									<a href="${cp}oneday/view?cbno=${trend.cbno}" class="text-decoration-none text-dark"><img src="${cp}imgs/class-thumbnail.jpg" alt="클래스썸네일" class="img-fluid" width="150"><br>${trend.title}</a>
 								</div>
 							</c:forEach>
-							<%-- <div class="mt-2 p-0 float-start w-25">
-								<a href="${cp}oneday/view" class="text-decoration-none text-dark"><img src="${cp}imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" width="150"><br>강아지 수제 간식 만들기 클래스</a>
-							</div>
-							<div class="mt-2 p-0 float-start w-25">
-								<a href="${cp}oneday/view" class="text-decoration-none text-dark"><img src="${cp}imgs/class-thumbnail.jpg" alt="로고" class="img-fluid" width="150"><br>강아지 수제 간식 만들기 클래스</a>
-							</div> --%>
 						</div>
 					</div>
 					<div class="col-6">
