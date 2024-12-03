@@ -26,9 +26,12 @@ public class BoardList extends HttpServlet{
 		//파라미터 수집
 		Criteria cri = new Criteria(req);
 		System.out.println(cri);
+		
 		req.setAttribute("boards", service.list(cri));
 		req.setAttribute("pageDto", new PageDto(cri, service.count(cri)));
 		req.setAttribute("cname", categoryService.findBy(cri.getCategory()).getCname());
+		req.setAttribute("listLikes", service.listLikesBy(cri));
+		
 		req.getRequestDispatcher("/WEB-INF/jsp/board/list.jsp").forward(req, resp);
 	}
 }

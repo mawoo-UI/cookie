@@ -30,7 +30,7 @@ public interface BoardMapper {
 	void changeLikes(@Param("value") int value, @Param("pno") Long pno);
 	
 	List<Board> selectLikesList();
-	List<Board> selectLikesListBy(Criteria cri);
+	List<Board> selectLikesListBy(@Param("cri") Criteria cri, @Param("amount") int amount);
 	
 	Board selectMaxEvent();
 	

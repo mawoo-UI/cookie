@@ -104,7 +104,7 @@ public class BoardServiceImpl implements BoardService {
 	public List<Board> listLikesBy(Criteria cri) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
 			BoardMapper mapper = session.getMapper(BoardMapper.class);
-			return mapper.selectList(cri);
+			return mapper.selectLikesListBy(cri, 2);
 		}
 	}
 	

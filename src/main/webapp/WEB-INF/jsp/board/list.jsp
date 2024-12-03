@@ -27,13 +27,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="">
+            	<c:forEach items="${listLikes}" var="like">
+                <tr >
                     <td class="text-center bg-cookie"><i class="fa-solid fa-fire text-danger"></i> </td>
-                    <td class="text-left bg-cookie"><span class="badge bg-secondary ">인기</span> <a href="BoardView.html">골프 동호회</a></td>
-                    <td class="text-center bg-cookie">임마누엘</td>
-                    <td class="text-center bg-cookie">2024-11-18</td>
-                    <td class="text-center bg-cookie">1</td>
+                    <td class="text-left bg-cookie"><span class="badge bg-secondary ">인기</span> <a href="view?pno=${like.pno}&${pageDto.cri.qs2}">${like.title}</a></td>
+                    <td class="text-center bg-cookie">${like.writer}</td>
+                    <td class="text-center bg-cookie">${like.regdate}</td>
+                    <td class="text-center bg-cookie">${like.viewCount}</td>
                 </tr>
+            	
+            	</c:forEach>
+                
+                
                 
                 <c:forEach items="${boards}" var="b">
                 

@@ -61,7 +61,7 @@ $(function() {
 	}
 	
 	$(".toast .btn-close").click(function() {
-		$.cookie("evno", evno);
+		$.cookie("evno", evno, {expires: 365});
 	})
 })
 </script> 

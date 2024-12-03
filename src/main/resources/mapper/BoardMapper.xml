@@ -70,7 +70,7 @@
 	<select id="selectLikesListBy" >
 	select * 
 	from tbl_board
-	where cno = #{cno}
+	where cno = #{cri.category}
 	order by likes desc
 	limit #{amount}
 	</select>
