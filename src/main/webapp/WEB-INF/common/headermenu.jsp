@@ -45,7 +45,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
         <div class="toast-body">
-            <a href="${cp}/board/view?&pno=${board.pno}&category=5" class="fw-bold text-cookie-secondary">${b.title}</a>
+            <a href="${cp}/board/view?&pno=${b.pno}&category=5" class="fw-bold text-cookie-secondary">${b.title}</a>
             <div class="float-end">
                 <div><span class="badge bg-cookie pb-1 pt-2"> <i class="fa-solid fa-heart text-danger"></i> ${b.likes}</span></div>
             </div>
