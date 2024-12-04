@@ -14,11 +14,11 @@
 	            <h2 class="text-center my-4">글작성</h2>
 	        </div>
             <input type="text" class="form-control" name="title" placeholder="제목을 입력하세요">
-            <select class="form-select my-3" name="cno">
+            <!-- <select class="form-select my-3" name="cno">
 			  <option value="1">취미/모임</option>
 			  <option value="2">자유게시판</option>
 			  <option value="3">지역게시판</option>
-			</select>
+			</select> -->
             <textarea class="form-control my-3" rows="5" name="content" placeholder="내용을 입력하세요"></textarea>
             <input type="text" class="form-control my-3" name="writer" placeholder="작성자" value="${member.id}">
             <label for="attach" class="form-label"><span class="btn btn-cookie">파일첨부</span></label>

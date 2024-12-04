@@ -29,6 +29,7 @@ public class Display extends HttpServlet{
 		
 		File file = new File(Commons.UPLOAD_PATH, path);
 		file = new File(file, uuid);
+		System.out.println(file);
 		
 		if(!file.exists()) {
 			Commons.printMsg("잘못된 접근입니다.", null, resp);

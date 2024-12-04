@@ -15,11 +15,11 @@
         </div>
         <form method="post">
             <input type="text" class="form-control" name="title"  value="${board.title} "  >
-            <select class="form-select my-3" name="cno">
+            <!-- <select class="form-select my-3" name="cno">
 			  <option value="1">취미/모임</option>
 			  <option value="2">자유게시판</option>
 			  <option value="3">지역게시판</option>
-			</select>
+			</select> -->
                 <textarea class="form-control" rows="5" id="comment" name="content" placeholder="">${board.content}</textarea>
                 <input type="text" class="form-control my-3" name="writer" placeholder="작성자" value="${member.id}">
                 <input type="file" class="form-control"  placeholder="첨부파일" >
