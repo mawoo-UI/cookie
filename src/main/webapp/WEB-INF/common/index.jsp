@@ -33,7 +33,7 @@
 					</div>
 					<div class="col-6">
 						<h6 class="fw-bold text-center"><img src="imgs/icon-3.png" alt="로고" class="img-fluid icon-cookie">인기 게시글</h6>
-						<ul class="list-group mx-4">
+						<ul class="list-group mx-4 mt-4">
 							<c:forEach items="${likesList}" var="board">
 								<li class="list-group-item list-group-item-action border-0">
 									<a href="${cp}board/view?pno=${board.pno}&${qs2}" class="text-decoration-none text-dark float-start">[${categories[board.cno-1].cname.substring(0, 2)}] | ${board.title}</a>

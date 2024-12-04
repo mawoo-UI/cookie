@@ -73,9 +73,9 @@
 	        })
 	
 	        function calcStar(x, width) {
-				console.log(Math.floor(x / width * 5) -45 + 2);
+				console.log(Math.floor(x / width * 5) -40 + 10);
 				
-	            return Math.floor(x / width * 5)- 45 + 2;
+	            return Math.floor(x / width * 5)- 40 + 10;
 	        }
 	        // 첨부파일
 	        $("#attach").change(function() {

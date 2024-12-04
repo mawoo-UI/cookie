@@ -20,7 +20,7 @@
 			  <option value="3">지역게시판</option>
 			</select>
             <textarea class="form-control my-3" rows="5" name="content" placeholder="내용을 입력하세요"></textarea>
-            <input type="text" class="form-control my-3" name="writer" placeholder="작성자">
+            <input type="text" class="form-control my-3" name="writer" placeholder="작성자" value="${member.id}">
             <label for="attach" class="form-label"><span class="btn btn-cookie">파일첨부</span></label>
             <span class="mx-2 attach-count-txt"></span>
             <input type="file" id="attach" name="file" class="d-none" multiple>

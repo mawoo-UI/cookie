@@ -37,7 +37,7 @@
             	<c:if test="${empty likes}">
             	<i class="fa-regular fa-heart text-danger" ></i>
             	</c:if>
-                <span>좋아요</span>
+                <span>좋아요<b> ${board.likes}</b></span>
             </a>
         </div>
         <div class="text-center my-5">
@@ -67,6 +67,9 @@
 			data : data,
 			success : function (data) {
 				$("#btnLikes i").toggleClass("fa-solid fa-regular");
+				$("#btnLikes b").text(function(i, it) {
+					return data.result ? it/1 + 1 : it/1 -1
+				})
 				
 			}
 		});

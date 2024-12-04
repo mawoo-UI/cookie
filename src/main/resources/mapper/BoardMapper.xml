@@ -63,7 +63,7 @@
 	        ROW_NUMBER() OVER (PARTITION BY tb.cno ORDER BY tb.likes DESC) AS rn
 	    FROM tbl_board tb
 	) a
-	WHERE rn &lt;= 2 and cno != 5
+	WHERE rn &lt;= 2 and cno != 5 and cno != 4
 	ORDER BY cno, likes DESC
 	</select>
 	

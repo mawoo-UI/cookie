@@ -63,9 +63,9 @@
 	        })
 	
 	        function calcStar(x, width) {
-				console.log(Math.floor(x / width * 5) -55 + 4);
+				console.log(Math.floor(x / width * 5) - 40 + 4);
 				
-	            return Math.floor(x / width * 5)- 55 + 4;
+	            return Math.floor(x / width * 5) - 40 + 4;
 	        }
     </script>
 	</body>

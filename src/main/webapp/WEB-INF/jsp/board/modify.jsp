@@ -21,7 +21,7 @@
 			  <option value="3">지역게시판</option>
 			</select>
                 <textarea class="form-control" rows="5" id="comment" name="content" placeholder="">${board.content}</textarea>
-                <input type="text" class="form-control my-3" name="writer" placeholder="작성자">
+                <input type="text" class="form-control my-3" name="writer" placeholder="작성자" value="${member.id}">
                 <input type="file" class="form-control"  placeholder="첨부파일" >
 	        <div class="text-center my-5">
 	            <button class="btn btn-cookie-secondary btn-sm ">등록</button>
